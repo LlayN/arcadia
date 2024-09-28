@@ -1,0 +1,51 @@
+{% extends '@EasyAdmin/layout.html.twig' %}
+
+{% block main %}
+    <div class="container w-100 h-100 mb-4">
+        <div class="row">
+            <div class="col-12">
+                <h3 class="fw-light">
+                    Bienvenue sur votre tableau de bord {name}
+                </h3>
+                <p class="fst-italic text-body-tertiary fw-light">
+                    Vous êtes connecté en tant que : <span class="secondary fw-normal">{role}</span>
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 col-12 d-flex mb-4">
+                <div class="schedules w-100">
+                    <div class="p-3 bg-white h-100">
+                        <h6 class="fw-normal border-2 rounded-2">
+                            Horaires du parc
+                        </h6>
+                        <p class="fw-light"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12 d-flex mb-4">
+                <div class="schedules w-100">
+                    <div class="p-3 bg-white h-100">
+                        <h6 class="fw-normal border-2 rounded-2 m-0">
+                            Clics et Engagement
+                        </h6>
+                        <p class="fst-italic text-body-tertiary fw-light txt-12px">
+                            par animal
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-12 d-flex mb-4">
+                <div class="schedules w-100">
+                    <div class="p-3 bg-white h-100">
+                        <h6 class="fw-normal border-2 rounded-2">
+                            Dernier rapport de soins
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
