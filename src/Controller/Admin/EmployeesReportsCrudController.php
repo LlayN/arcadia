@@ -40,7 +40,7 @@ class EmployeesReportsCrudController extends AbstractCrudController
         ;
     }
 
-    /*  public function configureActions(Actions $actions): Actions
+      public function configureActions(Actions $actions): Actions
      {
          return $actions
 
@@ -48,7 +48,7 @@ class EmployeesReportsCrudController extends AbstractCrudController
              ->setPermission(Action::EDIT, 'ROLE_EMPLOYE')
              ->setPermission(Action::DELETE, 'ROLE_EMPLOYE')
              ->setPermission(Action::BATCH_DELETE, 'ROLE_EMPLOYE');
-     } */
+     } 
     public function configureFields(string $pageName): iterable
     {
         return [

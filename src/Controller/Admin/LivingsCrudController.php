@@ -23,14 +23,14 @@ class LivingsCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            /* ->setEntityPermission('ROLE_VETO') */
+            ->setEntityPermission('ROLE_VETO') 
             ->setEntityLabelInSingular('Habitat')
             ->setEntityLabelInPlural('Habitats')
         ;
     }
 
 
-    /*  public function configureActions(Actions $actions): Actions
+      public function configureActions(Actions $actions): Actions
      {
          return $actions
 
@@ -38,7 +38,7 @@ class LivingsCrudController extends AbstractCrudController
              ->setPermission(Action::EDIT, 'ROLE_VETO')
              ->setPermission(Action::DELETE, 'ROLE_VETO')
              ->setPermission(Action::BATCH_DELETE, 'ROLE_VETO');
-     } */
+     } 
 
     public function configureFields(string $pageName): iterable
     {

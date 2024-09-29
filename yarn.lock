@@ -2,6 +2,14 @@
 # yarn lockfile v1
 
 
+"@prettier/plugin-php@^0.22.2":
+  version "0.22.2"
+  resolved "https://registry.yarnpkg.com/@prettier/plugin-php/-/plugin-php-0.22.2.tgz#9a575f7f53ce102d72bb17fa0bd6580f1618bbd9"
+  integrity sha512-md0+7tNbsP0oy+wIP3KZZc6fzx1k1jtWaMjOy/gM8yU9f2BDYEi+iHOc/UNPihYvPI28zFTbjvlhH4QXQjQwNg==
+  dependencies:
+    linguist-languages "^7.27.0"
+    php-parser "^3.1.5"
+
 ansi-regex@^2.0.0:
   version "2.1.1"
   resolved "https://registry.yarnpkg.com/ansi-regex/-/ansi-regex-2.1.1.tgz#c3b33ab5ee360d86e0e628f0468ae7ef27d654df"
@@ -163,6 +171,11 @@ js-tokens@^3.0.2:
   resolved "https://registry.yarnpkg.com/js-tokens/-/js-tokens-3.0.2.tgz#9866df395102130e38f7f996bceb65443209c25b"
   integrity sha512-RjTcuD4xjtthQkaWH7dFlH85L+QaVtSoOyGdZ3g6HFhS9dFNDfLyqgm2NFe2X6cQpeFmt0452FJjFG5UameExg==
 
+linguist-languages@^7.27.0:
+  version "7.27.0"
+  resolved "https://registry.yarnpkg.com/linguist-languages/-/linguist-languages-7.27.0.tgz#bf42d6c62bd04655c8f60ed2f77a84eaeae4023a"
+  integrity sha512-Wzx/22c5Jsv2ag+uKy+ITanGA5hzvBZngrNGDXLTC7ZjGM6FLCYGgomauTkxNJeP9of353OM0pWqngYA180xgw==
+
 lodash@^4.12.0, lodash@^4.15.0, lodash@^4.17.4:
   version "4.17.21"
   resolved "https://registry.yarnpkg.com/lodash/-/lodash-4.17.21.tgz#679591c564c3bffaae8454cf0b3df370c3d6911c"
@@ -228,6 +241,11 @@ path-parse@^1.0.7:
   resolved "https://registry.yarnpkg.com/path-parse/-/path-parse-1.0.7.tgz#fbc114b60ca42b30d9daf5858e4bd68bbedb6735"
   integrity sha512-LDJzPVEEEPR+y48z93A0Ed0yXb8pAByGWo/k5YYdYgpY2/2EsOsksJrq7lOHxryrVOn1ejG6oAp8ahvOIQD8sw==
 
+php-parser@^3.1.5:
+  version "3.1.5"
+  resolved "https://registry.yarnpkg.com/php-parser/-/php-parser-3.1.5.tgz#84500e5b5c6a0907e32c38b931bb4e7d3f275026"
+  integrity sha512-jEY2DcbgCm5aclzBdfW86GM6VEIWcSlhTBSHN1qhJguVePlYe28GhwS0yoeLYXpM2K8y6wzLwrbq814n2PHSoQ==
+
 prettier-plugin-twig-melody@^0.4.6:
   version "0.4.6"
   resolved "https://registry.yarnpkg.com/prettier-plugin-twig-melody/-/prettier-plugin-twig-melody-0.4.6.tgz#0ce8f1fac622105ef3e37cc75799402cf9d325c1"
@@ -245,6 +263,11 @@ prettier@^1.8.2:
   version "1.19.1"
   resolved "https://registry.yarnpkg.com/prettier/-/prettier-1.19.1.tgz#f7d7f5ff8a9cd872a7be4ca142095956a60797cb"
   integrity sha512-s7PoyDv/II1ObgQunCbB9PdLmUcBZcnWOcxDh7O0N/UwDEsHyqkW+Qh28jW+mVuCdx7gLB0BotYI1Y6uI9iyew==
+
+prettier@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/prettier/-/prettier-3.3.3.tgz#30c54fe0be0d8d12e6ae61dbb10109ea00d53105"
+  integrity sha512-i2tDNA0O5IrMO757lfrdQZCc2jPNDVntV0m/+4whiDfWaTKfMNgR7Qz0NAeGz/nRqF4m5/6CLzbP4/liHt12Ew==
 
 regenerator-runtime@^0.11.0:
   version "0.11.1"
