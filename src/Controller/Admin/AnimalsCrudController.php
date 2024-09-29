@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Animals;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
@@ -22,7 +24,7 @@ class AnimalsCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            /* ->setEntityPermission('ROLE_VETO') */
+             ->setEntityPermission('ROLE_VETO')
             ->setEntityLabelInSingular('Animal')
             ->setEntityLabelInPlural('Animaux')
 
@@ -37,7 +39,7 @@ class AnimalsCrudController extends AbstractCrudController
         ;
     }
 
-    /* public function configureActions(Actions $actions): Actions
+     public function configureActions(Actions $actions): Actions
     {
         return $actions
 
@@ -45,7 +47,7 @@ class AnimalsCrudController extends AbstractCrudController
             ->setPermission(Action::EDIT, 'ROLE_VETO')
             ->setPermission(Action::DELETE, 'ROLE_VETO')
             ->setPermission(Action::BATCH_DELETE, 'ROLE_VETO');
-    } */
+    } 
 
     public function configureFields(string $pageName): iterable
     {

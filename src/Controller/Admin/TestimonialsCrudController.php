@@ -3,6 +3,8 @@
 namespace App\Controller\Admin;
 
 use App\Entity\Testimonials;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\BooleanField;
@@ -21,14 +23,14 @@ class TestimonialsCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-            /* ->setEntityPermission('ROLE_EMPLOYE') */
+             ->setEntityPermission('ROLE_EMPLOYE') 
             ->setEntityLabelInSingular('Avis')
             ->setEntityLabelInPlural('Avis')
 
         ;
     }
 
-    /* public function configureActions(Actions $actions): Actions
+     public function configureActions(Actions $actions): Actions
     {
         return $actions
 
@@ -36,7 +38,7 @@ class TestimonialsCrudController extends AbstractCrudController
             ->setPermission(Action::EDIT, 'ROLE_EMPLOYE')
             ->setPermission(Action::DELETE, 'ROLE_EMPLOYE')
             ->setPermission(Action::BATCH_DELETE, 'ROLE_EMPLOYE');
-    } */
+    } 
 
 
     public function configureFields(string $pageName): iterable
