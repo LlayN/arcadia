@@ -21,7 +21,7 @@ class Breeds
     /**
      * @var Collection<int, Animals>
      */
-    #[ORM\OneToMany(targetEntity: Animals::class, mappedBy: 'breed')]
+    #[ORM\OneToMany(targetEntity: Animals::class, mappedBy: 'breed', cascade: ['persist', 'remove'])]
     private Collection $animals;
 
     public function __construct()

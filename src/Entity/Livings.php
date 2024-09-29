@@ -26,7 +26,7 @@ class Livings
     /**
      * @var Collection<int, Animals>
      */
-    #[ORM\OneToMany(targetEntity: Animals::class, mappedBy: 'living')]
+    #[ORM\OneToMany(targetEntity: Animals::class, mappedBy: 'living', cascade: ['persist', 'remove']) ]
     private Collection $animals;
 
     #[ORM\Column(type: Types::TEXT)]
@@ -113,15 +113,4 @@ class Livings
         return $this;
     }
 
-    public function getTest(): ?string
-    {
-        return $this->test;
-    }
-
-    public function setTest(string $test): static
-    {
-        $this->test = $test;
-
-        return $this;
-    }
 }

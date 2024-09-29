@@ -3,6 +3,7 @@
 namespace App\Entity;
 
 use App\Repository\TestimonialsRepository;
+use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: TestimonialsRepository::class)]
@@ -16,11 +17,15 @@ class Testimonials
     #[ORM\Column(length: 255)]
     private ?string $username = null;
 
-    #[ORM\Column(length: 255)]
+
+
+    #[ORM\Column(nullable: true)]
+    public ?bool $isValid = null;
+
+    #[ORM\Column(type: Types::TEXT)]
     private ?string $opinion = null;
 
-    #[ORM\Column]
-    private ?bool $isValid = null;
+
 
     public function getId(): ?int
     {
@@ -39,6 +44,19 @@ class Testimonials
         return $this;
     }
 
+
+    public function isValid(): ?bool
+    {
+        return $this->isValid;
+    }
+
+    public function setValid(?bool $isValid): static
+    {
+        $this->isValid = $isValid;
+
+        return $this;
+    }
+
     public function getOpinion(): ?string
     {
         return $this->opinion;
@@ -51,15 +69,5 @@ class Testimonials
         return $this;
     }
 
-    public function isValid(): ?bool
-    {
-        return $this->isValid;
-    }
 
-    public function setValid(bool $isValid): static
-    {
-        $this->isValid = $isValid;
-
-        return $this;
-    }
 }

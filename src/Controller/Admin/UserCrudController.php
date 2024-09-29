@@ -9,6 +9,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class UserCrudController extends AbstractCrudController
@@ -43,7 +44,7 @@ class UserCrudController extends AbstractCrudController
     public function configureFields(string $pageName): iterable
     {
         return [
-
+            ImageField::new('img')->setLabel('Photo de profil')->setBasePath('/uploads/admin/profiles/')->setUploadDir('public/uploads/admin/profiles'),
             EmailField::new('email')->setLabel('Nom d\'utilisateur')->setHelp('Une adresse mail est attendue.'),
             TextField::new('password')->setLabel('Mot de passe')->onlyOnForms(),
             TextField::new('name')->setLabel('Prénom'),

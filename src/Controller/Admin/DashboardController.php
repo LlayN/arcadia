@@ -11,8 +11,13 @@ use App\Entity\Testimonials;
 use App\Entity\User;
 use App\Entity\VeterinariansReports;
 use App\Repository\EmployeesReportsRepository;
+use App\Repository\SchedulesRepository;
+use App\Repository\ServicesRepository;
+use App\Repository\TestimonialsRepository;
+use App\Repository\UserRepository;
 use App\Repository\VeterinariansReportsRepository;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
@@ -22,13 +27,16 @@ class DashboardController extends AbstractDashboardController
 {
     
     #[Route('/admin', name: 'admin')]
-    public function show(VeterinariansReportsRepository $veterinariansReportsRepository, EmployeesReportsRepository $employeesReportsRepository): Response {
+    public function show(VeterinariansReportsRepository $veterinariansReportsRepository, EmployeesReportsRepository $employeesReportsRepository, TestimonialsRepository $testimonialsRepository, UserRepository $userRepository, SchedulesRepository $schedulesRepository): Response {
         $user = $this->getUser();
 
          if (in_array('ROLE_ADMIN', $user->getRoles())) {
             return $this->render('admin/admin.dashboard.html.twig', [
                 'veterinariansReports' => $veterinariansReportsRepository->findAll(),
                 'employeesReports' => $employeesReportsRepository->findAll(),
+                'testimonials' => $testimonialsRepository->findAll(),
+                'users' => $userRepository->findAll(),
+                'schedules' => $schedulesRepository->findAll(),
             ]);
         } 
         
@@ -42,14 +50,21 @@ class DashboardController extends AbstractDashboardController
         
         elseif (in_array('ROLE_EMPLOYE', $user->getRoles())) {
             return $this->render('admin/employe.dashboard.html.twig', [
-                'veterinariansReports' => $veterinariansReportsRepository->findAll(),
                 'employeesReports' => $employeesReportsRepository->findAll(),
+                'testimonials' => $testimonialsRepository->findAll(),
             ]);
             
         } 
         else {
             return $this->render('admin/error.html.twig');
         } 
+    }
+
+    public function configureDashboard(): Dashboard
+    {
+        return Dashboard::new()
+            ->setTitle('<img src="/uploads/admin/logo/logo-black.svg" alt="" class="logo">')
+            ->disableDarkMode();
     }
 
     public function configureAssets(): Assets

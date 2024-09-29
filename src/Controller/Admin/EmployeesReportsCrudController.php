@@ -53,17 +53,7 @@ class EmployeesReportsCrudController extends AbstractCrudController
     {
         return [
             AssociationField::new('animal')->setLabel('Animal concerné'),
-            ChoiceField::new('food')->setLabel('Nourriture distribuée')
-                ->setChoices([
-                    'Viandes' => 'Viandes',
-                    'Légumes' => 'Légumes',
-                    'Fruits' => 'Fruits',
-                    'Plantes' => 'Plantes',
-                    'Poisson' => 'Poisson',
-                    'Insectes' => 'Insectes',
-                    'Autre' => 'Autre',
-                ])
-                ->allowMultipleChoices(false),
+            TextField::new('food')->setLabel('Nourriture distribuée'),  
             NumberField::new('quantity')->setLabel('Quantité distribué (en kilos)'),
             DateTimeField::new('datetime')->setLabel('Date/heure de distribution'),
         ];
