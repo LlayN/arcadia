@@ -17,14 +17,14 @@ class Services
     #[ORM\Column(length: 255)]
     private ?string $title = null;
 
-    #[ORM\Column]
-    private ?bool $isFree = null;
-
     #[ORM\Column(length: 255)]
     private ?string $icon = null;
 
     #[ORM\Column(type: Types::TEXT)]
     private ?string $description = null;
+
+    #[ORM\Column(nullable: true)]
+    public ?bool $isFree = null;
 
     public function getId(): ?int
     {
@@ -55,17 +55,9 @@ class Services
         return $this;
     }
 
-    public function isFree(): ?bool
-    {
-        return $this->isFree;
-    }
 
-    public function setFree(bool $isFree): static
-    {
-        $this->isFree = $isFree;
 
-        return $this;
-    }
+
 
     public function getIcon(): ?string
     {
@@ -79,14 +71,14 @@ class Services
         return $this;
     }
 
-    public function getTest(): ?string
+    public function isFree(): ?bool
     {
-        return $this->test;
+        return $this->isFree;
     }
 
-    public function setTest(string $test): static
+    public function setFree(?bool $isFree): static
     {
-        $this->test = $test;
+        $this->isFree = $isFree;
 
         return $this;
     }

@@ -29,34 +29,223 @@
     </div>
     <div class="container">
         <div class="row">
-            <div class="col-lg-4 col-12 d-flex mb-4">
+            <div class="col-lg-6 col-12 d-flex mb-4">
                 <div class="schedules w-100">
                     <div class="p-3 bg-white h-100">
-                        <h6 class="fw-normal border-2 rounded-2">
+                        <h6 class="fw-semibold border-2 rounded-2 m-0 mb-4">
                             Horaires du Parc
                         </h6>
-                        <p class="fw-light"></p>
+                        <div class="mb-4">
+                            {% for schedule in schedules %}
+
+                                <div class="d-flex justify-content-between">
+                                   <p class="m-0 mb-2">
+                                    {{schedule.day}}
+                                    </p> 
+                                    {% if schedule.opensAt is null %}
+                                        <p class="text-body-tertiary txt-12px m-0 mb-2">Fermé</p>
+
+                                    {% else %}
+                                        <p class="text-body-tertiary txt-12px m-0 mb-2">{{schedule.opensAt|date('H:i')}} à {{schedule.closesAt|date('H:i')}}</p>
+                                    {% endif %}
+                                </div>
+                            {% endfor %}
+                            
+                        
+                        </div>
+
+                        <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController">Modifier les horaires &rarr;</a>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-12 d-flex mb-4">
+            <div class="col-lg-6 col-12 d-flex mb-4">
                 <div class="schedules w-100">
                     <div class="p-3 bg-white h-100">
-                        <h6 class="fw-normal border-2 rounded-2 m-0">
+                        <h6 class="fw-semibold border-2 rounded-2 m-0">
                             Clics et Engagement
                         </h6>
-                        <p class="fst-italic text-body-tertiary fw-light txt-12px">
+                        <p class="fst-italic text-body-tertiary fw-light txt-12px m-0 mb-4">
                             par animal
                         </p>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-12 d-flex mb-4">
-                <div class="schedules w-100">
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-12 d-flex mb-4">
+                <div class="w-100">
                     <div class="p-3 bg-white h-100">
-                        <h6 class="fw-normal border-2 rounded-2">
+                        <h6 class="fw-semibold border-2 rounded-2 mb-4">
+                            Rapports d'Alimentation
+                        </h6>
+                        {% if employeesReports|length > 0 %}
+                            {% for report in employeesReports|reverse %}
+                            {% if loop.index <= 3 %}
+                                <div class="p-3 bg-body-tertiary mb-4">
+                                <div class="row flex-sm-row flex-column-reverse">
+                                    <div class="col-sm-6">
+                                        <p class="txt-12px mb-1 text-body-tertiary">{{report.animal.breed}}</p>
+                                    </div>
+                                    <div class="col-sm-6"><p class="txt-12px mb-1 text-body-tertiary text-sm-end">{{report.datetime|date('d/m/Y H:i')}}</p></div>
+                                </div>
+                                <h6 class="mb-3">{{report.animal.name}}</h6>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-4 col-12">
+                                        <div>
+                                            <p class="txt-12px text-body-tertiary m-0">Nourritures données :</p>
+                                            <p  class="txt-12px ">{{report.food}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-4 col-12">
+                                        <div>
+                                            <p class="txt-12px text-body-tertiary m-0">Quantité données :</p>
+                                            <p  class="txt-12px ">{{report.quantity}} kg</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController">Voir tous les rapports &rarr;</a>
+                        {% else %}
+                            <p class="text-body-tertiary">Aucun rapport n'a été trouvé.</p>
+                        {% endif %}
+                    </div> 
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 d-flex mb-4">
+                <div class="w-100">
+                    <div class="p-3 bg-white h-100">
+                         <h6 class="fw-semibold border-2 rounded-2 m-0 mb-4">
                             Rapports des Soins
                         </h6>
+                        {% if veterinariansReports|length > 0 %}
+                            {% for report in veterinariansReports|reverse %}
+                            {% if loop.index <= 2 %}
+                                <div class="p-3 bg-body-tertiary mb-4">
+                                <div class="row flex-sm-row flex-column-reverse">
+                                    <div class="col-sm-6">
+                                        <p class="txt-12px mb-1 text-body-tertiary">{{report.animal.breed}}</p>
+                                    </div>
+                                    <div class="col-sm-6"><p class="txt-12px mb-1 text-body-tertiary text-sm-end">{{report.datetime|date('d/m/Y H:i')}}</p></div>
+                                </div>
+                                <h6 class="mb-3">{{report.animal.name}}</h6>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-4 col-12">
+                                        <div>
+                                            <p class="txt-12px text-body-tertiary m-0">Régime Alimentaire :</p>
+                                            <p  class="txt-12px ">{{report.diet}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-4 col-12">
+
+                                        <div>
+                                            <p class="txt-12px text-body-tertiary m-0">Quantité par Jour :</p>
+                                            <p  class="txt-12px ">{{report.quantity}} kg</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-4 col-12">
+                                        <div>
+                                            <p class="txt-12px text-body-tertiary m-0">Santé :</p>
+                                            <p  class="txt-12px ">{{report.state}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-md-4 col-12 d-flex align-items-center">
+                                        <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController">Voir plus &rarr;</a>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController">Voir tous les rapports &rarr;</a>
+                        {% else %}
+                            <p class="text-body-tertiary">Aucun rapport n'a été trouvé.</p>
+                        {% endif %}
+                        
+                        
+                        
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6 col-12 d-flex mb-4">
+                <div class="w-100">
+                    <div class="p-3 bg-white h-100">
+                        <h6 class="fw-semibold border-2 rounded-2 mb-4">
+                            Utilisateurs
+                        </h6>
+                        {% if users|length > 0 %}
+                            {% for user in users %}
+                            {% if loop.index <= 4 %}
+                                <div class="p-3 bg-body-tertiary mb-4">
+                                    <div class="row">
+                                        <div class="col-md-6 col-lg-12 col-xl-6 d-flex flex-md-row flex-column gap-2 align-items-center align-items-md-start">
+                                            <img src="/uploads/admin/profiles/{{user.img}}" alt="" style="width : 70px">
+                                            <div class="d-flex flex-column justify-content-center align-content-center h-100">
+                                                {% if 'ROLE_ADMIN' in user.roles %}
+                                                        <p class="txt-12px mb-1 text-body-tertiary text-md-start text-center">Administrateur</p>
+
+                                                    {% elseif 'ROLE_EMPLOYE' in user.roles %}
+                                                        <p class="txt-12px mb-1 text-body-tertiary text-md-start text-center">Employé</p>
+
+                                                    {% elseif 'ROLE_VETO' in user.roles %}
+                                                        <p class="txt-12px mb-1 text-body-tertiary text-md-start text-center">Vétérinaire</p>
+                                                    {% endif %}
+                                                    <h6 class="">{{user.name}} {{user.surname}}</h6>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 col-lg-12 col-xl-6 d-flex align-items-center justify-content-md-end justify-content-center">
+                                            <p class="txt-12px mb-1 text-body-tertiary">{{user.email}}</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                            {% endfor %}
+                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController">Voir tous les utilisateurs &rarr;</a>
+                        {% else %}
+                            <p class="text-body-tertiary">Aucun utilisateurs n'a été trouvé.</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-12 d-flex mb-4">
+                <div class="w-100">
+                    <div class="p-3 bg-white h-100">
+                       <h6 class="fw-semibold border-2 rounded-2 m-0 mb-4">
+                            Avis des clients
+                        </h6>
+                         {% if testimonials|length > 0 %}
+                            {% for testimonial in testimonials|reverse %}
+                            {% if loop.index <= 2 %}
+                                <div class="p-3 bg-body-tertiary mb-4">
+                                <h6 class="mb-3">{{testimonial.username}}</h6>
+                                <div>
+                                    <div>
+                                        <p class="txt-12px text-body-tertiary m-0">Avis de l'utilisateur :</p>
+                                        <p  class="txt-12px ">{{testimonial.opinion}}</p>
+                                    </div>
+                                </div>
+                                <div>
+                                    {% if testimonial.isValid %}
+                                        <p class="txt-12px txt-secondary m-0">Visible sur le site</p>
+
+                                    {% else %}
+                                        <p class="txt-12px text-danger m-0">Invisible sur le site</p>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% endfor %}
+                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController">Voir tous les avis &rarr;</a>
+                        {% else %}
+                            <p class="text-body-tertiary">Aucun rapport n'a été trouvé.</p>
+                        {% endif %} 
+                        
+                        
                     </div>
                 </div>
             </div>
