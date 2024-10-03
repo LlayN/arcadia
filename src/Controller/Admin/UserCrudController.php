@@ -3,10 +3,12 @@
 namespace App\Controller\Admin;
 
 use App\Entity\User;
+use Doctrine\ORM\EntityManagerInterface;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Action;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
+use EasyCorp\Bundle\EasyAdminBundle\Dto\CrudDto;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ChoiceField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
@@ -28,11 +30,12 @@ class UserCrudController extends AbstractCrudController
         ;
     }
 
+
     public function configureActions(Actions $actions): Actions
     {
         return $actions
 
-            ->setPermission(Action::NEW , 'ROLE_ADMIN')
+            ->setPermission(Action::NEW, 'ROLE_ADMIN')
             ->setPermission(Action::EDIT, 'ROLE_ADMIN')
             ->setPermission(Action::DELETE, 'ROLE_ADMIN')
             ->setPermission(Action::BATCH_DELETE, 'ROLE_ADMIN');
@@ -57,7 +60,7 @@ class UserCrudController extends AbstractCrudController
                 ])
                 ->allowMultipleChoices(true)
 
-                ->setFormTypeOption('multiple', true) 
+                ->setFormTypeOption('multiple', true)
         ];
     }
 }

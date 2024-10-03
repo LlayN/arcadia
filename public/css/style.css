@@ -40,6 +40,9 @@
     width: 10.5rem;
 }
 
+.test {
+    color: red;
+}
 .txt-primary {
     color: var(--color-primary);
 }
@@ -85,4 +88,8 @@
 
 .title {
     font-weight: 300 !important;
+}
+
+.rounded-icons-user {
+    width: 2.5rem;
 }

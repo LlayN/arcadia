@@ -24,7 +24,7 @@ class AnimalsCrudController extends AbstractCrudController
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
-             ->setEntityPermission('ROLE_VETO')
+            ->setEntityPermission('ROLE_ADMIN')
             ->setEntityLabelInSingular('Animal')
             ->setEntityLabelInPlural('Animaux')
 
@@ -39,15 +39,15 @@ class AnimalsCrudController extends AbstractCrudController
         ;
     }
 
-     public function configureActions(Actions $actions): Actions
+    public function configureActions(Actions $actions): Actions
     {
         return $actions
 
-            ->setPermission(Action::NEW , 'ROLE_VETO')
-            ->setPermission(Action::EDIT, 'ROLE_VETO')
-            ->setPermission(Action::DELETE, 'ROLE_VETO')
-            ->setPermission(Action::BATCH_DELETE, 'ROLE_VETO');
-    } 
+            ->setPermission(Action::NEW, 'ROLE_ADMIN')
+            ->setPermission(Action::EDIT, 'ROLE_ADMIN')
+            ->setPermission(Action::DELETE, 'ROLE_ADMIN')
+            ->setPermission(Action::BATCH_DELETE, 'ROLE_ADMIN');
+    }
 
     public function configureFields(string $pageName): iterable
     {
