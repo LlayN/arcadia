@@ -23,6 +23,9 @@ class Schedules
     #[ORM\Column(type: Types::TIME_MUTABLE, nullable: true)]
     private ?\DateTimeInterface $closesAt = null;
 
+    #[ORM\Column(nullable: true)]
+    private ?bool $closedPark = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -42,10 +45,11 @@ class Schedules
 
     public function getOpensAt(): ?\DateTimeInterface
     {
+
         return $this->opensAt;
     }
 
-    public function setOpensAt(\DateTimeInterface $opensAt): static
+    public function setOpensAt(?\DateTimeInterface $opensAt): static
     {
         $this->opensAt = $opensAt;
 
@@ -57,9 +61,21 @@ class Schedules
         return $this->closesAt;
     }
 
-    public function setClosesAt(\DateTimeInterface $closesAt): static
+    public function setClosesAt(?\DateTimeInterface $closesAt): static
     {
         $this->closesAt = $closesAt;
+
+        return $this;
+    }
+
+    public function isClosedPark(): ?bool
+    {
+        return $this->closedPark;
+    }
+
+    public function setClosedPark(bool $closedPark): static
+    {
+        $this->closedPark = $closedPark;
 
         return $this;
     }
