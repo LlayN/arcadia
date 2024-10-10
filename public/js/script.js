@@ -1,36 +1,49 @@
-let switchState = false;
+const nb_Species = document.querySelector("#nb_Species");
+const nb_Animals = document.querySelector("#nb_Animals");
+const nb_Area = document.querySelector("#nb_Area");
 
-const clickOnSwitch = document.querySelector("#Schedules_closedPark");
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                species = Number(nb_Species.innerHTML);
+                animals = Number(nb_Animals.innerHTML);
+                area = Number(nb_Area.innerHTML);
 
-console.log(clickOnSwitch.checked);
+                console.log(species);
 
-if (clickOnSwitch.checked) {
-    disableInput();
-    switchState = true;
-}
+                setInterval(() => {
+                    if (species < 180) {
+                        species += 2;
+                        nb_Species.innerHTML = species;
+                    } else {
+                        clearInterval();
+                    }
+                }, 15);
+                setInterval(() => {
+                    if (animals < 1060) {
+                        animals += 10;
 
-clickOnSwitch.addEventListener("click", () => {
-    if (switchState == false) {
-        switchState = true;
-        disableInput();
-    } else {
-        switchState = false;
-        enableInput();
+                        nb_Animals.innerHTML = animals;
+                    } else {
+                        clearInterval();
+                    }
+                }, 15);
+                setInterval(() => {
+                    if (area < 12000) {
+                        area += 100;
+
+                        nb_Area.innerHTML = area;
+                    } else {
+                        clearInterval();
+                    }
+                }, 15);
+            }
+        });
+    },
+    {
+        threshold: 0.5,
     }
-});
+);
 
-function disableInput() {
-    document
-        .querySelector("#Schedules_closesAt")
-        .setAttribute("disabled", "disabled");
-    document
-        .querySelector("#Schedules_opensAt")
-        .setAttribute("disabled", "disabled");
-    document.querySelector("#Schedules_closesAt").value = "";
-    document.querySelector("#Schedules_opensAt").value = "";
-}
-
-function enableInput() {
-    document.querySelector("#Schedules_closesAt").removeAttribute("disabled");
-    document.querySelector("#Schedules_opensAt").removeAttribute("disabled");
-}
+observer.observe(document.querySelector("#nb_Species"));
