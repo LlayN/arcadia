@@ -32,7 +32,7 @@ class SchedulesCrudController extends AbstractCrudController
     public function configureAssets(Assets $assets): Assets
     {
         return $assets
-            ->addJsFile(Asset::new('js/script.js')->defer());
+            ->addJsFile(Asset::new('js/dashboard.js')->defer());
     }
 
     public function configureActions(Actions $actions): Actions
