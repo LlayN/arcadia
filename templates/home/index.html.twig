@@ -1,9 +1,873 @@
 {% extends 'base.html.twig' %}
-
 {% block title %}
     Accueil
 {% endblock %}
 
 {% block body %}
+    <!-- Herobanner start -->
+
+    <main class="herobanner m-auto">
+        <div class="container position-absolute z-2 hero-title-box d-flex align-items-center text-white flex-column">
+            <div class="position-relative">
+                <div class="positon-relative">
+                    <span class="position-absolute hero-little-title text-uppercase fw-light"
+                        style="top : -1.563rem ; left : -1.563rem">
+                        partez à
+                    </span>
+                    <h1 class="hero-title fw-bolder text-uppercase">
+                        l'aventure
+                    </h1>
+                    <a href="#about"
+                        class="button-visit button-visit-mobile position-absolute d-md-none">
+                        <svg class="arrowSvg" viewBox="0 0 384 512">
+                            <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid hero-bottom-bar position-absolute z-1000">
+            <div class="container-lg hero-bottom-bar-inner py-3 py-sm-0">
+                <div class="row">
+                    <div class="col-md-5 col-12 justify-content-center">
+                        <div class="p-3 gap-2">
+                            <div class="d-flex justify-content-center">
+                                <a href=""
+                                    class="d-flex position-relative z-3" >
+                                    <button class="back-secondary p-3 px-lg-5 border-0">
+                                        <h6 class="text-white m-0 fw-semibold text-uppercase">
+                                            Billetterie
+                                        </h6>
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-sm-2 d-md-flex d-none justify-content-center align-items-center px-0">
+                        <a href="#about" class="button-visit">
+                            <svg class="arrowSvg" viewBox="0 0 384 512">
+                                <path d="M214.6 41.4c-12.5-12.5-32.8-12.5-45.3 0l-160 160c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0L160 141.2V448c0 17.7 14.3 32 32 32s32-14.3 32-32V141.2L329.4 246.6c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3l-160-160z"></path>
+                            </svg>
+                        </a>
+                    </div>
+                    <div class="col-md-5 col-12 d-flex justify-content-center">
+                        <div class="p-3 d-flex gap-2">
+                            <div class="d-flex align-items-center">
+                                <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                                    type="module"></script>
+
+                                <dotlottie-player src="https://lottie.host/12ec55e4-e97e-40f0-bc61-dd77f9635fa4/BQyqVyQaja.json"
+                                    background="transparent"
+                                    speed="1"
+                                    style="width: 3rem; height: 3rem;"
+                                    loop
+                                    autoplay></dotlottie-player>
+                            </div>
+                            <div>
+                                <h6 class="text-white-50 fw-light mb-2"
+                                    style="font-size : 0.85rem;">
+                                    Paimpont - Aujourd'hui
+                                </h6>
+                                <h6 class="m-0 text-white">
+                                    Pluvieux | 21°
+                                </h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <img class="img-box position-absolute brightness-65 top-0 start-0 z-1 pe-none"
+            src="{{ asset('uploads/dev/img/home/herobanner.jpg') }}"
+            alt="" />
+
+    </main>
+
+    <!-- Herobanner stop -->
+
+    <!-- AboutZoo start -->
+
+    <section class="pt-top">
+        <div class="container bg-success p-5 position-relative">
+            <div class="d-flex align-items-center mb-4 gap-2 position-relative z-3">
+                <span class="line-section bg-success"></span>
+                <h6 class="text-uppercase m-0 txt-12 title-section text-white">
+                    à propos de nous
+                </h6>
+            </div>
+            <h1 class="text-uppercase fw-light pe-4 text-white position-relative z-3 mb-4">
+                <span class="fw-bold">plongez</span>
+                <br /> au coeur de&nbsp;la&nbsp;nature
+            </h1>
+            <div>
+                <div class="row">
+                    <div class="col-lg-4 col-md-7 col-10">
+                        <p class="position-relative mb-4 z-3 text-white">
+                            Lorem ipsum, dolor sit amet consectetur adipisicing
+                            elit. Sunt nisi officiis beatae error nostrum ad.
+                        </p>
+                        <a href=""
+                            class="d-flex p-1 back-secondary position-relative z-3" style="width : fit-content">
+                            <button class="back-primary p-3 px-lg-5 border-0">
+                                <h6 class="text-white m-0">
+                                    En savoir plus
+                                </h6>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <img src="{{
+                asset(
+                    'uploads/dev/img/home/jungle-texture.png'
+                )
+                }}"
+                alt=""
+                class="position-absolute top-0 start-0 img-box" />
+            <img src="{{ asset('uploads/dev/svg/home/roar.svg')}}"
+                alt=""
+                class="position-absolute bottom-0 end-0 d-lg-block d-none"
+                style="height : 70%;" />
+        </div>
+    </section>
+    <section class="container pt-top" id="about">
+        <div class="row">
+            <div class="col-lg-6 d-lg-flex justify-content-center d-none">
+                <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                    type="module"></script>
+
+                <dotlottie-player src="https://lottie.host/43147566-6b90-4ac6-9a0e-2cf29e347d40/lVmPDL1YMy.json"
+                    background="transparent"
+                    speed="1"
+                    style="width: 80%;"
+                    loop
+                    autoplay></dotlottie-player>
+            </div>
+            <div class="col-lg-6 col-12 px-3">
+                <div class="">
+                    <div class="d-flex align-items-center mb-4 gap-2 position-relative z-3">
+                        <span class="line-section bg-success"></span>
+                        <h6 class="text-uppercase m-0 txt-12 title-section">
+                            nos valeurs
+                        </h6>
+                    </div>
+                    <h1 class="text-uppercase fw-light pe-4 text-dark position-relative z-3 mb-4">
+                        zoo'logique, <br />
+                        <span class="fw-bold">écologique !</span>
+                    </h1>
+                    <p class="position-relative mb-4 z-3 text-dark fw-semibold">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Sunt nisi officiis beatae error nostrum ad. Lorem
+                        ipsum dolor sit amet.
+                    </p>
+                    <p class="position-relative mb-4 z-3 text-dark">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Sunt nisi officiis beatae error nostrum ad. Lorem
+                        ipsum dolor sit amet.
+                    </p>
+                    <div class="col-lg-6 justify-content-center d-sm-flex d-lg-none d-none mb-4">
+                        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                            type="module"></script>
+
+                        <dotlottie-player dotlottie-player
+                            src="https://lottie.host/43147566-6b90-4ac6-9a0e-2cf29e347d40/lVmPDL1YMy.json"
+                            background="transparent"
+                            speed="1"
+                            style="width: 70%;"
+                            loop
+                            autoplay></dotlottie-player>
+                    </div>
+                    <div class="d-flex justify-content-lg-start justify-content-sm-center justify-content-start">
+                        <a href=""
+                            class="d-flex p-1 back-secondary position-relative z-3">
+                            <button class="back-primary p-3 px-lg-5 border-0">
+                                <h6 class="text-white m-0">
+                                    Découvrez nos valeurs
+                                </h6>
+                            </button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AboutZoo end -->
+
+    <!-- Stats start -->
+
+    <section class="container about-stats pt-top">
+        <div class="row">
+            <div class="col-xl-6 col-12 px-3">
+                <div class="d-flex align-items-center mb-3 gap-2">
+                    <span class="line-section bg-success"></span>
+                    <h6 class="text-uppercase m-0 txt-12 title-section">
+                        animaux
+                    </h6>
+                </div>
+
+                <h1 class="text-uppercase mb-4 fw-light pe-4">
+                    <span class="fw-bold">animaux des quatres</span> coins du&nbsp;monde
+                </h1>
+                <p class="pe-4">
+                    Lorem ipsum, dolor sit amet consectetur adipisicing elit.
+                    Sunt nisi officiis beatae error nostrum ad, possimus ratione
+                    velit nobis saepe laudantium quo eligendi tempora quia
+                    veritatis in. Ipsa voluptatem nobis modi impedit ex animi
+                    sit, pariatur quia aliquam, laudantium dolore.
+                </p>
+            </div>
+            <div class="col-6 d-none d-xl-flex p-0 justify-content-end gap-4">
+                
+                    <div class="d-flex flex-column justify-content-center align-items-start py-5 w-25">
+                        
+                            <h5>
+                                Espèces
+                            </h5>
+                            <h2 class="fw-bold" id="nb_Species">
+                                0
+                            </h2>
+                       
+                    </div>
+                    <div class=" d-flex flex-column justify-content-center align-items-start py-5 w-25">
+                        
+                            <h5>
+                                Animaux
+                            </h5>
+                            <h2 class="fw-bold" id="nb_Animals">
+                                0
+                            </h2>
+                        
+                    </div>
+                    <div class=" d-flex flex-column justify-content-center align-items-start py-5 w-25">
+                        
+                            <h5>
+                                Superficie
+                            </h5>
+                            <div class="d-flex">
+                                <h2 class="fw-bold d-flex align-items-center gap-2 " id="nb_Area">
+                                    0
+                                </h2>
+                                <span class="txt-12 title-section position-relative end-0">m²</span>
+                            </div>
+                            
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row pt-top-50">
+            <div class="col-xl-2 col-md-4 col-sm-6 mb-3">
+                <div class="back-third h-100 d-flex justify-content-center align-items-center p-4">
+                    <div class="d-flex flex-column align-items-center gap-3">
+                        <img src="{{ asset('uploads/dev/svg/home/spider.svg') }}"
+                            alt=""
+                            class="icon-45" />
+                        <h6>
+                            Invertébrés
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4 col-sm-6 mb-3">
+                <div class="back-quaternary h-100 d-flex justify-content-center align-items-center p-4">
+                    <div class="d-flex flex-column align-items-center gap-3">
+                        <img src="{{ asset('uploads/dev/svg/home/toucan.svg') }}"
+                            alt=""
+                            class="icon-45" />
+                        <h6>
+                            Oiseaux
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4 col-sm-6 mb-3">
+                <div class="back-primary h-100 d-flex justify-content-center align-items-center p-4">
+                    <div class="d-flex flex-column align-items-center gap-3">
+                        <img src="{{ asset('uploads/dev/svg/home/frog.svg') }}"
+                            alt=""
+                            class="icon-45" />
+                        <h6 class="text-white">
+                            Amphibiens
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4 col-sm-6 mb-3">
+                <div class="back-third h-100 d-flex justify-content-center align-items-center p-4">
+                    <div class="d-flex flex-column align-items-center gap-3">
+                        <img src="{{ asset('uploads/dev/svg/home/giraffe.svg') }}"
+                            alt=""
+                            class="icon-45" />
+                        <h6>
+                            Mammifères
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4 col-sm-6 mb-3">
+                <div class="back-quaternary h-100 d-flex justify-content-center align-items-center p-4">
+                    <div class="d-flex flex-column align-items-center gap-3">
+                        <img src="{{ asset('uploads/dev/svg/home/stingray.svg') }}"
+                            alt=""
+                            class="icon-45" />
+                        <h6>
+                            Poissons
+                        </h6>
+                    </div>
+                </div>
+            </div>
+            <div class="col-xl-2 col-md-4 col-sm-6 mb-3">
+                <div class="back-primary h-100 d-flex justify-content-center align-items-center p-4 mb-3">
+                    <div class="d-flex flex-column align-items-center gap-3">
+                        <img src="{{ asset('uploads/dev/svg/home/chameleon.svg') }}"
+                            alt=""
+                            class="icon-45" />
+                        <h6 class="text-white">
+                            Reptiles
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats end -->
+
+    <!-- Gallery start -->
+    <section class="container pt-top">
+        <div class="row">
+            <div class="col-12 col-md-6">
+                <div class="d-flex align-items-center mb-3 gap-2">
+                    <span class="line-section bg-success"></span>
+                    <h6 class="text-uppercase m-0 txt-12 title-section">
+                        photos
+                    </h6>
+                </div>
+
+                <h1 class="text-uppercase mb-4 fw-light">
+                    <span class="fw-bold">quelques photos</span> <br /> de nos animaux
+                </h1>
+            </div>
+            <div class="col-6 d-flex justify-content-end align-items-center d-none d-md-flex">
+                <a href=""
+                    class="d-flex p-1 back-secondary">
+                    <button class="back-primary p-3 px-lg-5 border-0">
+                        <h6 class="text-white m-0">
+                            Plus de photos
+                        </h6>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-6 p-0 d-flex flex-column">
+                <div class="position-relative"
+                    style="height : 50% ; min-height : 150px">
+                    <img src="{{ asset('uploads/dev/img/home/poisson.jpg') }}"
+                        alt=""
+                        class="img-box brightness-80" />
+                    <div class="position-absolute bottom-0 d-flex flex-column gap-1 p-3">
+                        <span class="text-uppercase text-success txt-12 title-section fw-semibold">
+                            poisson
+                        </span>
+                        <h5 class="fw-semibold text-white">
+                            Piranhas
+                        </h5>
+                    </div>
+                </div>
+                <div class="position-relative"
+                    style="height : 50% ; min-height : 150px">
+                    <img src="{{ asset('uploads/dev/img/home/lezard.jpg') }}"
+                        alt=""
+                        class="img-box brightness-80" />
+                    <div class="position-absolute bottom-0 d-flex flex-column gap-1 p-3">
+                        <span class="text-uppercase text-success txt-12 title-section fw-semibold">
+                            reptiles
+                        </span>
+                        <h5 class="fw-semibold text-white">
+                            Gecko
+                        </h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6 col-6 p-0 position-relative"
+                style="min-height : 300px">
+                <img src="{{ asset('uploads/dev/img/home/tigre.jpg') }}"
+                    alt=""
+                    class="img-box brightness-80" />
+                <div class="position-absolute bottom-0 d-flex flex-column gap-1 p-3">
+                    <span class="text-uppercase text-success txt-12 title-section fw-semibold">
+                        mammifères
+                    </span>
+                    <h5 class="fw-semibold text-white">
+                        Tigres
+                    </h5>
+                </div>
+            </div>
+            <div class="col-sm-3 col-12 p-0 d-flex position-relative"
+                style="min-height : 300px">
+                <img src="{{ asset('uploads/dev/img/home/perroquet.jpg') }}"
+                    alt=""
+                    class="img-box brightness-80" />
+                <div class="position-absolute bottom-0 d-flex flex-column gap-1 p-3">
+                    <span class="text-uppercase text-success txt-12 title-section fw-semibold">
+                        oiseaux
+                    </span>
+                    <h5 class="fw-semibold text-white">
+                        Perroquet
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="row mb-md-0 mb-4">
+            <div class="col-sm-3 col-6 p-0 position-relative">
+                <img src="{{ asset('uploads/dev/img/home/girafe.jpg') }}"
+                    alt=""
+                    style="min-height : 150px; max-height : 300px "
+                    class="img-box brightness-80" />
+                <div class="position-absolute bottom-0 d-flex flex-column gap-1 p-3">
+                    <span class="text-uppercase text-success txt-12 title-section fw-semibold">
+                        mammifères
+                    </span>
+                    <h5 class="fw-semibold text-white">
+                        Girafes
+                    </h5>
+                </div>
+            </div>
+
+            <div class="col-sm-3 col-6 p-0 position-relative">
+                <img src="{{ asset('uploads/dev/img/home/araigne.jpg') }}"
+                    alt=""
+                    style="min-height : 150px; max-height : 300px;"
+                    class="img-box brightness-80" />
+                <div class="position-absolute bottom-0 d-flex flex-column gap-1 p-3">
+                    <span class="text-uppercase text-success txt-12 title-section fw-semibold">
+                        invertébrés
+                    </span>
+                    <h5 class="fw-semibold text-white">
+                        Tarentules
+                    </h5>
+                </div>
+            </div>
+            <div class="col-sm-6 col-12 p-0 d-flex position-relative">
+                <img src="{{ asset('uploads/dev/img/home/elephant.jpg') }}"
+                    alt=""
+                    style="max-height : 300px"
+                    class="img-box brightness-80" />
+                <div class="position-absolute bottom-0 d-flex flex-column gap-1 p-3">
+                    <span class="text-uppercase text-success txt-12 title-section fw-semibold">
+                        mammifères
+                    </span>
+                    <h5 class="fw-semibold text-white">
+                        Éléphants
+                    </h5>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-center d-md-none d-flex">
+            <a href=""
+                class="d-flex p-1 back-secondary"
+                style="width : fit-content">
+                <button class="back-primary p-3 px-lg-5 border-0">
+                    <h6 class="text-white m-0">
+                        Plus de photos
+                    </h6>
+                </button>
+            </a>
+        </div>
+    </section>
+
+    <!-- Gallery stop -->
+
+    <!-- Livings start -->
+
+    <section>
+        <div class="container pt-top">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <div class="d-flex align-items-center mb-3 gap-2">
+                        <span class="line-section bg-success"></span>
+                        <h6 class="text-uppercase m-0 txt-12 title-section">
+                            habitations
+                        </h6>
+                    </div>
+
+                    <h1 class="text-uppercase mb-4 fw-light">
+                        <span class="fw-bold">venez visitez</span> <br /> leurs habitats
+                    </h1>
+                </div>
+                <div class="col-6 d-flex justify-content-end align-items-center d-none d-md-flex">
+                    <a href=""
+                        class="d-flex p-1 back-secondary">
+                        <button class="back-primary p-3 px-lg-5 border-0">
+                            <h6 class="text-white m-0">
+                                Visiter les habitats
+                            </h6>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="container-fluid px-0">
+        <div class="d-flex flex-column flex-md-row boxes-livings mb-md-0 mb-4">
+            <div class="p-0 box-living" style="">
+                <img src="{{
+                    asset(
+                        'uploads/dev/img/home/savane.jpg'
+                    )
+                    }}"
+                    alt=""
+                    class="img-box brightness-80" />
+            </div>
+            <div class="p-0 box-living" style="">
+                <img src="{{
+                    asset(
+                        'uploads/dev/img/home/jungle.jpg'
+                    )
+                    }}"
+                    alt=""
+                    class="img-box brightness-80" />
+            </div>
+            <div class="p-0 box-living" style="">
+                <img src="{{
+                    asset(
+                        'uploads/dev/img/home/marais.jpg'
+                    )
+                    }}"
+                    alt=""
+                    class="img-box brightness-80" />
+            </div>
+        </div>
+        <div class="d-flex justify-content-center d-md-none d-flex">
+            <a href="" class="d-flex p-1 back-secondary">
+                <button class="back-primary p-3 px-lg-5 border-0">
+                    <h6 class="text-white m-0">
+                        Visiter les habitats
+                    </h6>
+                </button>
+            </a>
+        </div>
+    </section>
+    <!-- Livings stop -->
+
+    <!-- Services start -->
+    <section class="container pt-top">
+        <div class="row mb-xl-5 mb-2">
+            <div class="col-md-5 col-12">
+                <div class="d-flex align-items-center mb-3 gap-2">
+                    <span class="line-section bg-success"></span>
+                    <h6 class="text-uppercase m-0 txt-12 title-section">
+                        services
+                    </h6>
+                </div>
+
+                <h1 class="text-uppercase mb-4 fw-light pe-4">
+                    <span class="fw-bold">au service</span> <br /> de notre clientèle
+                </h1>
+                <a href=""
+                    class="d-none d-md-flex p-1 back-secondary"
+                    style="width : fit-content">
+                    <button class="back-primary p-3 px-lg-5 border-0">
+                        <h6 class="text-white m-0">
+                            Tous les services
+                        </h6>
+                    </button>
+                </a>
+            </div>
+            <div class="col-md-7 col-12 d-flex">
+                <div class="container d-flex align-items-center justify-content-center position-relative">
+                    <div class="row w-100">
+                        <div class="col-5 d-md-flex justify-content-center align-items-center d-none z-3 px-3">
+                            <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                                type="module"></script>
+
+                            <dotlottie-player src="https://lottie.host/da085e93-c59a-47a8-a14b-752c93cc0d74/ouEyoTDWRL.json"
+                                background="transparent"
+                                speed="1"
+                                style="width: fit-content; height: 9.375rem;"
+                                loop
+                                autoplay></dotlottie-player>
+                        </div>
+                        <div class="col-md-7 d-flex align-items-center position-relative z-3 px-3">
+                            <div class="p-4 p-lg-0">
+                                <h5 class="fw-bolder back-secondary mb-3"
+                                    style="width : fit-content; background-clip : text; color : transparent">
+                                    Application Mobile en Développement
+                                </h5>
+                                <p class="text-white m-0">
+                                    Lorem ipsum dolor sit amet consectetur,
+                                    adipisicing elit. Veritatis, rem.
+                                </p>
+                            </div>
+                        </div>
+                        <img src="{{
+                            asset(
+                                'uploads/dev/img/home/jaguar-texture.png'
+                            )
+                            }}"
+                            alt=""
+                            class="img-box position-absolute top-0 start-0 px-0" />
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row pt-top-50">
+             {% for service in services %}
+                {% if loop.index <= 4 %}
+                    <div class="col-sm-6 col-lg-3 px-2 mb-4">
+                        <div class="position-relative p-3 bg-body-tertiary">
+                            
+
+                            {% if service.isFree %}
+                                <span class="position-absolute end-0 badge bg-success text-uppercase"
+                                    style="top: -10px">
+                                    gratuit
+                                </span>
+                            {% endif %} 
+                            <img src=" uploads/admin/services/{{ service.icon }}"
+                                alt=""
+                                class="icon-45 mb-4" />
+                            <h6 class="fw-semibold mb-4 txt-18">
+                                {{ service.title }}
+                            </h6>
+                            <p>
+                                {{ service.description }}
+                            </p>
+                        </div>
+                    </div>
+                {% endif %}
+            {% endfor %} 
+        </div>
+
+        <a href=""
+                    class="d-flex d-md-none p-1 back-secondary"
+                    style="width : fit-content">
+                    <button class="back-primary p-3 px-lg-5 border-0">
+                        <h6 class="text-white m-0">
+                            Tous les services
+                        </h6>
+                    </button>
+                </a>
+    </section>
+    <!-- Services end -->
+
+    <!-- Testimonials start -->
+    <section class="container-fluid pt-top" id="testimonials">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 d-none d-lg-flex px-3">
+                    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                        type="module"></script>
+
+                    <dotlottie-player src="https://lottie.host/581409ca-c84e-43fe-88cc-0a31204573b5/ny0QszG67r.json"
+                        background="transparent"
+                        speed="1"
+                        style="width: fit-content; max-height: 400px;"
+                        loop
+                        autoplay></dotlottie-player>
+                </div>
+                <div class="col-lg-8 px-lg-5">
+                    <div class="mb-5">
+                        <div class="row">
+                            <div class="col-12 col-lg-8 mb-4 pb-2">
+                                <div class="d-flex align-items-center mb-3 gap-2">
+                                    <span class="line-section bg-success"></span>
+                                    <h6 class="text-uppercase m-0 txt-12 title-section">
+                                        avis
+                                    </h6>
+                                </div>
+                                <h1 class="text-uppercase fw-light m-0 pe-4">
+                                    <span class="fw-bold">les avis de</span><br />nos
+                                    visiteurs
+                                </h1>
+                            </div>
+                        </div>
+                        <div id="carouselTestimonial" class="carousel slide">
+                            <div class="carousel-inner">
+                                {% for testimonial in testimonials %}
+                                    {% if testimonial.isValid %}
+                                        <div class="carousel-item {% if loop.first %}active{% endif %} px-1">
+                                            <div class="mb-3">
+                                                <p class="fw-semibold">
+                                                    @{{ testimonial.username }}
+                                                </p>
+                                                <span class="line-section bg-success">
+
+                                                </span>
+                                            </div>
+                                            <p class="fst-italic fs-6 mb-4 pb-2">
+                                                {{ testimonial.opinion }}
+                                            </p>
+
+                                            <div class="d-flex align-items-center mb-3 gap-2"></div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <div class="px-1">
+                            <div class="d-flex gap-3">
+                                <div class="d-flex p-1 back-secondary">
+                                    <button class="back-primary p-3 px-lg-5 border-0"
+                                        data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasBottom"
+                                        aria-controls="offcanvasBottom">
+                                        <h6 class="text-white m-0">
+                                            Rédiger un avis
+                                        </h6>
+                                    </button>
+                                </div>
+                                <div class="">
+                                    <button class="border-0 py-2 px-4 bg-transparent"
+                                        type="button"
+                                        data-bs-target="#carouselTestimonial"
+                                        data-bs-slide="prev"
+                                        >
+                                        <img src="{{
+                                            asset(
+                                                'uploads/dev/svg/home/arrowLeft.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-35" />
+                                    </button>
+                                    <button class="border-0 py-2 px-4 bg-transparent"
+                                        type="button"
+                                        data-bs-target="#carouselTestimonial"
+                                        data-bs-slide="next"
+                                        >
+                                        <img src="{{
+                                            asset(
+                                                'uploads/dev/svg/home/arrowRight.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-35" />
+                                    </button>
+                                </div>
+                            </div>
+
+                            <div class="offcanvas offcanvas-bottom"
+                                tabindex="-1"
+                                id="offcanvasBottom"
+                                aria-labelledby="offcanvasBottomLabel"
+                                style="height : auto; max-height : none;">
+                                <div class="container">
+                                    <div class="mt-3 py-3">
+                                        <h1 class="text-uppercase mb-4 fw-light pe-4">
+                                            déposer
+                                            <span class="fw-bold">
+                                                votre avis
+                                            </span>
+                                        </h1>
+
+                                        {{ form_start(form) }}
+                                        {{ form_widget(form) }}
+                                        <div class="d-flex p-1 back-secondary mt-4"
+                                            style="width : fit-content">
+                                            <button type="submit"
+                                                class="back-primary p-3 px-lg-5 border-0">
+                                                <h6 class="text-white m-0">
+                                                    Envoyer mon avis
+                                                </h6>
+                                            </button>
+                                        </div>
+                                        {{ form_end(form) }}
+                                    </div>
+                                </div>
+
+                                <div class="offcanvas-body small"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials stop -->
+
+    <!-- Horaires start -->
+    <section class="container pt-top pb-bottom" id="schedules">
+        <div class="row">
+            <div class="col-lg-6 col-12 px-3">
+                <div class="">
+                    <div class="d-flex align-items-center mb-4 gap-2 position-relative z-3">
+                        <span class="line-section bg-success"></span>
+                        <h6 class="text-uppercase m-0 txt-12 title-section">
+                            infos pratiques
+                        </h6>
+                    </div>
+                    <h1 class="text-uppercase fw-light pe-4 text-dark position-relative z-3 mb-4">
+                        au coeur de <br />
+                        <span class="fw-bold">brocéliande</span>
+                    </h1>
+                    <p class="position-relative mb-4 z-3 text-dark">
+                        Lorem ipsum, dolor sit amet consectetur adipisicing
+                        elit. Sunt nisi officiis beatae error nostrum ad. Lorem
+                        ipsum dolor sit amet.
+                    </p>
+                    <div class="col-lg-6 justify-content-center d-sm-flex d-lg-none d-none mb-4">
+                        <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                            type="module"></script>
+
+                        <dotlottie-player src="https://lottie.host/8c6b0285-6716-4769-a2ed-7e92211cf084/tq3gXcr1kE.json"
+                            background="transparent"
+                            speed="1"
+                            style="width: 70%;"
+                            loop
+                            autoplay></dotlottie-player>
+                    </div>
+                    <h5 class="mb-4">
+                        Horaires d'ouvertures
+                    </h5>
+                    <div class="row mb-4">
+                    {% for schedule in schedules %}
+                        <div class="col-3">
+                            <p class="text-body-tertiary">
+                                {{ schedule.day }}
+                            </p>
+                        </div>
+                        <div class="col-9">
+                            <p>
+                                {% if schedule.opensAt is null %}
+                                    Fermé
+                                {% else %}
+                                    {{ schedule.opensAt|date('H:i') }} à {{ schedule.closesAt|date('H:i') }}
+                                {% endif %}
+                            </p>
+                        </div>
+                    {% endfor %}
+                    </div>
+                    <p class="mb-4 text-body-tertiary txt-1">
+                        Une question ?
+                        <a href="{# {{ path('app_contact') }} #}"
+                            class="text-success fw-semibold">
+                            Contactez-nous
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <div class="col-lg-6 d-lg-flex justify-content-center d-none">
+                <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                    type="module"></script>
+                <dotlottie-player src="https://lottie.host/8c6b0285-6716-4769-a2ed-7e92211cf084/tq3gXcr1kE.json"
+                    background="transparent"
+                    speed="1"
+                    style="width: 85%;"
+                    loop
+                    autoplay></dotlottie-player>
+            </div>
+        </div>
+    </section>
+    <!-- Horaires stop -->
+
+
 
 {% endblock %}

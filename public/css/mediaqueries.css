@@ -1,0 +1,109 @@
+/*? PADDING */
+
+@media (max-width: 992px) {
+    html {
+        font-size: 14px;
+    }
+
+    .nav-item {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 767px) {
+    .pt-top {
+        padding-top: 4.375rem !important;
+    }
+    .pb-bottom {
+        padding-bottom: 4.375rem !important;
+    }
+    .p-140 {
+        padding: 4.375rem !important;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .pt-top {
+        padding-top: 5.625rem !important;
+    }
+    .pb-bottom {
+        padding-bottom: 5.625rem !important;
+    }
+    .p-140 {
+        padding: 5.625rem !important;
+    }
+}
+@media (min-width: 992px) {
+    .pt-top {
+        padding-top: 8.75rem;
+    }
+
+    .pb-bottom {
+        padding-bottom: 8.75rem;
+    }
+    .p-140 {
+        padding: 8.75rem;
+    }
+}
+
+/*? XS <576px */
+@media (max-width: 576px) {
+    .hero-title {
+        font-size: 13vw !important;
+    }
+    .hero-little-title {
+        font-size: 4vw !important;
+        top: -0.85rem !important;
+        left: -0.85rem !important;
+    }
+}
+
+/*? SM ≥576px */
+@media (min-width: 576px) {
+    .hero-title {
+        font-size: 6rem !important;
+    }
+    .hero-little-title {
+        font-size: 1.5rem !important;
+        top: -1.5rem !important;
+        left: -1.5rem !important;
+    }
+}
+
+/*? MD ≥768px*/
+
+@media (max-width: 768px) {
+    .boxes-livings {
+        height: 80rem !important;
+    }
+
+    .box-living {
+        width: 100% !important;
+        height: 33.33% !important;
+        transition: height 0.5s ease !important;
+    }
+    .box-living:hover {
+        width: 100% !important;
+        height: 66.66% !important;
+    }
+
+    .title-banner-page {
+        font-size: 32px !important;
+    }
+    .hero-bottom-bar {
+        padding: 0 10%;
+    }
+
+    .button-visit:hover {
+        width: 60% !important;
+    }
+}
+
+/*? XL ≥1200px*/
+@media (min-width: 1200px) {
+    .hero-title {
+        font-size: 7.7rem !important;
+    }
+    .hero-little-title {
+        font-size: 2rem !important;
+    }
+}

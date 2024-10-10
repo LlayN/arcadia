@@ -2,29 +2,761 @@
 <html>
     <head>
         <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <title>
-            {% block title %}
-                Welcome!
+            Arcadia -{% block title %}
+
             {% endblock %}
         </title>
-        <link rel="icon"
-            href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text><text y=%221.3em%22 x=%220.2em%22 font-size=%2276%22 fill=%22%23fff%22>sf</text></svg>" />
         {% block stylesheets %}
-            <link rel="stylesheet" href="{{ asset('css/style.css') }}" />
             <link rel="stylesheet"
                 href="{{ asset('css/bootstrap.min.css') }}" />
+            <link rel="stylesheet"
+                href="{{ asset('css/cleancss.css') }}" />
+            <link rel="stylesheet"
+                href="{{ asset('css/mediaqueries.css') }}" />
         {% endblock %}
 
         {% block javascripts %}
-            <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+            <script src="{{
+                asset(
+                    'js/bootstrap.bundle.min.js'
+                )
+                }}"></script>
+
+            <script src="{{ asset('js/script.js') }}" defer></script>
             {% block importmap %}
                 {{ importmap('app') }}
             {% endblock %}
         {% endblock %}
     </head>
     <body>
-        {% block body %}
 
-        {% endblock %}
+        
+         {% if app.user %}
+            <div class="d-none d-lg-flex position-fixed bottom-0 end-0 z-9999 pe-none"
+                style="width : fit-content">
+                <button type="button"
+                    class="btn z-3 text-white fw-bold p-0 btn-admin"
+                    data-bs-toggle="tooltip"
+                    data-bs-placement="top"
+                    data-bs-title="Tableau de bord">
+                    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs" type="module"></script> 
+                    <span class="position-absolute back-secondary p-2"></span>
+                    <dotlottie-player src="https://lottie.host/c445f3e8-8cf2-4dc4-90da-d02d431eb73d/3dsUvvoNLl.json" background="transparent" speed="1" style="width: 7rem; height: 7rem; " loop autoplay></dotlottie-player>   
+                </button>
+                <a href="{{ path('admin') }}" target="_blank" class="btn-admin">
+                    <span class="position-absolute p-2 pe-auto z-9999"></span>
+                </a>
+            </div>
+        {% endif %} 
+        <nav class="navbar navbar-expand-lg fixed-top flex-column py-0 ">
+            <div class="container-lg container-fluid  position-relative flex-column px-0 ">
+                <div class="d-flex bg-dark w-100 justify-content-between px-3">
+                    <a class="navbar-brand" href="{{ path('app_home') }}">
+                        <img src="{{ asset('uploads/admin/logo/logo-white.svg') }}"
+                            alt=""
+                            class="logo" />
+                    </a>
+                    <button class="navbar-toggler px-0"
+                        type="button"
+                        data-bs-toggle="offcanvas"
+                        data-bs-target="#offcanvasDarkNavbar"
+                        aria-controls="offcanvasDarkNavbar"
+                        aria-label="Toggle navigation">
+                        <span>
+                            <img src="{{
+                                asset(
+                                    'uploads/dev/svg/home/menu-burger.svg'
+                                )
+                                }}"
+                                alt=""
+                                class="icon-35" />
+                        </span>
+                    </button>
+                    <div class="offcanvas offcanvas-end border-0 justify-content-center bg-dark"
+                        tabindex="-1"
+                        id="offcanvasDarkNavbar"
+                        aria-labelledby="offcanvasDarkNavbarLabel">
+                        <div class="offcanvas-body p-0 position-relative">
+                            <div class="d-flex justify-content-end align-items-center d-lg-none p-4">
+                                <button type="button" data-bs-dismiss="offcanvas" class="btn p-0">
+                                    <img src="{{
+                                        asset(
+                                            'uploads/dev/svg/home/close.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-35" />
+                                </button>
+                            </div>
+                            <ul class="navbar-nav justify-content-end flex-grow-1 pe-0">
+                                <li class="d-lg-none d-flex text-light-emphasis px-4 txt-12 fw-bold ltr-spac-2">
+                                    MENU
+                                </li>
+                                <li class="nav-item p-4 py-lg-2">
+                                    <a class="nav-link fw-semibold text-white ps-3 ps-lg-0 {% if app.request.pathInfo == '/' %}active{% endif %}"
+                                        aria-current="page"
+                                        href="{# {{ path('app_home') }} #}">
+                                        ACCUEIL
+                                        
+                                    </a>
+                                    
+                                </li> 
+                                <li class="nav-item p-4 py-lg-2">
+                                    <a class="nav-link fw-semibold text-white ps-3 ps-lg-0 {% if 'habitats' in app.request.pathInfo  %}active{% endif %}"
+                                        href="{# {{ path('app_livings') }} #}">
+                                        HABITATS
+                                    </a>
+                                </li>
+                                <li class="nav-item p-4 py-lg-2">
+                                    <a class="nav-link fw-semibold text-white ps-3 ps-lg-0 {% if app.request.pathInfo == '/services' %}active{% endif %}"
+                                        href="{# {{ path('app_services') }} #}">
+                                        SERVICES
+                                    </a>
+                                </li>
+                                
+                                <li class="nav-item p-4 py-lg-2 d-block d-lg-none">
+                                    <a class="nav-link fw-semibold text-white ps-3 ps-lg-0 "
+                                        href="/">
+                                        ÉVÉNEMENTS
+                                    </a>
+                                </li>
+                                <li class="nav-item p-4 py-lg-2 d-block d-lg-none">
+                                    <a class="nav-link fw-semibold text-white ps-3 ps-lg-0 "
+                                        href="/">
+                                        NOUVEAUTÉS
+                                    </a>
+                                </li>
+                                <li class="nav-item p-4 py-lg-2 d-none d-lg-block">
+                                    <a class="nav-link fw-semibold text-white ps-3 ps-lg-0 {% if app.request.pathInfo == '/contact' %}active{% endif %}"
+                                        href="{# {{ path('app_contact') }} #}">
+                                        CONTACT
+                                    </a>
+                                </li>
+                                <li class="d-flex d-lg-none nav-item p-4 py-lg-2 justify-content-center">
+                                    <span class="separator"></span>
+                                </li>
+                                <div class="d-block d-lg-none">
+                                    <li class="d-lg-none d-flex text-light-emphasis px-4 txt-12 fw-bold ltr-spac-2 pt-4">
+                                        NOUS SOUTENIR
+                                    </li>
+                                    <li class="nav-item p-4 py-lg-2">
+                                        <a class="nav-link fw-semibold text-white ps-3 ps-lg-0"
+                                            href="#testimonials">
+                                            AVIS
+                                        </a>
+                                    </li>
+                                    <li class="nav-item p-4 py-lg-2">
+                                        <a class="nav-link fw-semibold text-white ps-3 ps-lg-0"
+                                            href="/">
+                                            DONATION
+                                        </a>
+                                    </li>
+                                </div>
+                                <li class="d-flex d-lg-none nav-item p-4 py-lg-2 justify-content-center">
+                                    <span class="separator"></span>
+                                </li>
+                                <div class="d-block d-lg-none">
+                                    <li class="d-lg-none d-flex text-light-emphasis px-4 txt-12 fw-bold ltr-spac-2 pt-4">
+                                        INFOS PRATIQUES
+                                    </li>
+                                    <li class="nav-item p-4 py-lg-2">
+                                        <a class="nav-link fw-semibold text-white ps-3 ps-lg-0"
+                                            href="#schedules">
+                                            HORAIRES
+                                        </a>
+                                    </li>
+                                    <li class="nav-item p-4 py-lg-2">
+                                        <a class="nav-link fw-semibold text-white ps-3 ps-lg-0 {% if app.request.pathInfo == '/contact' %}active{% endif %}"
+                                            href="{# {{ path('app_contact') }} #}">
+                                            CONTACT
+                                        </a>
+                                    </li>
+                                    <li class="nav-item p-4 py-lg-2">
+                                        <div class="dropdown">
+                                            <button class="nav-item ps-3 ps-lg-0 btn dropdown-toggle align-items-center border-0 text-white fw-semibold"
+                                                type="button"
+                                                data-bs-toggle="dropdown"
+                                                aria-expanded="false">
+                                                FRANÇAIS
+                                                <img src="{{
+                                                    asset(
+                                                        'uploads/dev/svg/home/france.svg'
+                                                    )
+                                                    }}"
+                                                    alt=""
+                                                    class="icon-20" />
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                                <li class="nav-item px-4 py-2 fw-semibold">
+                                                    <img src="{{
+                                                        asset(
+                                                            'uploads/dev/svg/home/uk.svg'
+                                                        )
+                                                        }}"
+                                                        alt=""
+                                                        class="icon-20" />
+                                                    <a class="dropdown-item p-0" href="#">
+                                                        Anglais
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item px-4 py-2 fw-semibold">
+                                                    <img src="{{
+                                                        asset(
+                                                            'uploads/dev/svg/home/allemagne.svg'
+                                                        )
+                                                        }}"
+                                                        alt=""
+                                                        class="icon-20" />
+                                                    <a class="dropdown-item p-0" href="#">
+                                                        Allemand
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item px-4 py-2 fw-semibold">
+                                                    <img src="{{
+                                                        asset(
+                                                            'uploads/dev/svg/home/italie.svg'
+                                                        )
+                                                        }}"
+                                                        alt=""
+                                                        class="icon-20" />
+                                                    <a class="dropdown-item p-0" href="#">
+                                                        Italien
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item px-4 py-2 fw-semibold">
+                                                    <img src="{{
+                                                        asset(
+                                                            'uploads/dev/svg/home/espagne.svg'
+                                                        )
+                                                        }}"
+                                                        alt=""
+                                                        class="icon-20" />
+                                                    <a class="dropdown-item p-0" href="#">
+                                                        Espagne
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                         </div>
+                                    
+                                       
+                                    </li>
+                                    <li class="row nav-item pt-4 py-lg-2 text-white gap-0 m-0">
+                                        <div class="col-3 back-facebook d-flex justify-content-center py-3">
+                                            <img src="{{
+                                                asset(
+                                                    'uploads/dev/svg/home/facebook.svg'
+                                                )
+                                                }}"
+                                                alt=""
+                                                class="icon-20" />
+                                        </div>
+                                        <div class="col-3 back-twitter d-flex justify-content-center py-3">
+                                            <img src="{{
+                                                    asset(
+                                                        'uploads/dev/svg/home/twitter.svg'
+                                                    )
+                                                    }}"
+                                                    alt=""
+                                                    class="icon-20" />
+                                        </div>
+                                        <div class="col-3 back-youtube d-flex justify-content-center py-3">
+                                            <img src="{{
+                                                    asset(
+                                                        'uploads/dev/svg/home/youtube.svg'
+                                                    )
+                                                    }}"
+                                                    alt=""
+                                                    class="icon-20" />
+                                        </div>
+                                        <div class="col-3 back-instagram d-flex justify-content-center py-3">
+                                            <img src="{{
+                                                    asset(
+                                                        'uploads/dev/svg/home/instagram.svg'
+                                                    )
+                                                    }}"
+                                                    alt=""
+                                                    class="icon-20" />
+                                        </div>
+                                    </li>
+                                </div>
+
+                                {% if app.user %}
+                                    <a class="back-quaternary nav-item justify-content-center ps-4 ps-lg-0" href="{{ path('admin') }}" target="_blank" id="log">
+                                        <button type="button" class="d-flex align-items-center justify-content-center w-100 h-100 nav-link p-4 px-lg-4 py-lg-2 fw-semibold txt-primary">
+                                            TABLEAU DE BORD
+                                        </button>
+                                    </a> 
+                                {% endif %}
+                               
+                                <a class="back-secondary nav-item justify-content-center ps-4 ps-lg-0"
+                                    {% if app.user %}
+                                            href="{{ path('app_logout') }}"
+                                            
+                                    {% else %}
+                                        href="{{ path('app_login') }}"
+
+                                    {% endif %} id="log">
+                                    <button type="button" class="d-flex align-items-center justify-content-center w-100 h-100 nav-link p-4 px-lg-4 py-lg-2 fw-semibold text-white">
+                                        {% if app.user %}
+                                            DÉCONNEXION
+
+                                        {% else %}
+                                            CONNEXION
+                                        {% endif %} 
+                                    </button>
+                                </a> 
+
+                                 
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="container-lg container-fluid p-0 m-0">
+                    <div class="d-flex">
+                    {% for label, messages in app.flashes %}
+                        {% for message in messages %}
+                            <div class="d-flex justify-content-between alert alert-{{ label }} rounded-0 m-0 w-100">
+                                <p class="m-0 fw-semibold">{{ message }}</p>
+                                <button type="button"
+                                    class="btn-close ms-auto"
+                                    data-bs-dismiss="alert"
+                                    aria-label="Close"
+                                    style="width : 1rem">
+                            </div>
+                        {% endfor %}
+                    {% endfor %}
+                    </div>
+                </div>
+                <div class="container d-none d-lg-block p-0 m-0">
+                    <div class="d-flex">
+                        <ul class="ps-3 pe-0 m-0 gap-2 d-flex text-white list-unstyled gap-3 text-decoration-none bg-secondary-subtle">
+                            <li class="nav-item px-4 py-2 fw-semibold">
+                                <a class="nav-link active text-dark"
+                                    aria-current="page"
+                                    href="#">
+                                    Donation
+                                </a>
+                            </li>
+                            <li class="nav-item px-4 py-2 fw-semibold">
+                                <a class="nav-link  text-dark"
+                                    aria-current="page"
+                                    href="#">
+                                    Nouveautés
+                                </a>
+                            </li>
+                            <li class="nav-item px-4 py-2 fw-semibold">
+                                <a class="nav-link  text-dark"
+                                    aria-current="page"
+                                    href="#">
+                                    Événement
+                                </a>
+                            </li>
+
+                            <div class="dropdown">
+                                <button class="nav-item px-4 py-2 fw-semibold btn text-dark dropdown-toggle align-items-center border-0"
+                                    type="button"
+                                    data-bs-toggle="dropdown"
+                                    aria-expanded="false">
+                                    <img src="{{
+                                        asset(
+                                            'uploads/dev/svg/home/france.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-20" />
+                                    Français
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li class="nav-item px-4 py-2 fw-semibold">
+                                        <img src="{{
+                                            asset(
+                                                'uploads/dev/svg/home/uk.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-20" />
+                                        <a class="dropdown-item p-0" href="#">
+                                            Anglais
+                                        </a>
+                                    </li>
+                                    <li class="nav-item px-4 py-2 fw-semibold">
+                                        <img src="{{
+                                            asset(
+                                                'uploads/dev/svg/home/allemagne.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-20" />
+                                        <a class="dropdown-item p-0" href="#">
+                                            Allemand
+                                        </a>
+                                    </li>
+                                    <li class="nav-item px-4 py-2 fw-semibold">
+                                        <img src="{{
+                                            asset(
+                                                'uploads/dev/svg/home/italie.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-20" />
+                                        <a class="dropdown-item p-0" href="#">
+                                            Italien
+                                        </a>
+                                    </li>
+                                    <li class="nav-item px-4 py-2 fw-semibold">
+                                        <img src="{{
+                                            asset(
+                                                'uploads/dev/svg/home/espagne.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-20" />
+                                        <a class="dropdown-item p-0" href="#">
+                                            Espagne
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </ul>
+                        <div class="d-flex">
+                            <li class="nav-item px-4 py-2 back-facebook">
+                                <a href="">
+                                    <img src="{{
+                                        asset(
+                                            'uploads/dev/svg/home/facebook.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-16" />
+                                </a>
+                            </li>
+                            <li class="nav-item px-4 py-2 back-twitter">
+                                <a href="">
+                                    <img src="{{
+                                        asset(
+                                            'uploads/dev/svg/home/twitter.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-16" />
+                                </a>
+                            </li>
+                            <li class="nav-item px-4 py-2 back-youtube">
+                                <a href="">
+                                    <img src="{{
+                                        asset(
+                                            'uploads/dev/svg/home/youtube.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-16" />
+                                </a>
+                            </li>
+                            <li class="nav-item px-4 py-2 back-instagram">
+                                <a href="">
+                                    <img src="{{
+                                        asset(
+                                            'uploads/dev/svg/home/instagram.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-16" />
+                                </a>
+                            </li>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </nav>
     </body>
+
+    {% block body %}
+
+    {% endblock %}
+
+    <!-- Footer start -->
+    <section class="container-fluid bg-dark pt-top-50 pb-bottom-50 position-absolute footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-xl-4 d-flex flex-column gap-4 pe-4">
+                    <div>
+                        <img src="{{ asset('uploads/admin/logo/logo-white.svg') }}"
+                            alt=""
+                            class="logo" />
+                    </div>
+                    <div class="d-flex flex-column gap-3 text-secondary pe-md-3 pe-0">
+                        <h6 class="gap-2"
+                            style="display: flex; flex-wrap: wrap;">
+                            <span class="fw-semibold"
+                                style="flex-basis: auto; flex-grow: 0;">
+                                Adresse :
+                            </span>
+                            <span class="fw-light"
+                                style=" flex-basis: auto; flex-grow: 1;">
+                                123 Rue de l'Exemple, Ville
+                            </span>
+                        </h6>
+                        <h6 class="gap-2"
+                            style="display: flex; flex-wrap: wrap;">
+                            <span class="fw-semibold"
+                                style="flex-basis: auto; flex-grow: 0;">
+                                Téléphone :
+                            </span>
+                            <span class="fw-light"
+                                style="flex-basis: auto; flex-grow: 1;">
+                                04.78.35.90.86
+                            </span>
+                        </h6>
+                        <h6 class="gap-2"
+                            style="display: flex; flex-wrap: wrap;">
+                            <span class="fw-semibold"
+                                style="flex-basis: auto; flex-grow: 0;">
+                                E-mail :
+                            </span>
+                            <span class="fw-light"
+                                style="flex-basis: auto; flex-grow: 1;">
+                                arcadia@zoo.fr
+                            </span>
+                        </h6>
+                        <h6 class="gap-2"
+                            style="display: flex; flex-wrap: wrap;">
+                            <span class="fw-semibold"
+                                style="flex-basis: auto; flex-grow: 0;">
+                                Horaires d'ouvertures :
+                            </span>
+                            <span class="fw-light"
+                                style="flex-basis: auto; flex-grow: 1;">
+                                De 9H à 20H
+                            </span>
+                        </h6>
+                    </div>
+
+                    <div class="d-flex flew-wrap gap-sm-5 gap-4">
+                        <img src="{{ asset('uploads/dev/svg/home/facebook.svg') }}"
+                            alt=""
+                            class="icon-20" />
+                        <img src="{{ asset('uploads/dev/svg/home/twitter.svg') }}"
+                            alt=""
+                            class="icon-20" />
+                        <img src="{{ asset('uploads/dev/svg/home/youtube.svg') }}"
+                            alt=""
+                            class="icon-20" />
+                        <img src="{{ asset('uploads/dev/svg/home/instagram.svg') }}"
+                            alt=""
+                            class="icon-20" />
+                    </div>
+                </div>
+                <div class="col-md-7 col-xl-6 d-none d-md-flex px-4">
+                    <div class="d-flex flex-column py-5 w-100">
+                        <div>
+                            <h5 class="text-white mb-4">
+                                Menu & Liens
+                            </h5>
+                        </div>
+                        <div>
+                            <div class="row">
+                                <div class="col-4">
+                                    <ul class="d-flex flex-column gap-2 p-0">
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Accueil
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Habitats
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Services
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Avis
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Contact
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Événements
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Animaux
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-4">
+                                    <ul class="d-flex flex-column gap-2 p-0">
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Billeterie
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Donation
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Galerie
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Nouveautés
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Équipe médicale
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Nos employés
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-secondary fw-light">
+                                                Fondateur
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="col-4">
+                                    <ul class="d-flex flex-column gap-2 p-0">
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-success fw-light">
+                                                Forêt
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-success fw-light">
+                                                Savane
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-success fw-light">
+                                                Marais
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-success fw-light">
+                                                Jungle
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-success fw-light">
+                                                Aquarium
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-success fw-light">
+                                                Terrarium
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href=""
+                                                class="text-decoration-none text-success fw-light">
+                                                Vivarium
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-2 d-none d-xl-flex ps-4">
+                    <div class="d-flex flex-column py-5 w-100">
+                        <h5 class="text-white mb-4">
+                            Social
+                        </h5>
+                        <div class="d-flex flex-column">
+                            <ul class="d-flex flex-column gap-2 p-0">
+                                <li>
+                                    <a href=""
+                                        class="text-decoration-none text-secondary">
+                                        Facebook
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""
+                                        class="text-decoration-none text-secondary">
+                                        Twitter
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""
+                                        class="text-decoration-none text-secondary">
+                                        YouTube
+                                    </a>
+                                </li>
+                                <li>
+                                    <a href=""
+                                        class="text-decoration-none text-secondary">
+                                        Instagram
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row pt-top-50">
+                <div class="col-md-6 col-12">
+                    <div>
+                        <h6 class="text-secondary">
+                            <a href=""
+                                class="text-decoration-none text-secondary fw-light">
+                                Politique de Confidentialité
+                            </a>|<a href=""
+                                class="text-decoration-none text-secondary fw-light">
+                                Termes et Conditions
+                            </a>
+                        </h6>
+                    </div>
+                </div>
+                <div class="col-md-6 col-12">
+                    <h6 class="text-secondary d-flex justify-content-start justify-content-md-end fw-light">
+                        &copy; Arcadia 2024
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Footer stop -->
 </html>
