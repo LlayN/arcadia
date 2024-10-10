@@ -280,15 +280,16 @@
                                                     class="icon-20" />
                                         </div>
                                     </li>
+                                    {% if app.user %}
+                                        <a class="back-quaternary nav-item justify-content-center ps-4 ps-lg-0" href="{{ path('admin') }}" target="_blank" id="log">
+                                            <button type="button" class="d-flex align-items-center justify-content-center w-100 h-100 nav-link p-4 px-lg-4 py-lg-2 fw-semibold txt-primary">
+                                                TABLEAU DE BORD
+                                            </button>
+                                        </a> 
+                                    {% endif %}
                                 </div>
 
-                                {% if app.user %}
-                                    <a class="back-quaternary nav-item justify-content-center ps-4 ps-lg-0" href="{{ path('admin') }}" target="_blank" id="log">
-                                        <button type="button" class="d-flex align-items-center justify-content-center w-100 h-100 nav-link p-4 px-lg-4 py-lg-2 fw-semibold txt-primary">
-                                            TABLEAU DE BORD
-                                        </button>
-                                    </a> 
-                                {% endif %}
+                                
                                
                                 <a class="back-secondary nav-item justify-content-center ps-4 ps-lg-0"
                                     {% if app.user %}
