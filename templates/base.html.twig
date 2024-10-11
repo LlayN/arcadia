@@ -97,7 +97,7 @@
                                 <li class="nav-item p-4 py-lg-2">
                                     <a class="nav-link fw-semibold text-white ps-3 ps-lg-0 {% if app.request.pathInfo == '/' %}active{% endif %}"
                                         aria-current="page"
-                                        href="{# {{ path('app_home') }} #}">
+                                        href=" {{ path('app_home') }} ">
                                         ACCUEIL
                                         
                                     </a>
@@ -111,7 +111,7 @@
                                 </li>
                                 <li class="nav-item p-4 py-lg-2">
                                     <a class="nav-link fw-semibold text-white ps-3 ps-lg-0 {% if app.request.pathInfo == '/services' %}active{% endif %}"
-                                        href="{# {{ path('app_services') }} #}">
+                                        href=" {{ path('app_services') }} ">
                                         SERVICES
                                     </a>
                                 </li>
