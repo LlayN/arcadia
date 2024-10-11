@@ -1,0 +1,222 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Services
+{% endblock %}
+
+{% block body %}
+    <!-- Banner start -->
+    <section>
+        <div class="container-fluid p-0 herobanner"
+            style="height : 85svh ; min-height : 500px">
+            <img src="{{
+                asset(
+                    'uploads/dev/img/services/herobanner-services.jpg'
+                )
+                }}"
+                alt=""
+                class="img-box" />
+            <div class="container position-absolute top-50 start-50"
+                style="transform : translate(-50%, -50%)">
+                <div class="d-flex align-items-center mb-3 gap-2 text-white">
+                    <h6 class="text-uppercase m-0 txt-12 title-section">
+                        ARCADIA
+                    </h6>
+                </div>
+                <h1 class="text-uppercase fw-light m-0 text-white title-banner-page mb-3">
+                    à votre <span class="fw-bold">service</span>
+                </h1>
+                <span class="line-banner bg-success"></span>
+            </div>
+        </div>
+    </section>
+    <!-- Banner stop -->
+
+    <!-- Services about start -->
+    <section>
+        <div class="container pt-top">
+            <div class="row">
+                <div class="col-lg-5">
+                    <div class="d-flex align-items-center mb-3 gap-2">
+                        <span class="line-section bg-success"></span>
+                        <h6 class="text-uppercase m-0 txt-12 title-section">
+                            à votre service
+                        </h6>
+                    </div>
+
+                    <h1 class="text-uppercase mb-4 fw-light">
+                        <span class="fw-bold">aux petits soins</span> <br /> pour
+                        vous
+                    </h1>
+                </div>
+                <div class="col-lg-7">
+                    <p class="pe-4 fw-semibold">
+                        Lorem ipsum dolor sit amet, consectetur adipisicing
+                        elit. Impedit quas ipsum atque officiis quis nisi
+                        doloribus placeat necessitatibus odit quaerat saepe
+                        voluptate similique nostrum, fuga obcaecati deserunt
+                        error harum!
+                    </p>
+                    <p class="pe-4">
+                        Voluptates in deserunt assumenda nam magni, eligendi
+                        placeat quam nulla veritatis, alias quas! Veniam cum ab
+                        dicta id quia ratione suscipit non debitis harum vitae,
+                        eum accusamus perferendis mollitia totam esse quae amet
+                        dolores distinctio.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div class="container pt-top-50">
+            <div class="position-relative" style="height: 23rem">
+                <video muted
+                    autoplay
+                    loop
+                    playsinline
+                    style="filter: brightness(40%)"
+                    class="img-box">
+                    <source src="{{
+                        asset(
+                            'uploads/dev/video/services/video-services.webm'
+                        )
+                        }}"
+                        type="video/webm" />
+                </video>
+
+                <div class="d-flex flex-column position-absolute start-50 top-50 align-items-center gap-3"
+                    style="transform: translate(-50%, -50%)">
+                    <img src=" {{ asset('uploads/dev/svg/services/play.svg') }}"
+                        alt=""
+                        class="icon-45" />
+                    <h6 class="text-uppercase text-white txt-12">
+                        lire la vidéo en entier
+                    </h6>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services about end -->
+
+    <!-- All Services start -->
+    <section>
+        <div class="container pt-top">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div class="d-flex align-items-center mb-3 gap-2">
+                        <span class="line-section bg-success"></span>
+                        <h6 class="text-uppercase m-0 txt-12 title-section">
+                            tous nos services
+                        </h6>
+                    </div>
+
+                    <h1 class="text-uppercase mb-4 fw-light">
+                        votre plaisir,
+                        <br /> <span class="fw-bold">notre priorité.</span>
+                    </h1>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="row pt-top-50 pb-bottom">
+                    {% for service in services %}
+                        <div class="col-sm-6 col-lg-3 px-2 mb-4">
+                            <div class="position-relative p-3 bg-body-tertiary">
+                                {% if service.isFree %}
+                                    <span class="position-absolute end-0 badge bg-success text-uppercase"
+                                        style="top: -10px">
+                                        gratuit
+                                    </span>
+                                {% endif %}
+                                <img src=" uploads/admin/services/{{
+                                    service.icon
+                                    }}"
+                                    alt=""
+                                    class="icon-45 mb-4" />
+                                <h6 class="fw-semibold mb-4 title-service">
+                                    {{ service.title }}
+                                </h6>
+                                <p>
+                                    {{ service.description }}
+                                </p>
+                            </div>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- All Services end -->
+
+    <!-- Paiement Options start -->
+    <section>
+        <div class="container-fluid bg-body-tertiary pt-top-50 pb-bottom-50">
+            <div class="container d-flex justify-content-center">
+                <div class="row">
+                    <div>
+                        <div class="d-flex flex-column align-items-center justify-content-center mb-3 gap-2">
+                            <h6 class="text-uppercase m-0 txt-12 title-section">
+                                paiements
+                            </h6>
+                            <span class="little-line-article bg-success"></span>
+                            <h1 class="text-uppercase mb-4 fw-light text-center">
+                                <span class="fw-bold">paiement</span> dans le parc
+                            </h1>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 d-flex mb-4">
+                        <div class="d-flex flex-column align-items-center justify-content-center w-100 back-third gap-3 p-4">
+                            <img src="{{
+                                asset(
+                                    'uploads/dev/svg/services/credit-card.svg'
+                                )
+                                }}"
+                                alt=""
+                                class="icon-45" />
+
+                            <h6>
+                                Cartes Bancaires
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex mb-4">
+                        <div class="d-flex flex-column align-items-center justify-content-center w-100 back-quaternary gap-3 p-4">
+                            <img src="{{
+                                asset(
+                                    'uploads/dev/svg/services/money.svg'
+                                )
+                                }}"
+                                alt=""
+                                class="icon-45" />
+                            <h6>
+                                Espèces
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex mb-4">
+                        <div class="d-flex flex-column align-items-center justify-content-center w-100 back-primary gap-3 p-4 text-white">
+                            <img src="{{
+                                asset(
+                                    'uploads/dev/svg/services/check.svg'
+                                )
+                                }}"
+                                alt=""
+                                class="icon-45" />
+                            <h6>
+                                Chèques
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="d-flex fst-italic justify-content-center">
+                        <h6 class="txt-12">
+                            *Des guichets de retrait sont disponibles dans le
+                            parc.
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Paiement Options end -->
+{% endblock %}
