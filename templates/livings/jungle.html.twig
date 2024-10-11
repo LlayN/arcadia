@@ -1,0 +1,737 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Jungle
+{% endblock %}
+
+{% block body %}
+    <!-- Banner start -->
+    <section>
+        <div class="container-fluid px-0 herobanner"
+            style="height : 55dvh ; min-height : 500px">
+            <img src="{{ asset('assets/uploads/livings/jungle/jungle.png') }}"
+                alt=""
+                class="img-box brightness-80" />
+            <div class="container position-absolute top-50 start-50"
+                style="transform : translate(-50%, -50%)">
+                <div class="d-flex align-items-center mb-3 gap-2 text-white">
+                    <h6 class="text-uppercase m-0 little-title-article">
+                        habitat
+                    </h6>
+                </div>
+                <h1 class="text-uppercase fw-light mb-3 text-white title-banner-page">
+                    le livre de la <span class="fw-bold">jungle</span>
+                </h1>
+                <span class="line-banner-page bg-warning"></span>
+            </div>
+        </div>
+    </section>
+    <!-- Banner end -->
+
+    <!-- Jungle start -->
+
+    <section>
+        <div class="container">
+            <div class="row pt-top">
+                <main class="col-lg-9 pe-lg-5">
+                    <div class="container d-flex flex-column mb-4">
+                        <div class="d-flex mb-3 gap-2 align-items-center">
+                            <span class="little-line-article bg-warning"></span>
+                            <h6 class="text-uppercase m-0 little-title-article">
+                                détails
+                            </h6>
+                        </div>
+
+                        <h1 class="text-uppercase fw-light mb-4">
+                            aperçu de notre <span class="fw-bold">jungle</span>
+                        </h1>
+
+                        <p class="mb-0">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Distinctio odit debitis inventore, deleniti
+                            iste laudantium veniam fuga quis commodi quam ipsa
+                            facilis adipisci minima accusantium beatae qui id
+                            doloremque ab repudiandae ducimus provident
+                            repellat. Ipsa nulla numquam doloremque, explicabo
+                            libero magni repellat asperiores rem, ea maxime
+                            impedit voluptas a nobis.
+                        </p>
+                    </div>
+
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-4 p-2">
+                                <div class="bg-warning p-4 d-flex flex-column align-items-center">
+                                    <img src=" /assets/uploads/livings/savane/icon/animals.svg"
+                                        alt=""
+                                        class="icon mb-3" />
+                                    <h6>
+                                        Animaux
+                                    </h6>
+                                    <h4 class="fw-bold m-0">
+                                        48
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4 p-2">
+                                <div class="bg-warning p-4 d-flex flex-column align-items-center">
+                                    <img src=" /assets/uploads/livings/savane/icon/dna.svg"
+                                        alt=""
+                                        class="icon mb-3" />
+                                    <h6>
+                                        Espèces
+                                    </h6>
+                                    <h4 class="fw-bold m-0">
+                                        5
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4 p-2">
+                                <div class="bg-warning p-4 d-flex flex-column align-items-center">
+                                    <img src=" /assets/uploads/livings/savane/icon/superficie.svg"
+                                        alt=""
+                                        class="icon mb-3" />
+                                    <h6>
+                                        Superficie
+                                    </h6>
+                                    <h4 class="fw-bold m-0">
+                                        9.000m²
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <section>
+                        <div class="container d-flex flex-column mb-4 pt-top">
+                            <div class="d-flex mb-3 gap-2 align-items-center">
+                                <span class="little-line-article bg-warning">
+
+                                </span>
+                                <h6 class="text-uppercase m-0 little-title-article">
+                                    jungle
+                                </h6>
+                            </div>
+
+                            <h1 class="text-uppercase fw-light">
+                                nos <span class="fw-bold">protégés</span>
+                            </h1>
+                        </div>
+
+                        <div class="container">
+                            <div class="row">
+                                {% for animal in animals %}
+                                    <div class="col-lg-6 mb-4"
+                                        style="height: 28.125rem">
+                                        <div class="h-100 position-relative">
+                                            <img src="{{
+                                                asset(
+                                                    'uploads_backoff/animals/'
+                                                        ~ animal.img
+                                                )
+                                                }}"
+                                                alt=""
+                                                class="img-box brightness-65 position-absolute" />
+                                            <div class="d-flex flex-column position-relative z-2 h-100 p-4 justify-content-end">
+                                                <h6 class="text-uppercase m-0 little-title-article text-warning">
+                                                    {{ animal.race.name }}
+                                                </h6>
+
+                                                <div class="d-flex justify-content-between align-items-center">
+                                                    <h2 class="fw-bold text-white m-0 text-uppercase">
+                                                        {{ animal.name }}
+                                                    </h2>
+                                                    <a class="btn p-0 statsView"
+                                                        data-bs-toggle="offcanvas"
+                                                        href="#{{ animal.id }}"
+                                                        role="button"
+                                                        aria-controls="offcanvasExample"
+                                                        onclick="statsView({{
+                                                        animal.id
+                                                        }})">
+                                                        <form action=""
+                                                            method="get">
+                                                            <button type="submit"
+                                                                class="btn z-3 text-white fw-bold p-0 detailAnimal"
+                                                                data-bs-toggle="tooltip"
+                                                                data-bs-placement="top"
+                                                                data-bs-title="Détail de l'animal">
+                                                                <img src="{{
+                                                                    asset(
+                                                                        'assets/icons/more-jungle.svg'
+                                                                    )
+                                                                    }}"
+                                                                    alt=""
+                                                                    class="icon-more" />
+                                                            </button>
+                                                        </form>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Offcanvas start -->
+
+                                    <div class="offcanvas offcanvas-start"
+                                        tabindex="1"
+                                        id="{{ animal.id }}"
+                                        aria-labelledby="offcanvasExampleLabel">
+                                        <div class="offcanvas-header">
+                                            <button type="button"
+                                                class="btn-close"
+                                                data-bs-dismiss="offcanvas"
+                                                aria-label="Close">
+
+                                            </button>
+                                        </div>
+
+                                        <div class="offcanvas-body">
+                                            <ul class="d-flex flex-column gap-4">
+                                                <li>
+                                                    <div class="d-flex align-items-center gap-2">
+                                                        <h5 class="fw-semibold m-0 text-uppercase">
+                                                            {{ animal.name }}
+                                                        </h5>
+                                                    </div>
+                                                </li>
+                                                <span class="little-line-article bg-warning mt-2">
+
+                                                </span>
+                                                <li>
+                                                    <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
+                                                        <h6 class="fw-semibold m-0">
+                                                            Race :
+                                                        </h6>
+                                                        <p class="m-0 txt-1">
+                                                            {{ animal.race }}
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
+                                                        <h6 class="fw-semibold m-0">
+                                                            Régime Alimentaire :
+                                                        </h6>
+                                                        <p class="m-0 txt-1">
+                                                            {% if
+                                                                animal.veterinaryReport is not null %}
+                                                                {{
+                                                                    animal.veterinaryReport.food
+                                                                }}
+                                                            {% else %}
+                                                                <p class="m-0 txt-1">
+                                                                    Aucune
+                                                                    donnée.
+                                                                </p>
+                                                            {% endif %}
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
+                                                        <h6 class="fw-semibold m-0">
+                                                            Quantité Distribuée
+                                                            :
+                                                        </h6>
+                                                        <p class="m-0 txt-1">
+                                                            {% if
+                                                                animal.veterinaryReport is not null %}
+                                                                {{
+                                                                    animal.veterinaryReport.quantity
+                                                                }}
+
+                                                                kg/j
+                                                            {% else %}
+                                                                <p class="m-0 txt-1">
+                                                                    Aucune
+                                                                    donnée.
+                                                                </p>
+                                                            {% endif %}
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
+                                                        <h6 class="fw-semibold m-0">
+                                                            État de Santé :
+                                                        </h6>
+                                                        <p class="m-0 txt-1">
+                                                            {% if
+                                                                animal.veterinaryReport is not null %}
+                                                                {{
+                                                                    animal.veterinaryReport.state
+                                                                }}
+                                                            {% else %}
+                                                                <p class="m-0 txt-1">
+                                                                    Aucune
+                                                                    donnée.
+                                                                </p>
+                                                            {% endif %}
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
+                                                        <h6 class="fw-semibold m-0">
+                                                            Date de Passage :
+                                                        </h6>
+                                                        <p class="m-0 txt-1">
+                                                            {% if
+                                                                animal.veterinaryReport is not null %}
+                                                                {{
+                                                                    animal.veterinaryReport.date|date(
+                                                                        'd/m/Y'
+                                                                    )
+                                                                }}
+                                                            {% else %}
+                                                                <p class="m-0 txt-1">
+                                                                    Aucune
+                                                                    donnée.
+                                                                </p>
+                                                            {% endif %}
+                                                        </p>
+                                                    </div>
+                                                </li>
+                                                <span class="little-line-article bg-warning mt-2">
+
+                                                </span>
+                                                <li>
+                                                    <div class="reportVeterinary d-flex flex-column gap-2">
+                                                        <h6 class="fw-semibold m-0">
+                                                            Rapport Vétérinaire
+                                                            :
+                                                        </h6>
+                                                        {% if
+                                                            animal.veterinaryReport is not null %}
+                                                            {{
+                                                                animal.veterinaryReport.detail|raw
+                                                            }}
+                                                        {% else %}
+                                                            <p class="m-0 txt-1">
+                                                                Aucune donnée.
+                                                            </p>
+                                                        {% endif %}
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                {% endfor %}
+                            </div>
+                        </div>
+                    </section>
+                </main>
+                <aside class="col-lg-3 mt-lg-0 mt-4">
+                    <div class="d-flex flex-column gap-3">
+                        <h6 class="text-uppercase fw-light fw-bold mb-2">
+                            espèces
+                            <span class="little-line-article bg-warning mt-2">
+
+                            </span>
+                        </h6>
+
+                        <ul class="d-flex flex-column gap-3">
+                            <li class="d-flex justify-content-between">
+                                <h6 class="fw-light">
+                                    Tigres
+                                </h6>
+                                <h5 class="fw-bold">
+                                    5
+                                </h5>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <h6 class="fw-light">
+                                    Jaguars
+                                </h6>
+                                <h5 class="fw-bold">
+                                    4
+                                </h5>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <h6 class="fw-light">
+                                    Singes hurleurs
+                                </h6>
+                                <h5 class="fw-bold">
+                                    15
+                                </h5>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <h6 class="fw-light">
+                                    Toucans
+                                </h6>
+                                <h5 class="fw-bold">
+                                    12
+                                </h5>
+                            </li>
+                            <li class="d-flex justify-content-between">
+                                <h6 class="fw-light">
+                                    Anacondas
+                                </h6>
+                                <h5 class="fw-semibold">
+                                    12
+                                </h5>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="d-flex flex-column gap-3">
+                        <h6 class="text-uppercase fw-light fw-bold mb-2 pt-top-50">
+                            origines<span class="little-line-article bg-warning mt-2"></span>
+                        </h6>
+                        <div class="container">
+                            <div class="row d-flex">
+                                <div class="col-lg-12 col-md-6 col-12 d-flex px-lg-0 p-2">
+                                    <div class="position-relative w-100 p-4">
+                                        <img src="{{
+                                            asset(
+                                                'assets/uploads/livings/jungle/inde.jpg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="img-box position-absolute top-0 start-0 z-2 brightness-50" />
+                                        <h6 class="fw-semibold text-white position-relative z-3 m-0">
+                                            Inde
+                                        </h6>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-6 col-12 d-flex px-lg-0 p-2">
+                                    <div class="position-relative w-100 p-4">
+                                        <img src="{{
+                                            asset(
+                                                'assets/uploads/livings/jungle/bresil.jpg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="img-box position-absolute top-0 start-0 z-2 brightness-50" />
+                                        <h6 class="fw-semibold text-white position-relative z-3 m-0">
+                                            Brésil
+                                        </h6>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-6 col-12 d-flex px-lg-0 p-2">
+                                    <div class="position-relative w-100 p-4">
+                                        <img src="{{
+                                            asset(
+                                                'assets/uploads/livings/jungle/indonésie.jpg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="img-box position-absolute top-0 start-0 z-2 brightness-50" />
+                                        <h6 class="fw-semibold text-white position-relative z-3 m-0">
+                                            Indonésie
+                                        </h6>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-12 col-md-6 col-12 d-flex px-lg-0 p-2">
+                                    <div class="position-relative w-100 p-4">
+                                        <img src="{{
+                                            asset(
+                                                'assets/uploads/livings/jungle/colombie.jpg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="img-box position-absolute top-0 start-0 z-2 brightness-50" />
+                                        <h6 class="fw-semibold text-white position-relative z-3 m-0">
+                                            Colombie
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column gap-3">
+                        <h6 class="text-uppercase fw-light fw-bold mb-2 pt-top-50">
+                            MAP Intéractive
+                            <span class="little-line-article bg-warning mt-2">
+
+                            </span>
+                        </h6>
+                        <div class="bg-warning position-relative">
+                            <img src="{{
+                                asset(
+                                    'assets/uploads/textures/jungle-texture-2.png'
+                                )
+                                }}"
+                                alt=""
+                                class="position-absolute top-0 start-0 img-box" />
+                            <div class="position-relative z-3 px-5 px-lg-0 d-flex">
+                                <div class="d-flex align-items-center">
+                                    <svg width="64px"
+                                        viewBox="0 0 24 24"
+                                        fill="none"
+                                        class="icon-50 d-none d-sm-block d-lg-none"
+                                        xmlns="http://www.w3.org/2000/svg">
+                                        <path d="M12 18H12.01M11 6H13M9.2 21H14.8C15.9201 21 16.4802 21 16.908 20.782C17.2843 20.5903 17.5903 20.2843 17.782 19.908C18 19.4802 18 18.9201 18 17.8V6.2C18 5.0799 18 4.51984 17.782 4.09202C17.5903 3.71569 17.2843 3.40973 16.908 3.21799C16.4802 3 15.9201 3 14.8 3H9.2C8.0799 3 7.51984 3 7.09202 3.21799C6.71569 3.40973 6.40973 3.71569 6.21799 4.09202C6 4.51984 6 5.07989 6 6.2V17.8C6 18.9201 6 19.4802 6.21799 19.908C6.40973 20.2843 6.71569 20.5903 7.09202 20.782C7.51984 21 8.07989 21 9.2 21Z"
+                                            stroke="#ffffff"
+                                            stroke-width="1.224"
+                                            stroke-linecap="round"
+                                            stroke-linejoin="round" />
+                                    </svg>
+                                </div>
+
+                                <div class="py-4 py-lg-5 px-sm-5 px-lg-4">
+                                    <h5 class="fw-semibold mb-3 text-white title-app-living">
+                                        Application Mobile en Développement !
+                                    </h5>
+                                    <p class="fst-italic text-white-50 m-0 text-app-living">
+                                        Lorem ipsum dolor sit amet consectetur
+                                        adipisicing elit. A quas esse
+                                        consectetur nihil sapiente distinctio
+                                        nulla qui culpa est quo perferendis
+                                        quos.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-column gap-3">
+                        <h6 class="text-uppercase fw-light fw-bold mb-2 pt-top-50">
+                            Donation
+                            <span class="little-line-article bg-warning mt-2">
+
+                            </span>
+                        </h6>
+
+                        <form>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input"
+                                    type="radio"
+                                    name="flexRadioDefault"
+                                    id="flexRadioDefault1" />
+                                <label class="form-check-label"
+                                    for="flexRadioDefault1">
+                                    5€
+                                </label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input"
+                                    type="radio"
+                                    name="flexRadioDefault"
+                                    id="flexRadioDefault2"
+                                    checked />
+                                <label class="form-check-label"
+                                    for="flexRadioDefault2">
+                                    10€
+                                </label>
+                            </div>
+                            <div class="form-check mb-3">
+                                <input class="form-check-input"
+                                    type="radio"
+                                    name="flexRadioDefault"
+                                    id="flexRadioDefault3" />
+                                <label class="form-check-label"
+                                    for="flexRadioDefault3">
+                                    20€
+                                </label>
+                            </div>
+                            <div class="mb-3">
+                                <label for="exampleInputEmail1"
+                                    class="form-label text-black-50 fst-italic fw-light">
+                                    Personnalisé
+                                </label>
+                                <input type="email"
+                                    class="form-control"
+                                    id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" />
+                            </div>
+
+                            <button type="bouton"
+                                class="btn btn-warning w-100 fw-light">
+                                Faire un don
+                            </button>
+                        </form>
+
+                        <div class="d-flex justify-content-lg-around gap-lg-0 gap-3">
+                            <img src=" {{
+                                asset(
+                                    'assets/icons/apple-pay.svg'
+                                )
+                                }}  "
+                                alt=""
+                                class="icon-payment" />
+                            <img src=" {{
+                                asset(
+                                    'assets/icons/mastercard.svg'
+                                )
+                                }} "
+                                alt=""
+                                class="icon-payment" />
+                            <img src=" {{ asset('assets/icons/visa.svg') }}"
+                                alt=""
+                                class="icon-payment" />
+                            <img src=" {{ asset('assets/icons/paypal.svg') }}"
+                                alt=""
+                                class="icon-payment" />
+                        </div>
+                    </div>
+                </aside>
+            </div>
+        </div>
+    </section>
+
+    <!-- Savane end -->
+
+    <!-- Tickets start -->
+
+    <section>
+        <div class="container d-flex flex-column mb-4 pt-top pb-bottom">
+            <div class="d-flex mb-3 gap-2 align-items-center">
+                <span class="little-line-article bg-warning"></span>
+                <h6 class="text-uppercase m-0 little-title-article">
+                    billeterie
+                </h6>
+            </div>
+
+            <h1 class="text-uppercase fw-light mb-4">
+                réserver votre <span class="fw-bold">ticket</span>
+            </h1>
+
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4 p-2">
+                        <div class="bg-body-tertiary p-4 d-flex flex-column align-items-center h-100 justify-content-between">
+                            <img src=" /assets/icons/adult.svg"
+                                alt=""
+                                class="icon-ticket mb-4" />
+                            <h6 class="fw-light mb-3">
+                                Adulte (+18 ans)
+                            </h6>
+                            <div class="d-flex gap-1">
+                                <h6 class="fw-bold">
+                                    €
+                                </h6>
+                                <h3 class="fw-bold m-0 text-warning mb-4">
+                                    18
+                                </h3>
+                            </div>
+                            <div class="border-top w-100 p-4 m-0">
+                                <button type="button"
+                                    class="btn border border-warning fw-bold p-2 w-100">
+                                    Acheter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <div class="bg-body-tertiary p-4 d-flex flex-column align-items-center h-100 justify-content-between">
+                            <img src=" /assets/icons/adolescent.svg"
+                                alt=""
+                                class="icon-ticket mb-4" />
+
+                            <h6 class="fw-light mb-3">
+                                Enfants (4-18 ans)
+                            </h6>
+                            <div class="d-flex gap-1">
+                                <h6 class="fw-bold">
+                                    €
+                                </h6>
+                                <h3 class="fw-bold m-0 text-warning mb-4">
+                                    12
+                                </h3>
+                            </div>
+                            <div class="border-top w-100 p-4 m-0">
+                                <button type="button"
+                                    class="btn border border-warning fw-bold p-2 w-100">
+                                    Acheter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4 p-2">
+                        <div class="bg-body-tertiary p-4 d-flex flex-column align-items-center h-100 justify-content-between">
+                            <img src=" /assets/icons/baby.svg"
+                                alt=""
+                                class="icon-ticket mb-4" />
+                            <h6 class="fw-light mb-3">
+                                Bébé (-4 ans)
+                            </h6>
+                            <div class="d-flex gap-1">
+                                <h5 class="fw-bold m-0 text-warning mb-4">
+                                    GRATUIT
+                                </h5>
+                            </div>
+                            <div class="border-top w-100 p-4 m-0">
+                                <button type="button"
+                                    class="btn border border-warning fw-bold p-2 w-100">
+                                    Acheter
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Tickets stop -->
+
+    <!-- Paiement Options start -->
+    <section>
+        <div class="container-fluid bg-body-tertiary pt-top-50 pb-bottom-50">
+            <div class="container d-flex justify-content-center">
+                <div class="row">
+                    <div>
+                        <div class="d-flex flex-column align-items-center justify-content-center mb-3 gap-2">
+                            <h6 class="text-uppercase m-0 little-title-article">
+                                paiements
+                            </h6>
+                            <span class="little-line-article bg-warning"></span>
+                            <h1 class="text-uppercase mb-4 fw-light text-center">
+                                <span class="fw-bold">paiement</span> dans le parc
+                            </h1>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 d-flex mb-4">
+                        <div class="d-flex flex-column align-items-center justify-content-center w-100 bg-warning gap-3 p-4">
+                            <img src="{{
+                                asset(
+                                    'assets/icons/credit-card.svg'
+                                )
+                                }}"
+                                alt=""
+                                class="icon" />
+
+                            <h6>
+                                Cartes Bancaires
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex mb-4">
+                        <div class="d-flex flex-column align-items-center justify-content-center w-100 bg-white gap-3 p-4">
+                            <img src="{{ asset('assets/icons/euro.svg') }}"
+                                alt=""
+                                class="icon" />
+                            <h6>
+                                Espèces
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="col-md-4 d-flex mb-4">
+                        <div class="d-flex flex-column align-items-center justify-content-center w-100 bg-dark gap-3 p-4 text-white">
+                            <img src="{{
+                                asset(
+                                    'assets/icons/money-check.svg'
+                                )
+                                }}"
+                                alt=""
+                                class="icon" />
+                            <h6>
+                                Chèques
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="d-flex fst-italic justify-content-center">
+                        <h6 style="font-size : 0.75rem">
+                            *Des guichets de retrait sont disponibles dans le
+                            parc.
+                        </h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Paiement Options stop -->
+
+    <!-- Offcanvas stop -->
+{% endblock %}
