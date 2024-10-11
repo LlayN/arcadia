@@ -102,6 +102,13 @@ a:hover {
     height: 0.094rem;
 }
 
+.line-banner {
+    display: block;
+    min-width: 35px;
+    width: 5.5rem;
+    height: 0.13rem;
+}
+
 .title-section {
     letter-spacing: 1.5px;
     font-weight: 700;
