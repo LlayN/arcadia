@@ -113,6 +113,21 @@ a:hover {
     letter-spacing: 1.5px;
     font-weight: 700;
 }
+.herobanner {
+    position: relative;
+    top: 0;
+    max-width: 2560px;
+}
+
+.hero-home {
+    height: 100vh;
+    min-height: 600px;
+}
+
+.hero-pages {
+    height: 85svh;
+    min-height: 31.25rem;
+}
 
 /*! Général end */
 
@@ -267,6 +282,14 @@ a:hover {
 
 /*! Letter Spacing end */
 
+/** Transform start **/
+
+.transform-50 {
+    transform: translate(-50%, -50%);
+}
+
+/*! Transform end */
+
 /*? BASE.HTML.TWIG start */
 
 /** Général start */
@@ -324,15 +347,6 @@ a:hover {
 /*? INDEX.HTML.TWIG start */
 
 /** Herobanner start  */
-
-.herobanner {
-    position: relative;
-    top: 0;
-    height: 40vh;
-    min-height: 600px;
-    height: 100svh;
-    max-width: 2560px;
-}
 
 .hero-title-box {
     top: 50%;

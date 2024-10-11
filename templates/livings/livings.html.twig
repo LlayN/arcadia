@@ -1,0 +1,839 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Habitats
+{% endblock %}
+
+{% block body %}
+    <!-- Banner start -->
+    <section>
+        <div class="container-fluid px-0 herobanner hero-pages">
+            <img src="{{ asset('uploads/dev/img/livings/livings.jpg') }}"
+                alt=""
+                class="img-box brightness-80" />
+            <div class="container position-absolute top-50 start-50 transform-50">
+                <div class="d-flex align-items-center mb-3 gap-2 text-white">
+                    <h6 class="text-uppercase m-0 txt-12 title-section">
+                        ARCADIA
+                    </h6>
+                </div>
+                <h1 class="text-uppercase fw-light m-0 text-white title-banner-page mb-3">
+                    voyagez au coeur <span class="fw-bold">des&nbsp;habitats</span>
+                </h1>
+                <span class="line-banner bg-success"></span>
+            </div>
+        </div>
+    </section>
+    <!-- Banner end -->
+
+    <!-- About Habitats start -->
+    <section>
+        <div class="container pt-top">
+            <div class="row position-relative">
+                <img src="{{
+                    asset(
+                        'uploads/dev/img/livings/girafe-texture.png'
+                    )
+                    }}"
+                    alt=""
+                    class="position-absolute top-0 start-0 img-box" />
+                <div class="position-relative d-flex flex-wrap">
+                    <div class="col-lg-5 col-12 p-lg-5 p-4 pb-0">
+                        <div class="d-flex align-items-center mb-3 gap-2">
+                            <h6 class="text-uppercase m-0 txt-12 title-section">
+                                règlement
+                            </h6>
+                        </div>
+
+                        <h1 class="text-uppercase fw-light">
+                            respectez leurs <span class="fw-bold">environnement</span>
+                        </h1>
+                    </div>
+                    <div class="col-lg-7 d-flex align-items-center p-4">
+                        <p class="fw-light mb-3 pe-4 fst-italic">
+                            * Lorem ipsum, dolor sit amet consectetur
+                            adipisicing elit. Sunt nisi officiis beatae error
+                            nostrum ad, possimus ratione velit nobis saepe
+                            laudantium quo eligendi tempora quia veritatis in.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div id="carouselRules"
+                class="carousel slide"
+                data-bs-ride="carousel">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="container pt-top-50 px-0">
+                            <h6 class="text-uppercase fw-light mb-3">
+                                <span class="fw-semibold">Interdit</span> dans notre
+                                parc
+                            </h6>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-4 px-2 mb-4">
+                                    <div class="position-relative p-3 py-4 bg-dark d-flex flex-column align-items-center justify-content-center gap-3">
+                                        <img src=" {{
+                                            asset(
+                                                'uploads/dev/svg/livings/no-smoking.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-45" />
+                                        <h6 class="fw-semibold title-service text-white">
+                                            Fumer ou Vapoter
+                                        </h6>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 px-2 mb-4">
+                                    <div class="position-relative p-3 py-4 bg-dark d-flex flex-column align-items-center justify-content-center gap-3">
+                                        <img src=" {{
+                                            asset(
+                                                'uploads/dev/svg/livings/forbidden-burguer.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-45" />
+                                        <h6 class="fw-semibold title-service text-white">
+                                            Dêchet Alimentaire
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 px-2 mb-4">
+                                    <div class="position-relative p-3 py-4 bg-dark d-flex flex-column align-items-center justify-content-center gap-3">
+                                        <img src=" {{
+                                            asset(
+                                                'uploads/dev/svg/livings/no-shouting.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-45" />
+                                        <h6 class="fw-semibold title-service text-white">
+                                            Bruit Excessif
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="container pt-top-50">
+                            <h6 class="text-uppercase fw-light mb-3">
+                                <span class="fw-semibold">Autorisé</span> dans notre
+                                parc
+                            </h6>
+                            <div class="row justify-content-center">
+                                <div class="col-lg-4 px-2 mb-4">
+                                    <div class="position-relative p-3 py-4 bg-body-tertiary d-flex flex-column align-items-center gap-3">
+                                        <img src=" {{
+                                            asset(
+                                                'uploads/dev/svg/livings/apple.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-45" />
+                                        <h6 class="fw-semibold title-service">
+                                            Nourritures à Dispositions
+                                        </h6>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-4 px-2 mb-4">
+                                    <div class="position-relative p-3 bg-body-tertiary d-flex flex-column align-items-center gap-3 py-4">
+                                        <img src=" {{
+                                            asset(
+                                                'uploads/dev/svg/livings/camera-2.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-45" />
+                                        <h6 class="fw-semibold title-service">
+                                            Photos & Vidéos
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 px-2 mb-4">
+                                    <div class="position-relative p-3 bg-body-tertiary d-flex flex-column align-items-center gap-3 py-4">
+                                        <img src=" {{
+                                            asset(
+                                                'uploads/dev/svg/livings/family-avatars.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-45" />
+                                        <h6 class="fw-semibold title-service">
+                                            Zones de Pique-Nique
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-indicators carousel-indicators-herobanner m-0 justify-content-center d-flex gap-3 mt-4">
+                        <button type="button"
+                            data-bs-target="#carouselRules"
+                            data-bs-slide-to="0"
+                            class="active btn-carousel-herobanner"
+                            aria-current="true"
+                            aria-label="Slide 1">
+
+                        </button>
+                        <button type="button"
+                            data-bs-target="#carouselRules"
+                            data-bs-slide-to="1"
+                            aria-label="Slide 2"
+                            class="btn-carousel-herobanner">
+
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- About Habitats stop -->
+
+    <!-- Savane start -->
+
+    <section class="position-relative pb-bottom-50 overflow-hidden">
+        <img src=" {{ asset('uploads/dev/img/livings/savane/savane-texture.png') }}"
+            alt=""
+            class="img-box position-absolute top-0 start-0"
+            style="object-position : bottom;" />
+        <img src=" {{ asset('uploads/dev/svg/livings/tribal-1.svg') }}"
+            alt=""
+            class="d-none d-lg-block position-absolute"
+            style="top: 0;right : -5%" />
+        <img src=" {{ asset('uploads/dev/svg/livings/tribal-2.svg') }}"
+            alt=""
+            class="d-none d-xxl-block position-absolute"
+            style="bottom: 30% ;left : -280px" />
+        <div class="container-fluid position-relative pb-bottom-50">
+            <div class="container pt-top position-relative z-2">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center mb-3 gap-2">
+                            <span class="line-banner bg-warning-subtle">
+
+                            </span>
+                            <h6 class="text-uppercase m-0 txt-12 title-section">
+                                habitat
+                            </h6>
+                        </div>
+
+                        <h1 class="text-uppercase fw-light mb-5">
+                            bienvenue dans la <span class="fw-bold">savane</span>
+                        </h1>
+                    </div>
+                    <div class="col-lg-4 d-flex flex-column">
+                        <p class="mb-4 pe-4">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Voluptatum eligendi corporis expedita iusto,
+                            eos voluptatem?
+                        </p>
+                        <a href="{{
+                            path(
+                                'app_living_slug',
+                                {
+                                    slug: 'savane'
+                                }
+                            )
+                            }}"
+                            class="d-none d-lg-flex text-decoration-none">
+                            <button type="button"
+                                class="btn btn-transparent px-5 py-2 border-1 border-warning-subtle text-dark">
+                                Découvrir
+                            </button>
+                            
+                        </a>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-md-4 p-2">
+                                <div class="d-flex flex-column bg-warning-subtle align-items-center p-4">
+                                    <img src=" {{
+                                        asset(
+                                            'uploads/dev/svg/livings/elephant.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-45 mb-3" />
+                                    <h6 class="mb-2">
+                                        Éléphants
+                                    </h6>
+                                    <h4 class="fw-bold mb-0">
+                                        24
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4 p-2">
+                                <div class="d-flex bg-warning-subtle p-4 flex-column align-items-center">
+                                    <img src=" {{
+                                        asset(
+                                            'uploads/dev/svg/livings/giraffe.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-45 mb-3" />
+                                    <h6 class="mb-2">
+                                        Girafes
+                                    </h6>
+                                    <h4 class="fw-bold mb-0">
+                                        19
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4 p-2">
+                                <div class="d-flex flex-column bg-warning-subtle align-items-center p-4">
+                                    <img src=" {{
+                                        asset(
+                                            'uploads/dev/svg/livings/lion.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-45 mb-3" />
+                                    <h6 class="mb-2">
+                                        Lions
+                                    </h6>
+                                    <h4 class="fw-bold mb-0">
+                                        32
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg container-fluid px-0" style="height : 300px">
+            <img src="{{
+                asset(
+                    'uploads/dev/img/livings/savane/savane-paysage.jpg'
+                )
+                }}"
+                alt=""
+                class="img-box position-relative" />
+        </div>
+    </section>
+
+    <section>
+        <div class="container d-flex flex-column align-items-center mb-4 pt-top-50">
+            <div class="d-flex align-items-center mb-3 gap-2">
+                <span class="line-banner bg-warning-subtle"></span>
+                <h6 class="text-uppercase m-0 txt-12 title-section">
+                    SAVANE
+                </h6>
+                <span class="line-banner bg-warning-subtle"></span>
+            </div>
+
+            <h1 class="text-uppercase fw-light text-center">
+                nos géants <span class="fw-bold">du soleil brûlant</span>
+            </h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4" style="height: 28.125rem">
+                    <div class="h-100 position-relative">
+                        <img src="{{
+                            asset(
+                                'uploads/dev/img/livings/savane/elephant.jpg'
+                            )
+                            }}"
+                            alt=""
+                            class="img-box brightness-80 position-absolute" />
+                        <div class="d-flex flex-column position-relative z-2 h-100 p-4 justify-content-end">
+                            <h6 class="text-uppercase m-0 little-title-article text-warning">
+                                éléphant
+                            </h6>
+                            <h2 class="fw-bold text-white">
+                                MOYO
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" style="height: 28.125rem">
+                    <div class="h-100 position-relative">
+                        <img src="{{
+                            asset(
+                                'uploads/dev/img/livings/savane/girafe.jpg'
+                            )
+                            }}"
+                            alt=""
+                            class="img-box brightness-80 position-absolute" />
+                        <div class="d-flex flex-column position-relative z-2 h-100 p-4 justify-content-end">
+                            <h6 class="text-uppercase m-0 little-title-article text-warning">
+                                girafe
+                            </h6>
+                            <h2 class="fw-bold text-white">
+                                TWIGA
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" style="height: 28.125rem">
+                    <div class="h-100 position-relative">
+                        <img src="{{
+                            asset(
+                                'uploads/dev/img/livings/savane/lion.jpg'
+                            )
+                            }}"
+                            alt=""
+                            class="img-box brightness-80 position-absolute" />
+                        <div class="d-flex flex-column position-relative z-2 h-100 p-4 justify-content-end">
+                            <h6 class="text-uppercase m-0 little-title-article text-warning">
+                                lion
+                            </h6>
+                            <h2 class="fw-bold text-white">
+                                ASLAN
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href="{{
+                    path(
+                        'app_living_slug',
+                        {
+                            slug: 'savane'
+                        }
+                    )
+                    }}"
+                    class="d-flex justify-content-lg start justify-content-center text-decoration-none">
+                    <button type="button"
+                        class="btn btn-transparent px-5 py-2 border-1 border-warning-subtle mb-4 text-dark">
+                        Voir Plus &rarr;
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Savane end -->
+
+    <!-- Jungle start -->
+    <section class="position-relative pb-bottom-50 overflow-hidden">
+        <img src=" {{ asset('uploads/dev/img/livings/jungle-texture.png') }}"
+            alt=""
+            class="img-box position-absolute top-0 start-0"
+            style="object-position : bottom;" />
+        <img src=" {{ asset('uploads/dev/svg/livings/leaf.svg') }}"
+            alt=""
+            class="d-none d-lg-block position-absolute"
+            style="top: 0;right : -150px" />
+        <img src=" {{ asset('uploads/dev/svg/livings/flower.svg') }}"
+            alt=""
+            class="d-none d-xxl-block position-absolute"
+            style="bottom: 30% ;left : -200px" />
+        <div class="container-fluid position-relative pb-bottom-50">
+            <div class="container pt-top position-relative z-2">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center mb-3 gap-2">
+                            <span class="line-banner bg-warning"></span>
+                            <h6 class="text-uppercase m-0 txt-12 title-section text-white">
+                                habitat
+                            </h6>
+                        </div>
+
+                        <h1 class="text-uppercase fw-light mb-5 text-white">
+                            le livre de la <span class="fw-bold">jungle</span>
+                        </h1>
+                    </div>
+                    <div class="col-lg-4 d-flex flex-column">
+                        <p class="mb-4 pe-4 text-white">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Voluptatum eligendi corporis expedita iusto,
+                            eos voluptatem?
+                        </p>
+                        <a href="{{
+                            path(
+                                'app_living_slug',
+                                {
+                                    slug: 'jungle'
+                                }
+                            )
+                            }}"
+                            class="d-none d-lg-flex text-decoration-none">
+                            <button type="button"
+                                class="btn btn-transparent px-5 py-2 border-1 border-warning text-white">
+                                Découvrir
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-md-4 p-2">
+                                <div class="d-flex flex-column bg-warning align-items-center p-4">
+                                    <img src=" {{
+                                        asset(
+                                            'uploads/dev/svg/livings/tiger.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-45 mb-3" />
+                                    <h6 class="mb-2">
+                                        Tigres
+                                    </h6>
+                                    <h4 class="fw-bold mb-0">
+                                        48
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4 p-2">
+                                <div class="d-flex bg-warning p-4 flex-column align-items-center">
+                                    <img src=" {{
+                                        asset(
+                                            'uploads/dev/svg/livings/monkey.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-45 mb-3" />
+                                    <h6 class="mb-2">
+                                        Singes
+                                    </h6>
+                                    <h4 class="fw-bold mb-0">
+                                        163
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4 p-2">
+                                <div class="d-flex flex-column bg-warning align-items-center p-4">
+                                    <img src=" {{
+                                        asset(
+                                            'uploads/dev/svg/livings/toucan.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-45 mb-3" />
+                                    <h6 class="mb-2">
+                                        Toucan
+                                    </h6>
+                                    <h4 class="fw-bold mb-0">
+                                        64
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg container-fluid px-0" style="height : 300px">
+            <img src="{{
+                asset(
+                    'uploads/dev/img/livings/jungle/jungle-paysage.jpg'
+                )
+                }}"
+                alt=""
+                class="img-box position-relative" />
+        </div>
+    </section>
+
+    <section>
+        <div class="container d-flex flex-column align-items-center mb-4 pt-top-50">
+            <div class="d-flex align-items-center mb-3 gap-2">
+                <span class="line-banner bg-warning"></span>
+                <h6 class="text-uppercase m-0 txt-12 title-section">
+                    JUNGLE
+                </h6>
+                <span class="line-banner bg-warning"></span>
+            </div>
+
+            <h1 class="text-uppercase fw-light text-center">
+                nos merveilles <span class="fw-bold">tropicales</span>
+            </h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4" style="height: 28.125rem">
+                    <div class="h-100 position-relative">
+                        <img src="{{
+                            asset(
+                                'uploads/dev/img/livings/jungle/tigre.jpg'
+                            )
+                            }}"
+                            alt=""
+                            class="img-box brightness-80 position-absolute" />
+                        <div class="d-flex flex-column position-relative z-2 h-100 p-4 justify-content-end">
+                            <h6 class="text-uppercase m-0 little-title-article text-warning">
+                                tigre
+                            </h6>
+                            <h2 class="fw-bold text-white">
+                                RAJA
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" style="height: 28.125rem">
+                    <div class="h-100 position-relative">
+                        <img src="{{
+                            asset(
+                                'uploads/dev/img/livings/jungle/singe.jpg'
+                            )
+                            }}"
+                            alt=""
+                            class="img-box brightness-80 position-absolute" />
+                        <div class="d-flex flex-column position-relative z-2 h-100 p-4 justify-content-end">
+                            <h6 class="text-uppercase m-0 little-title-article text-warning">
+                                singe
+                            </h6>
+                            <h2 class="fw-bold text-white">
+                                CHICO
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" style="height: 28.125rem">
+                    <div class="h-100 position-relative">
+                        <img src="{{
+                            asset(
+                                'uploads/dev/img/livings/jungle/toucan.jpg'
+                            )
+                            }}"
+                            alt=""
+                            class="img-box brightness-80 position-absolute" />
+                        <div class="d-flex flex-column position-relative z-2 h-100 p-4 justify-content-end">
+                            <h6 class="text-uppercase m-0 little-title-article text-warning">
+                                oiseau
+                            </h6>
+                            <h2 class="fw-bold text-white">
+                                RIO
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href="{{
+                    path(
+                        'app_living_slug',
+                        {
+                            slug: 'jungle'
+                        }
+                    )
+                    }}"
+                    class="d-flex justify-content-lg start justify-content-center text-decoration-none">
+                    <button type="button"
+                        class="btn btn-transparent px-5 py-2 border-1 border-warning mb-4 text-dark">
+                        Voir Plus &rarr;
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Jungle end -->
+
+    <!-- Marais start -->
+    <section class="position-relative pb-bottom-50 overflow-hidden">
+        <img src=" {{ asset('uploads/dev/img/livings/marais-texture.png') }}"
+            alt=""
+            class="img-box position-absolute top-0 start-0"
+            style="object-position : bottom;" />
+        <img src=" {{ asset('uploads/dev/svg/livings/marais-1.svg') }}"
+            alt=""
+            class="d-none d-lg-block position-absolute"
+            style="top: 0;right : -150px" />
+        <img src=" {{ asset('uploads/dev/svg/livings/marais-2.svg') }}"
+            alt=""
+            class="d-none d-xxl-block position-absolute"
+            style="bottom: 30% ;left : -200px" />
+        <div class="container-fluid position-relative pb-bottom-50">
+            <div class="container pt-top position-relative z-2">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="d-flex align-items-center mb-3 gap-2">
+                            <span class="line-banner bg-success-subtle">
+
+                            </span>
+                            <h6 class="text-uppercase m-0 txt-12 title-section text-white">
+                                habitat
+                            </h6>
+                        </div>
+
+                        <h1 class="text-uppercase fw-light mb-5 text-white">
+                            les <span class="fw-bold">marais</span> enchantés
+                        </h1>
+                    </div>
+                    <div class="col-lg-4 d-flex flex-column">
+                        <p class="mb-4 pe-4 text-white">
+                            Lorem ipsum dolor sit amet consectetur adipisicing
+                            elit. Voluptatum eligendi corporis expedita iusto,
+                            eos voluptatem?
+                        </p>
+                        <a href="{{
+                            path(
+                                'app_living_slug',
+                                {
+                                    slug: 'marais'
+                                }
+                            )
+                            }}"
+                            class="d-none d-lg-flex text-decoration-none">
+                            <button type="button"
+                                class="btn btn-transparent px-5 py-2 border-1 border-success text-white">
+                                Découvrir
+                            </button>
+                        </a>
+                    </div>
+                    <div class="col-lg-8">
+                        <div class="row">
+                            <div class="col-md-4 p-2">
+                                <div class="d-flex flex-column bg-success align-items-center p-4">
+                                    <img src=" {{
+                                        asset(
+                                            'uploads/dev/svg/livings/crocodile.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-45 mb-3" />
+                                    <h6 class="mb-2 text-white">
+                                        Crocodiles
+                                    </h6>
+                                    <h4 class="fw-bold mb-0 text-white">
+                                        36
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4 p-2">
+                                <div class="d-flex bg-success p-4 flex-column align-items-center">
+                                    <img src=" {{
+                                        asset(
+                                            'uploads/dev/svg/livings/frog.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-45 mb-3" />
+                                    <h6 class="mb-2 text-white">
+                                        Grenouilles
+                                    </h6>
+                                    <h4 class="fw-bold mb-0 text-white">
+                                        287
+                                    </h4>
+                                </div>
+                            </div>
+                            <div class="col-md-4 p-2">
+                                <div class="d-flex flex-column bg-success align-items-center p-4">
+                                    <img src=" {{
+                                        asset(
+                                            'uploads/dev/svg/livings/hippopotamus.svg'
+                                        )
+                                        }}"
+                                        alt=""
+                                        class="icon-45 mb-3" />
+                                    <h6 class="mb-2 text-white">
+                                        Hippopotames
+                                    </h6>
+                                    <h4 class="fw-bold mb-0 text-white">
+                                        18
+                                    </h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-lg container-fluid px-0" style="height : 300px">
+            <img src="{{
+                asset(
+                    'uploads/dev/img/livings/marais/marais-paysage.jpg'
+                )
+                }}"
+                alt=""
+                class="img-box position-relative" />
+        </div>
+    </section>
+
+    <section>
+        <div class="container d-flex flex-column align-items-center mb-4 pt-top-50">
+            <div class="d-flex align-items-center mb-3 gap-2">
+                <span class="line-banner bg-success-subtle"></span>
+                <h6 class="text-uppercase m-0 txt-12 title-section">
+                    marais
+                </h6>
+                <span class="line-banner bg-success-subtle"></span>
+            </div>
+
+            <h1 class="text-uppercase fw-light text-center">
+                nos créatures <span class="fw-bold">marécageuse</span>
+            </h1>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4" style="height: 28.125rem">
+                    <div class="h-100 position-relative">
+                        <img src="{{
+                            asset(
+                                'uploads/dev/img/livings/marais/crocodile.jpg'
+                            )
+                            }}"
+                            alt=""
+                            class="img-box brightness-80 position-absolute" />
+                        <div class="d-flex flex-column position-relative z-2 h-100 p-4 justify-content-end">
+                            <h6 class="text-uppercase m-0 little-title-article text-success">
+                                crocodile
+                            </h6>
+                            <h2 class="fw-bold text-white">
+                                DUNDEE
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" style="height: 28.125rem">
+                    <div class="h-100 position-relative">
+                        <img src="{{
+                            asset(
+                                'uploads/dev/img/livings/marais/grenouille.jpg'
+                            )
+                            }}"
+                            alt=""
+                            class="img-box brightness-80 position-absolute" />
+                        <div class="d-flex flex-column position-relative z-2 h-100 p-4 justify-content-end">
+                            <h6 class="text-uppercase m-0 little-title-article text-success">
+                                grenouille
+                            </h6>
+                            <h2 class="fw-bold text-white">
+                                BULLE
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 mb-4" style="height: 28.125rem">
+                    <div class="h-100 position-relative">
+                        <img src="{{
+                            asset(
+                                'uploads/dev/img/livings/marais/hippopotame.jpg'
+                            )
+                            }}"
+                            alt=""
+                            class="img-box brightness-80 position-absolute" />
+                        <div class="d-flex flex-column position-relative z-2 h-100 p-4 justify-content-end">
+                            <h6 class="text-uppercase m-0 little-title-article text-success">
+                                hippopotame
+                            </h6>
+                            <h2 class="fw-bold text-white">
+                                BUBBA
+                            </h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <a href="{{
+                    path(
+                        'app_living_slug',
+                        {
+                            slug: 'marais'
+                        }
+                    )
+                    }}"
+                    class="d-flex justify-content-lg start justify-content-center text-decoration-none">
+                    <button type="button"
+                        class="btn btn-transparent px-5 py-2 border-1 border-success mb-4 text-dark">
+                        Voir Plus &rarr;
+                    </button>
+                </a>
+            </div>
+        </div>
+    </section>
+    <!-- Marais stop -->
+{% endblock %}
