@@ -6,9 +6,9 @@ const observer = new IntersectionObserver(
     (entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
-                species = Number(nb_Species.innerHTML);
-                animals = Number(nb_Animals.innerHTML);
-                area = Number(nb_Area.innerHTML);
+                let species = Number(nb_Species.innerHTML);
+                let animals = Number(nb_Animals.innerHTML);
+                let area = Number(nb_Area.innerHTML);
 
                 console.log(species);
 

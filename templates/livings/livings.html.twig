@@ -4,6 +4,11 @@
     Habitats
 {% endblock %}
 
+{% block javascripts %}
+    <script src="{{ asset('js/bootstrap.bundle.min.js') }}" defer></script>
+    <script src="{{ asset('js/livings.js') }}" defer></script>
+{% endblock %}
+
 {% block body %}
     <!-- Banner start -->
     <section>
@@ -32,30 +37,56 @@
             <div class="row position-relative">
                 <img src="{{
                     asset(
-                        'uploads/dev/img/livings/girafe-texture.png'
+                        'uploads/dev/img/home/jungle-texture.png'
                     )
                     }}"
                     alt=""
                     class="position-absolute top-0 start-0 img-box" />
                 <div class="position-relative d-flex flex-wrap">
-                    <div class="col-lg-5 col-12 p-lg-5 p-4 pb-0">
-                        <div class="d-flex align-items-center mb-3 gap-2">
-                            <h6 class="text-uppercase m-0 txt-12 title-section">
-                                règlement
-                            </h6>
-                        </div>
+                    <div class="col-lg-6 col-12 p-lg-5 p-4 pb-0">
+                        <div>
+                            <div class="d-flex align-items-center mb-3 gap-2">
+                                <h6 class="text-uppercase m-0 txt-12 title-section text-white">
+                                    règlement
+                                </h6>
+                            </div>
 
-                        <h1 class="text-uppercase fw-light">
-                            respectez leurs <span class="fw-bold">environnement</span>
-                        </h1>
+                            <h1 class="text-uppercase fw-light mb-4 text-white">
+                                respectez leurs <span class="fw-bold">environnement</span>
+                            </h1>
+
+                            <a href=""
+                                class="d-none d-lg-flex p-1 back-secondary w-fit">
+                                <button class="back-primary p-3 px-lg-5 border-0">
+                                    <h6 class="text-white m-0">
+                                        Lire le réglement
+                                    </h6>
+                                </button>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-lg-7 d-flex align-items-center p-4">
-                        <p class="fw-light mb-3 pe-4 fst-italic">
-                            * Lorem ipsum, dolor sit amet consectetur
-                            adipisicing elit. Sunt nisi officiis beatae error
-                            nostrum ad, possimus ratione velit nobis saepe
-                            laudantium quo eligendi tempora quia veritatis in.
-                        </p>
+                    <div class="col-lg-6 d-flex align-items-start p-4 flex-column justify-content-center">
+                        <div>
+                            <p class="fw-semibold mb-3 txt-18 w-fit text-white">
+                                Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit.
+                            </p>
+                            <p class="fw-light mb-4 fst-italic txt-12 w-75 text-white">
+                                * Lorem ipsum, dolor sit amet consectetur
+                                adipisicing elit. Sunt nisi officiis beatae
+                                error nostrum ad, possimus ratione velit nobis
+                                saepe laudantium quo eligendi tempora quia
+                                veritatis in.
+                            </p>
+                            <a href=""
+                                class="d-flex d-lg-none p-1 back-secondary w-fit">
+                                <button class="back-primary p-3 px-lg-5 border-0">
+                                    <h6 class="text-white m-0">
+                                        Lire le réglement
+                                    </h6>
+                                </button>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -64,64 +95,14 @@
                 data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <div class="container pt-top-50 px-0">
-                            <h6 class="text-uppercase fw-light mb-3">
-                                <span class="fw-semibold">Interdit</span> dans notre
-                                parc
-                            </h6>
-                            <div class="row justify-content-center">
-                                <div class="col-lg-4 px-2 mb-4">
-                                    <div class="position-relative p-3 py-4 bg-dark d-flex flex-column align-items-center justify-content-center gap-3">
-                                        <img src=" {{
-                                            asset(
-                                                'uploads/dev/svg/livings/no-smoking.svg'
-                                            )
-                                            }}"
-                                            alt=""
-                                            class="icon-45" />
-                                        <h6 class="fw-semibold title-service text-white">
-                                            Fumer ou Vapoter
-                                        </h6>
-                                    </div>
-                                </div>
-
-                                <div class="col-lg-4 px-2 mb-4">
-                                    <div class="position-relative p-3 py-4 bg-dark d-flex flex-column align-items-center justify-content-center gap-3">
-                                        <img src=" {{
-                                            asset(
-                                                'uploads/dev/svg/livings/forbidden-burguer.svg'
-                                            )
-                                            }}"
-                                            alt=""
-                                            class="icon-45" />
-                                        <h6 class="fw-semibold title-service text-white">
-                                            Dêchet Alimentaire
-                                        </h6>
-                                    </div>
-                                </div>
-                                <div class="col-lg-4 px-2 mb-4">
-                                    <div class="position-relative p-3 py-4 bg-dark d-flex flex-column align-items-center justify-content-center gap-3">
-                                        <img src=" {{
-                                            asset(
-                                                'uploads/dev/svg/livings/no-shouting.svg'
-                                            )
-                                            }}"
-                                            alt=""
-                                            class="icon-45" />
-                                        <h6 class="fw-semibold title-service text-white">
-                                            Bruit Excessif
-                                        </h6>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="carousel-item">
                         <div class="container pt-top-50">
-                            <h6 class="text-uppercase fw-light mb-3">
-                                <span class="fw-semibold">Autorisé</span> dans notre
-                                parc
-                            </h6>
+                            <div class="mb-3">
+                                <h6 class="text-uppercase fw-light mb-2">
+                                    <span class="fw-semibold">Autorisé</span> dans
+                                    notre parc
+                                </h6>
+                                <span class="line-section bg-success"></span>
+                            </div>
                             <div class="row justify-content-center">
                                 <div class="col-lg-4 px-2 mb-4">
                                     <div class="position-relative p-3 py-4 bg-body-tertiary d-flex flex-column align-items-center gap-3">
@@ -169,22 +150,62 @@
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-indicators carousel-indicators-herobanner m-0 justify-content-center d-flex gap-3 mt-4">
-                        <button type="button"
-                            data-bs-target="#carouselRules"
-                            data-bs-slide-to="0"
-                            class="active btn-carousel-herobanner"
-                            aria-current="true"
-                            aria-label="Slide 1">
+                    <div class="carousel-item">
+                        <div class="container pt-top-50 px-0">
+                            <div class="mb-3">
+                                <h6 class="text-uppercase fw-light mb-2">
+                                    <span class="fw-semibold">Interdit</span> dans
+                                    notre parc
+                                </h6>
+                                <span class="line-section bg-danger"></span>
+                            </div>
 
-                        </button>
-                        <button type="button"
-                            data-bs-target="#carouselRules"
-                            data-bs-slide-to="1"
-                            aria-label="Slide 2"
-                            class="btn-carousel-herobanner">
+                            <div class="row justify-content-center">
+                                <div class="col-lg-4 px-2 mb-4">
+                                    <div class="position-relative p-3 py-4 bg-dark d-flex flex-column align-items-center justify-content-center gap-3">
+                                        <img src=" {{
+                                            asset(
+                                                'uploads/dev/svg/livings/no-smoking.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-45" />
+                                        <h6 class="fw-semibold title-service text-white">
+                                            Fumer ou Vapoter
+                                        </h6>
+                                    </div>
+                                </div>
 
-                        </button>
+                                <div class="col-lg-4 px-2 mb-4">
+                                    <div class="position-relative p-3 py-4 bg-dark d-flex flex-column align-items-center justify-content-center gap-3">
+                                        <img src=" {{
+                                            asset(
+                                                'uploads/dev/svg/livings/forbidden-burguer.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-45" />
+                                        <h6 class="fw-semibold title-service text-white">
+                                            Dêchet Alimentaire
+                                        </h6>
+                                    </div>
+                                </div>
+                                <div class="col-lg-4 px-2 mb-4">
+                                    <div class="position-relative p-3 py-4 bg-dark d-flex flex-column align-items-center justify-content-center gap-3">
+                                        <img src=" {{
+                                            asset(
+                                                'uploads/dev/svg/livings/no-shouting.svg'
+                                            )
+                                            }}"
+                                            alt=""
+                                            class="icon-45" />
+                                        <h6 class="fw-semibold title-service text-white">
+                                            Bruit Excessif
+                                        </h6>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -195,7 +216,11 @@
     <!-- Savane start -->
 
     <section class="position-relative pb-bottom-50 overflow-hidden">
-        <img src=" {{ asset('uploads/dev/img/livings/savane/savane-texture.png') }}"
+        <img src=" {{
+            asset(
+                'uploads/dev/img/livings/savane/savane-texture.png'
+            )
+            }}"
             alt=""
             class="img-box position-absolute top-0 start-0"
             style="object-position : bottom;" />
@@ -212,9 +237,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="d-flex align-items-center mb-3 gap-2">
-                            <span class="line-banner bg-warning-subtle">
-
-                            </span>
+                            <span class="line-section bg-warning-subtle"></span>
                             <h6 class="text-uppercase m-0 txt-12 title-section">
                                 habitat
                             </h6>
@@ -240,10 +263,9 @@
                             }}"
                             class="d-none d-lg-flex text-decoration-none">
                             <button type="button"
-                                class="btn btn-transparent px-5 py-2 border-1 border-warning-subtle text-dark">
+                                class="btn btn-savane px-5 py-2 border-1 text-dark">
                                 Découvrir
                             </button>
-                            
                         </a>
                     </div>
                     <div class="col-lg-8">
@@ -260,8 +282,8 @@
                                     <h6 class="mb-2">
                                         Éléphants
                                     </h6>
-                                    <h4 class="fw-bold mb-0">
-                                        24
+                                    <h4 class="fw-bold mb-0" id="nb_Elephants">
+                                        0
                                     </h4>
                                 </div>
                             </div>
@@ -277,8 +299,8 @@
                                     <h6 class="mb-2">
                                         Girafes
                                     </h6>
-                                    <h4 class="fw-bold mb-0">
-                                        19
+                                    <h4 class="fw-bold mb-0" id="nb_Giraffes">
+                                        0
                                     </h4>
                                 </div>
                             </div>
@@ -294,8 +316,8 @@
                                     <h6 class="mb-2">
                                         Lions
                                     </h6>
-                                    <h4 class="fw-bold mb-0">
-                                        32
+                                    <h4 class="fw-bold mb-0" id="nb_Lions">
+                                        0
                                     </h4>
                                 </div>
                             </div>
@@ -318,11 +340,11 @@
     <section>
         <div class="container d-flex flex-column align-items-center mb-4 pt-top-50">
             <div class="d-flex align-items-center mb-3 gap-2">
-                <span class="line-banner bg-warning-subtle"></span>
+                <span class="line-section bg-warning-subtle"></span>
                 <h6 class="text-uppercase m-0 txt-12 title-section">
                     SAVANE
                 </h6>
-                <span class="line-banner bg-warning-subtle"></span>
+                <span class="line-section bg-warning-subtle"></span>
             </div>
 
             <h1 class="text-uppercase fw-light text-center">
@@ -400,7 +422,7 @@
                     }}"
                     class="d-flex justify-content-lg start justify-content-center text-decoration-none">
                     <button type="button"
-                        class="btn btn-transparent px-5 py-2 border-1 border-warning-subtle mb-4 text-dark">
+                        class="btn btn-savane px-5 py-2 border-1 mb-4 text-dark">
                         Voir Plus &rarr;
                     </button>
                 </a>
@@ -428,7 +450,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="d-flex align-items-center mb-3 gap-2">
-                            <span class="line-banner bg-warning"></span>
+                            <span class="line-section bg-warning"></span>
                             <h6 class="text-uppercase m-0 txt-12 title-section text-white">
                                 habitat
                             </h6>
@@ -454,7 +476,7 @@
                             }}"
                             class="d-none d-lg-flex text-decoration-none">
                             <button type="button"
-                                class="btn btn-transparent px-5 py-2 border-1 border-warning text-white">
+                                class="btn btn-jungle px-5 py-2 border-1">
                                 Découvrir
                             </button>
                         </a>
@@ -473,8 +495,8 @@
                                     <h6 class="mb-2">
                                         Tigres
                                     </h6>
-                                    <h4 class="fw-bold mb-0">
-                                        48
+                                    <h4 class="fw-bold mb-0" id="nb_Tigers">
+                                        0
                                     </h4>
                                 </div>
                             </div>
@@ -490,8 +512,8 @@
                                     <h6 class="mb-2">
                                         Singes
                                     </h6>
-                                    <h4 class="fw-bold mb-0">
-                                        163
+                                    <h4 class="fw-bold mb-0" id="nb_Monkeys">
+                                        0
                                     </h4>
                                 </div>
                             </div>
@@ -507,8 +529,8 @@
                                     <h6 class="mb-2">
                                         Toucan
                                     </h6>
-                                    <h4 class="fw-bold mb-0">
-                                        64
+                                    <h4 class="fw-bold mb-0" id="nb_Toucans">
+                                        0
                                     </h4>
                                 </div>
                             </div>
@@ -531,11 +553,11 @@
     <section>
         <div class="container d-flex flex-column align-items-center mb-4 pt-top-50">
             <div class="d-flex align-items-center mb-3 gap-2">
-                <span class="line-banner bg-warning"></span>
+                <span class="line-section bg-warning"></span>
                 <h6 class="text-uppercase m-0 txt-12 title-section">
                     JUNGLE
                 </h6>
-                <span class="line-banner bg-warning"></span>
+                <span class="line-section bg-warning"></span>
             </div>
 
             <h1 class="text-uppercase fw-light text-center">
@@ -613,7 +635,7 @@
                     }}"
                     class="d-flex justify-content-lg start justify-content-center text-decoration-none">
                     <button type="button"
-                        class="btn btn-transparent px-5 py-2 border-1 border-warning mb-4 text-dark">
+                        class="btn btn-jungle px-5 py-2 border-1 mb-4 text-dark">
                         Voir Plus &rarr;
                     </button>
                 </a>
@@ -641,9 +663,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="d-flex align-items-center mb-3 gap-2">
-                            <span class="line-banner bg-success-subtle">
-
-                            </span>
+                            <span class="line-section bg-success-subtle"></span>
                             <h6 class="text-uppercase m-0 txt-12 title-section text-white">
                                 habitat
                             </h6>
@@ -669,7 +689,7 @@
                             }}"
                             class="d-none d-lg-flex text-decoration-none">
                             <button type="button"
-                                class="btn btn-transparent px-5 py-2 border-1 border-success text-white">
+                                class="btn btn-marais px-5 py-2 border-1 text-white">
                                 Découvrir
                             </button>
                         </a>
@@ -688,8 +708,9 @@
                                     <h6 class="mb-2 text-white">
                                         Crocodiles
                                     </h6>
-                                    <h4 class="fw-bold mb-0 text-white">
-                                        36
+                                    <h4 class="fw-bold mb-0 text-white"
+                                        id="nb_Crocodiles">
+                                        0
                                     </h4>
                                 </div>
                             </div>
@@ -705,8 +726,9 @@
                                     <h6 class="mb-2 text-white">
                                         Grenouilles
                                     </h6>
-                                    <h4 class="fw-bold mb-0 text-white">
-                                        287
+                                    <h4 class="fw-bold mb-0 text-white"
+                                        id="nb_Frogs">
+                                        0
                                     </h4>
                                 </div>
                             </div>
@@ -722,8 +744,9 @@
                                     <h6 class="mb-2 text-white">
                                         Hippopotames
                                     </h6>
-                                    <h4 class="fw-bold mb-0 text-white">
-                                        18
+                                    <h4 class="fw-bold mb-0 text-white"
+                                        id="nb_Hippopotamuses">
+                                        0
                                     </h4>
                                 </div>
                             </div>
@@ -746,11 +769,11 @@
     <section>
         <div class="container d-flex flex-column align-items-center mb-4 pt-top-50">
             <div class="d-flex align-items-center mb-3 gap-2">
-                <span class="line-banner bg-success-subtle"></span>
+                <span class="line-section bg-success-subtle"></span>
                 <h6 class="text-uppercase m-0 txt-12 title-section">
                     marais
                 </h6>
-                <span class="line-banner bg-success-subtle"></span>
+                <span class="line-section bg-success-subtle"></span>
             </div>
 
             <h1 class="text-uppercase fw-light text-center">
@@ -828,7 +851,7 @@
                     }}"
                     class="d-flex justify-content-lg start justify-content-center text-decoration-none">
                     <button type="button"
-                        class="btn btn-transparent px-5 py-2 border-1 border-success mb-4 text-dark">
+                        class="btn btn-marais px-5 py-2 border-1 border-success mb-4 text-dark">
                         Voir Plus &rarr;
                     </button>
                 </a>

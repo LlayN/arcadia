@@ -218,11 +218,16 @@ a:hover {
 
 /** Filter start **/
 
-.brightness-80 {
-    filter: brightness(80%);
+.brightness-50 {
+    filter: brightness(50%);
 }
+
 .brightness-65 {
     filter: brightness(65%);
+}
+
+.brightness-80 {
+    filter: brightness(80%);
 }
 
 /*! Filter end */
@@ -268,6 +273,10 @@ a:hover {
     width: 2.8125rem;
 }
 
+.icon-65 {
+    width: 4.0625rem;
+}
+
 /*! Icon end */
 
 /** Letter Spacing start **/
@@ -281,6 +290,20 @@ a:hover {
 }
 
 /*! Letter Spacing end */
+
+/** Width start **/
+
+.w-75 {
+    width: 75%;
+}
+
+.w-25 {
+    width: 25%;
+}
+
+.w-fit {
+    width: fit-content;
+}
 
 /** Transform start **/
 
@@ -502,3 +525,46 @@ a:hover {
 }
 
 /*! Livings stop */
+
+/*? LIVINGS.HTML.TWIG start */
+
+/** Livings start */
+
+.btn-savane {
+    background-color: transparent;
+    border: 3px solid #fff3cd;
+}
+
+.btn-jungle {
+    background-color: transparent;
+    border: 3px solid #fec107;
+    color: white;
+}
+
+.btn-marais {
+    background-color: transparent;
+    border: 3px solid var(--color-secondary);
+}
+
+.btn-savane:hover,
+.btn-savane:active {
+    background-color: #fff3cd !important;
+    border-color: #fff3cd !important;
+    border: 0;
+}
+
+.btn-jungle:hover,
+.btn-jungle:active {
+    background-color: #fec107 !important;
+    color: var(--color-primary) !important;
+    border: 0;
+}
+
+.btn-marais:hover,
+.btn-marais:active {
+    background-color: var(--color-secondary) !important;
+    color: white !important;
+    border: 0;
+}
+
+/*! Livings end */
