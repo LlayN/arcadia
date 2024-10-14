@@ -4,6 +4,7 @@ namespace App\Controller;
 
 use App\Repository\AnimalsRepository;
 use App\Repository\LivingsRepository;
+use App\Repository\VeterinariansReportsRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -25,7 +26,7 @@ class LivingsController extends AbstractController
     }
 
     #[Route('/habitats/{slug}', name: 'app_living_slug')]
-    public function livings($slug, AnimalsRepository $animalsRepository, LivingsRepository $livingsRepository, Request $request): Response
+    public function livings($slug, AnimalsRepository $animalsRepository, LivingsRepository $livingsRepository, Request $request, VeterinariansReportsRepository $veterinariansRepository): Response
     {
 
         $livings = $livingsRepository->findBy(['name' => $slug]);
@@ -36,16 +37,30 @@ class LivingsController extends AbstractController
 
 
             $animals = $animalsRepository->findBy(['living' => $firstElement->getId()]);
+            $veterinariansReports = $veterinariansRepository->findBy(['animal' => $animals]);
 
             if ($slug === 'savane') {
-                return $this->render('livings/savane.html.twig', ['animals' => $animals]);
+                $livings = $livingsRepository->findBy(['name' => 'Savane']);
 
+                return $this->render('livings/savane.html.twig', [
+                    'animals' => $animals,
+                    'livings' => $livings,
+                    'veterinariansReports' => $veterinariansReports
+                ]);
             } else if ($slug === 'jungle') {
-                return $this->render('livings/jungle.html.twig', ['animals' => $animals]);
-
+                $livings = $livingsRepository->findBy(['name' => 'Jungle']);
+                return $this->render('livings/jungle.html.twig', [
+                    'animals' => $animals,
+                    'livings' => $livings,
+                    'veterinariansReports' => $veterinariansReports
+                ]);
             } else if ($slug === 'marais') {
-                return $this->render('livings/marais.html.twig', ['animals' => $animals]);
-
+                $livings = $livingsRepository->findBy(['name' => 'Marais']);
+                return $this->render('livings/marais.html.twig', [
+                    'animals' => $animals,
+                    'livings' => $livings,
+                    'veterinariansReports' => $veterinariansReports
+                ]);
             } else {
                 return $this->render('errors/404.html.twig');
             }
@@ -86,7 +101,6 @@ class LivingsController extends AbstractController
                 }
 
                 return new Response('OK', 200);
-
             } else {
                 // Animal non trouvé
                 return new Response('Une erreur est survenue', 404);

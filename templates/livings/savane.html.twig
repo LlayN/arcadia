@@ -7,22 +7,20 @@
 {% block body %}
     <!-- Banner start -->
     <section>
-        <div class="container-fluid px-0 herobanner"
-            style="height : 55svh ; min-height : 500px">
-            <img src="{{ asset('assets/uploads/livings/savane/savane.png') }}"
+        <div class="container-fluid px-0 herobanner hero-pages">
+            <img src="{{ asset('uploads/admin/livings/') }}{{ livings[0].img }}"
                 alt=""
                 class="img-box brightness-80" />
-            <div class="container position-absolute top-50 start-50"
-                style="transform : translate(-50%, -50%)">
+            <div class="container position-absolute top-50 start-50 transform-50">
                 <div class="d-flex align-items-center mb-3 gap-2 text-white">
-                    <h6 class="text-uppercase m-0 little-title-article">
+                    <h6 class="text-uppercase m-0 txt-12 title-section">
                         habitat
                     </h6>
                 </div>
                 <h1 class="text-uppercase fw-light mb-3 text-white title-banner-page">
                     bienvenue dans la <span class="fw-bold">savane</span>
                 </h1>
-                <span class="line-banner-page bg-warning-subtle"></span>
+                <span class="line-banner bg-warning-subtle"></span>
             </div>
         </div>
     </section>
@@ -36,10 +34,8 @@
                 <main class="col-lg-9 pe-lg-5">
                     <div class="container d-flex flex-column mb-4">
                         <div class="d-flex mb-3 gap-2 align-items-center">
-                            <span class="little-line-article bg-warning-subtle">
-
-                            </span>
-                            <h6 class="text-uppercase m-0 little-title-article">
+                            <span class="line-section bg-warning-subtle"></span>
+                            <h6 class="text-uppercase m-0 txt-12 title-section">
                                 détails
                             </h6>
                         </div>
@@ -64,9 +60,13 @@
                         <div class="row">
                             <div class="col-md-4 p-2">
                                 <div class="bg-warning-subtle p-4 d-flex flex-column align-items-center">
-                                    <img src=" /assets/uploads/livings/savane/icon/animals.svg"
+                                    <img src="{{
+                                        asset(
+                                            'uploads/dev/svg/livings/animals.svg'
+                                        )
+                                        }}"
                                         alt=""
-                                        class="icon mb-3" />
+                                        class="icon-45 mb-3" />
                                     <h6>
                                         Animaux
                                     </h6>
@@ -77,9 +77,13 @@
                             </div>
                             <div class="col-md-4 p-2">
                                 <div class="bg-warning-subtle p-4 d-flex flex-column align-items-center">
-                                    <img src=" /assets/uploads/livings/savane/icon/dna.svg"
+                                    <img src="{{
+                                        asset(
+                                            'uploads/dev/svg/livings/dna.svg'
+                                        )
+                                        }}"
                                         alt=""
-                                        class="icon mb-3" />
+                                        class="icon-45 mb-3" />
                                     <h6>
                                         Espèces
                                     </h6>
@@ -90,9 +94,13 @@
                             </div>
                             <div class="col-md-4 p-2">
                                 <div class="bg-warning-subtle p-4 d-flex flex-column align-items-center">
-                                    <img src=" /assets/uploads/livings/savane/icon/superficie.svg"
+                                    <img src="{{
+                                        asset(
+                                            'uploads/dev/svg/livings/superficie.svg'
+                                        )
+                                        }}"
                                         alt=""
-                                        class="icon mb-3" />
+                                        class="icon-45 mb-3" />
                                     <h6>
                                         Superficie
                                     </h6>
@@ -106,10 +114,10 @@
                     <section>
                         <div class="container d-flex flex-column mb-4 pt-top">
                             <div class="d-flex mb-3 gap-2 align-items-center">
-                                <span class="little-line-article bg-warning-subtle">
+                                <span class="line-section bg-warning-subtle">
 
                                 </span>
-                                <h6 class="text-uppercase m-0 little-title-article">
+                                <h6 class="text-uppercase m-0 txt-12 title-section">
                                     savane
                                 </h6>
                             </div>
@@ -120,34 +128,37 @@
                         </div>
                         <div class="container">
                             <div class="row">
-                                {% for animal in animals %}
+                                {% for report in veterinariansReports %}
                                     <div class="col-lg-6 mb-4"
                                         style="height: 28.125rem">
                                         <div class="h-100 position-relative">
-                                            <img src="{{
+                                            <img src=" {{
                                                 asset(
-                                                    'uploads_backoff/animals/'
-                                                        ~ animal.img
+                                                    'uploads/admin/animals/'
                                                 )
-                                                }}"
+                                                }}{{ report.animal.img }}"
                                                 alt=""
                                                 class="img-box brightness-65 position-absolute" />
                                             <div class="d-flex flex-column position-relative z-2 h-100 p-4 justify-content-end">
-                                                <h6 class="text-uppercase m-0 little-title-article text-warning">
-                                                    {{ animal.race.name }}
+                                                <h6 class="text-uppercase m-0 txt-12 title-section text-warning">
+                                                    {{
+                                                        report.animal.breed.name
+                                                    }}
                                                 </h6>
 
                                                 <div class="d-flex justify-content-between align-items-center">
                                                     <h2 class="fw-bold text-white m-0 text-uppercase">
-                                                        {{ animal.name }}
+                                                        {{ report.animal.name }}
                                                     </h2>
                                                     <a class="btn p-0"
                                                         data-bs-toggle="offcanvas"
-                                                        href="#{{ animal.id }}"
+                                                        href="#{{
+                                                        report.animal.id
+                                                        }}"
                                                         role="button"
                                                         aria-controls="offcanvasExample"
                                                         onclick="statsView({{
-                                                        animal.id
+                                                        report.animal.id
                                                         }})">
                                                         <form action=""
                                                             method="get">
@@ -158,11 +169,11 @@
                                                                 data-bs-title="Détail de l'animal">
                                                                 <img src="{{
                                                                     asset(
-                                                                        'assets/icons/more-savane.svg'
+                                                                        'uploads/dev/svg/livings/more-savane.svg'
                                                                     )
                                                                     }}"
                                                                     alt=""
-                                                                    class="icon-more" />
+                                                                    class="icon-35" />
                                                             </button>
                                                         </form>
                                                     </a>
@@ -174,7 +185,7 @@
 
                                     <div class="offcanvas offcanvas-start"
                                         tabindex="1"
-                                        id="{{ animal.id }}"
+                                        id="{{ report.animal.id }}"
                                         aria-labelledby="offcanvasExampleLabel">
                                         <div class="offcanvas-header">
                                             <button type="button"
@@ -190,20 +201,25 @@
                                                 <li>
                                                     <div class="d-flex align-items-center gap-2">
                                                         <h5 class="fw-semibold m-0 text-uppercase">
-                                                            {{ animal.name }}
+                                                            {{
+                                                                report.animal.name
+                                                            }}
                                                         </h5>
                                                     </div>
                                                 </li>
-                                                <span class="little-line-article bg-warning mt-2">
+                                                <span class="line-section bg-warning-subtle mt-2">
 
                                                 </span>
+
                                                 <li>
                                                     <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
                                                         <h6 class="fw-semibold m-0">
                                                             Race :
                                                         </h6>
                                                         <p class="m-0 txt-1">
-                                                            {{ animal.race }}
+                                                            {{
+                                                                report.animal.breed
+                                                            }}
                                                         </p>
                                                     </div>
                                                 </li>
@@ -212,11 +228,12 @@
                                                         <h6 class="fw-semibold m-0">
                                                             Régime Alimentaire :
                                                         </h6>
+
                                                         <p class="m-0 txt-1">
                                                             {% if
-                                                                animal.veterinaryReport is not null %}
+                                                                report is not null %}
                                                                 {{
-                                                                    animal.veterinaryReport.food
+                                                                    report.diet
                                                                 }}
                                                             {% else %}
                                                                 <p class="m-0 txt-1">
@@ -235,9 +252,9 @@
                                                         </h6>
                                                         <p class="m-0 txt-1">
                                                             {% if
-                                                                animal.veterinaryReport is not null %}
+                                                                report is not null %}
                                                                 {{
-                                                                    animal.veterinaryReport.quantity
+                                                                    report.quantity
                                                                 }}
 
                                                                 kg/j
@@ -257,9 +274,9 @@
                                                         </h6>
                                                         <p class="m-0 txt-1">
                                                             {% if
-                                                                animal.veterinaryReport is not null %}
+                                                                report is not null %}
                                                                 {{
-                                                                    animal.veterinaryReport.state
+                                                                    report.state
                                                                 }}
                                                             {% else %}
                                                                 <p class="m-0 txt-1">
@@ -277,10 +294,10 @@
                                                         </h6>
                                                         <p class="m-0 txt-1">
                                                             {% if
-                                                                animal.veterinaryReport is not null %}
+                                                                report is not null %}
                                                                 {{
-                                                                    animal.veterinaryReport.date|date(
-                                                                        'd/m/Y'
+                                                                    report.datetime|date(
+                                                                        'd/m/Y H:i'
                                                                     )
                                                                 }}
                                                             {% else %}
@@ -292,19 +309,19 @@
                                                         </p>
                                                     </div>
                                                 </li>
-                                                <span class="little-line-article bg-warning mt-2">
+                                                <span class="line-section bg-warning-subtle mt-2">
 
                                                 </span>
                                                 <li>
                                                     <div class="reportVeterinary d-flex flex-column gap-2">
-                                                        <h6 class="fw-semibold m-0">
+                                                        <h6 class="fw-semibold m-0 mb-2">
                                                             Rapport Vétérinaire
                                                             :
                                                         </h6>
                                                         {% if
-                                                            animal.veterinaryReport is not null %}
+                                                            report is not null %}
                                                             {{
-                                                                animal.veterinaryReport.detail|raw
+                                                                report.description|raw
                                                             }}
                                                         {% else %}
                                                             <p class="m-0 txt-1">
@@ -325,7 +342,7 @@
                     <div class="d-flex flex-column gap-3">
                         <h6 class="text-uppercase fw-light fw-bold mb-2">
                             espèces
-                            <span class="little-line-article bg-warning-subtle mt-2">
+                            <span class="line-section bg-warning-subtle mt-2">
 
                             </span>
                         </h6>
@@ -375,7 +392,7 @@
                     </div>
                     <div class="d-flex flex-column gap-3">
                         <h6 class="text-uppercase fw-light fw-bold mb-2 pt-top-50">
-                            origines<span class="little-line-article bg-warning-subtle mt-2"></span>
+                            origines<span class="line-section bg-warning-subtle mt-2"></span>
                         </h6>
                         <div class="container">
                             <div class="row d-flex">
@@ -383,7 +400,7 @@
                                     <div class="position-relative w-100 p-4">
                                         <img src="{{
                                             asset(
-                                                'assets/uploads/livings/savane/zambie.jpg'
+                                                'uploads/dev/img/livings/savane/zambie.jpg'
                                             )
                                             }}"
                                             alt=""
@@ -398,7 +415,7 @@
                                     <div class="position-relative w-100 p-4">
                                         <img src="{{
                                             asset(
-                                                'assets/uploads/livings/savane/botswana.jpg'
+                                                'uploads/dev/img/livings/savane/botswana.jpg'
                                             )
                                             }}"
                                             alt=""
@@ -413,7 +430,7 @@
                                     <div class="position-relative w-100 p-4">
                                         <img src="{{
                                             asset(
-                                                'assets/uploads/livings/savane/kenya.jpg'
+                                                'uploads/dev/img/livings/savane/kenya.jpg'
                                             )
                                             }}"
                                             alt=""
@@ -428,7 +445,7 @@
                                     <div class="position-relative w-100 p-4">
                                         <img src="{{
                                             asset(
-                                                'assets/uploads/livings/savane/zimbabwe.jpg'
+                                                'uploads/dev/img/livings/savane/zimbabwe.jpg'
                                             )
                                             }}"
                                             alt=""
@@ -444,14 +461,14 @@
                     <div class="d-flex flex-column gap-3">
                         <h6 class="text-uppercase fw-light fw-bold mb-2 pt-top-50">
                             MAP Intéractive
-                            <span class="little-line-article bg-warning-subtle mt-2">
+                            <span class="line-section bg-warning-subtle mt-2">
 
                             </span>
                         </h6>
                         <div class="position-relative">
                             <img src="{{
                                 asset(
-                                    'assets/uploads/textures/girafe-texture.png'
+                                    'uploads/dev/img/livings/girafe-texture.png'
                                 )
                                 }}"
                                 alt=""
@@ -482,7 +499,7 @@
                     <div class="d-flex flex-column gap-3">
                         <h6 class="text-uppercase fw-light fw-bold mb-2 pt-top-50">
                             Donation
-                            <span class="little-line-article bg-warning-subtle mt-2">
+                            <span class="line-section bg-warning-subtle mt-2">
 
                             </span>
                         </h6>
@@ -531,32 +548,48 @@
                             </div>
 
                             <button type="bouton"
-                                class="btn bg-warning-subtle w-100 fw-light">
+                                class="btn btn-savane w-100 fw-light">
                                 Faire un don
                             </button>
                         </form>
 
-                        <div class="d-flex justify-content-lg-around gap-lg-0 gap-3">
-                            <img src=" {{
-                                asset(
-                                    'assets/icons/apple-pay.svg'
-                                )
-                                }}  "
-                                alt=""
-                                class="icon-payment" />
-                            <img src=" {{
-                                asset(
-                                    'assets/icons/mastercard.svg'
-                                )
-                                }} "
-                                alt=""
-                                class="icon-payment" />
-                            <img src=" {{ asset('assets/icons/visa.svg') }}"
-                                alt=""
-                                class="icon-payment" />
-                            <img src=" {{ asset('assets/icons/paypal.svg') }}"
-                                alt=""
-                                class="icon-payment" />
+                        <div class="d-flex justify-content-lg-around flex-wrap">
+                            <div class="d-flex align-items-center px-2">
+                                <img src=" {{
+                                    asset(
+                                        'uploads/dev/svg/livings/apple-pay.svg'
+                                    )
+                                    }}  "
+                                    alt=""
+                                    class="icon-45" />
+                            </div>
+                            <div class="d-flex align-items-center px-2">
+                                <img src=" {{
+                                    asset(
+                                        'uploads/dev/svg/livings/mastercard.svg'
+                                    )
+                                    }} "
+                                    alt=""
+                                    class="icon-45" />
+                            </div>
+                            <div class="d-flex align-items-center px-2">
+                                <img src=" {{
+                                    asset(
+                                        'uploads/dev/svg/livings/visa.svg'
+                                    )
+                                    }}"
+                                    alt=""
+                                    class="icon-45" />
+                            </div>
+                            <div class="d-flex align-items-center px-2">
+                                <img src=" {{
+                                    asset(
+                                        'uploads/dev/svg/livings/paypal.svg'
+                                    )
+                                    }}"
+                                    alt=""
+                                    class="icon-65" />
+                            </div>
                         </div>
                     </div>
                 </aside>
@@ -571,8 +604,8 @@
     <section>
         <div class="container d-flex flex-column mb-4 pt-top pb-bottom">
             <div class="d-flex mb-3 gap-2 align-items-center">
-                <span class="little-line-article bg-warning-subtle"></span>
-                <h6 class="text-uppercase m-0 little-title-article">
+                <span class="line-section bg-warning-subtle"></span>
+                <h6 class="text-uppercase m-0 txt-12 title-section">
                     billeterie
                 </h6>
             </div>
@@ -585,9 +618,13 @@
                 <div class="row">
                     <div class="col-md-4 p-2">
                         <div class="bg-body-tertiary p-4 d-flex flex-column align-items-center h-100 justify-content-between">
-                            <img src=" /assets/icons/adult.svg"
+                            <img src="{{
+                                asset(
+                                    'uploads/dev/svg/livings/adult.svg'
+                                )
+                                }}"
                                 alt=""
-                                class="icon-ticket mb-4" />
+                                class="icon-65 mb-4" />
                             <h6 class="fw-light mb-3">
                                 Adulte (+18 ans)
                             </h6>
@@ -609,9 +646,13 @@
                     </div>
                     <div class="col-md-4 p-2">
                         <div class="bg-body-tertiary p-4 d-flex flex-column align-items-center h-100 justify-content-between">
-                            <img src=" /assets/icons/adolescent.svg"
+                            <img src="{{
+                                asset(
+                                    'uploads/dev/svg/livings/adolescent.svg'
+                                )
+                                }}"
                                 alt=""
-                                class="icon-ticket mb-4" />
+                                class="icon-65 mb-4" />
 
                             <h6 class="fw-light mb-3">
                                 Enfants (4-18 ans)
@@ -634,9 +675,13 @@
                     </div>
                     <div class="col-md-4 p-2">
                         <div class="bg-body-tertiary p-4 d-flex flex-column align-items-center h-100 justify-content-between">
-                            <img src=" /assets/icons/baby.svg"
+                            <img src="{{
+                                asset(
+                                    'uploads/dev/svg/livings/baby.svg'
+                                )
+                                }}"
                                 alt=""
-                                class="icon-ticket mb-4" />
+                                class="icon-65 mb-4" />
                             <h6 class="fw-light mb-3">
                                 Bébé (-4 ans)
                             </h6>
@@ -666,12 +711,10 @@
                 <div class="row">
                     <div>
                         <div class="d-flex flex-column align-items-center justify-content-center mb-3 gap-2">
-                            <h6 class="text-uppercase m-0 little-title-article">
+                            <h6 class="text-uppercase m-0 txt-12 title-section">
                                 paiements
                             </h6>
-                            <span class="little-line-article bg-warning-subtle">
-
-                            </span>
+                            <span class="little-line-article bg-success"></span>
                             <h1 class="text-uppercase mb-4 fw-light text-center">
                                 <span class="fw-bold">paiement</span> dans le parc
                             </h1>
@@ -682,11 +725,11 @@
                         <div class="d-flex flex-column align-items-center justify-content-center w-100 bg-warning-subtle gap-3 p-4">
                             <img src="{{
                                 asset(
-                                    'assets/icons/credit-card.svg'
+                                    'uploads/dev/svg/services/credit-card.svg'
                                 )
                                 }}"
                                 alt=""
-                                class="icon" />
+                                class="icon-45" />
 
                             <h6>
                                 Cartes Bancaires
@@ -694,31 +737,35 @@
                         </div>
                     </div>
                     <div class="col-md-4 d-flex mb-4">
-                        <div class="d-flex flex-column align-items-center justify-content-center w-100 bg-white gap-3 p-4">
-                            <img src="{{ asset('assets/icons/euro.svg') }}"
+                        <div class="d-flex flex-column align-items-center justify-content-center w-100 back-quaternary gap-3 p-4">
+                            <img src="{{
+                                asset(
+                                    'uploads/dev/svg/services/money.svg'
+                                )
+                                }}"
                                 alt=""
-                                class="icon" />
+                                class="icon-45" />
                             <h6>
                                 Espèces
                             </h6>
                         </div>
                     </div>
                     <div class="col-md-4 d-flex mb-4">
-                        <div class="d-flex flex-column align-items-center justify-content-center w-100 bg-dark gap-3 p-4 text-white">
+                        <div class="d-flex flex-column align-items-center justify-content-center w-100 back-primary gap-3 p-4 text-white">
                             <img src="{{
                                 asset(
-                                    'assets/icons/money-check.svg'
+                                    'uploads/dev/svg/services/check.svg'
                                 )
                                 }}"
                                 alt=""
-                                class="icon" />
+                                class="icon-45" />
                             <h6>
                                 Chèques
                             </h6>
                         </div>
                     </div>
                     <div class="d-flex fst-italic justify-content-center">
-                        <h6 style="font-size : 0.75rem">
+                        <h6 class="txt-12">
                             *Des guichets de retrait sont disponibles dans le
                             parc.
                         </h6>
@@ -727,7 +774,7 @@
             </div>
         </div>
     </section>
-    <!-- Paiement Options stop -->
+    <!-- Paiement Options end -->
 
     <!-- Offcanvas start -->
 
