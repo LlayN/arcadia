@@ -1,0 +1,88 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    Contact
+{% endblock %}
+
+{% block body %}
+
+    <div class="container-fluid position-relative p-0">
+        <img src="{{ asset("uploads/dev/img/contact/background.jpg") }}" alt="" class="img-box position-absolute brightness-65">
+
+        <section class="container hero-home d-flex justify-content-center align-items-center">
+            <div class="row w-100 justify-content-center z-1000 position-relative">
+                <div class="col-lg-7 col-sm-10 col-12">
+                    {{ form_start(form) }}
+                    <div class="d-flex flex-column gap-4 p-4 back-login rounded-3">
+                        <div class="mb-3">
+                            <h4 class="fw-semibold text-dark">
+                                Nous contacter
+                            </h4>
+                            <span class="line-banner back-secondary"></span>
+                        </div>
+                        <div>
+                            {{ form_label(form.mail, 'Adresse mail') }}
+                            {{
+                                form_widget(
+                                    form.mail,
+                                    {
+                                        attr: {
+                                            class: ''
+                                        }
+                                    }
+                                )
+                            }}
+                        </div>
+                        <div>
+                            {{ form_label(form.title, 'Titre') }}
+                            {{
+                                form_widget(
+                                    form.title,
+                                    {
+                                        attr: {
+                                            class: ''
+                                        }
+                                    }
+                                )
+                            }}
+                        </div>
+                        <div>
+                            {{ form_label(form.description, 'Description') }}
+                            {{
+                                form_widget(
+                                    form.description,
+                                    {
+                                        attr: {
+                                            class: ''
+                                        }
+                                    }
+                                )
+                            }}
+                        </div>
+
+                        <div class="d-flex p-1 back-secondary w-100">
+                            {{
+                                form_widget(
+                                    form.submit,
+                                    {
+                                        attr: {
+                                            class: 'bg-dark p-3 px-5 rounded-0 text-white m-0 w-100'
+                                        }
+                                    }
+                                )
+                            }}
+                        </div>
+                        {{ form_rest(form) }}
+                        
+                    </div>
+                     {{ form_end(form) }}
+                </div>
+            </div>
+        </section>
+
+
+        
+    </div>
+{% endblock %}
+
+
