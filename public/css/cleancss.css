@@ -580,7 +580,7 @@ a:hover {
 
 .back-login {
     background-color: var(--color-quaternary);
-    opacity: 0.8;
+    opacity: 0.95;
     transition: background-color 0.15s linear, opacity 0.15s linear;
 }
 
