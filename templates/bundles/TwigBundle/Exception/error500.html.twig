@@ -1,0 +1,40 @@
+{# templates/bundles/TwigBundle/Exception/error404.html.twig #}
+{% extends 'base.html.twig' %}
+
+{% block title %}
+    {{ status_code }}
+{% endblock %}
+
+{% block body %}
+    <div class="container-fluid position-relative p-0">
+        <section class="container hero-home d-flex justify-content-center align-items-center">
+            <div class="row w-100 justify-content-center z-1000 position-relative">
+                <div class="col-lg-7 col-sm-10 col-12 d-flex justify-content-center flex-column align-items-center">
+                    <h1 class="txt-40 fw-bolder text-uppercase">
+                        ERROR - {{ status_code }}
+                    </h1>
+                    <p>
+                        Erreur interne du serveur. Veuillez réessayer plus tard.
+                    </p>
+                    <script src="https://unpkg.com/@dotlottie/player-component@latest/dist/dotlottie-player.mjs"
+                        type="module"></script>
+
+                    <dotlottie-player src="https://lottie.host/a107d6c8-036b-4a1a-b5a3-8822b95b79fc/b8z46z9QHa.json"
+                        background="transparent"
+                        speed="1"
+                        style="max-width : 600px"
+                        loop
+                        autoplay></dotlottie-player>
+                    <a href="{{ path('app_home') }}"
+                        class="d-flex p-1 back-secondary position-relative z-3 w-fit">
+                        <button class="back-primary p-3 px-lg-5 border-0">
+                            <h6 class="text-white m-0">
+                                Retour à l'accueil &rarr;
+                            </h6>
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </div>
+{% endblock %}
