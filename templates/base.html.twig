@@ -27,6 +27,7 @@
                 }}"></script>
 
             <script src="{{ asset('js/script.js') }}" defer></script>
+            <script src="{{ asset('js/form.js') }}" defer></script>
             {% block importmap %}
                 {{ importmap('app') }}
             {% endblock %}
@@ -221,13 +222,13 @@
                                     </li>
                                     <li class="nav-item p-4 py-lg-2">
                                         <a class="nav-link fw-semibold text-white ps-3 ps-lg-0 {% if app.request.pathInfo == '/contact' %}active{% endif %}"
-                                            href="{# {{ path('app_contact') }} #}">
+                                            href=" {{ path('app_contact') }} ">
                                             CONTACT
                                         </a>
                                     </li>
                                     <li class="nav-item p-4 py-lg-2">
                                         <div class="dropdown">
-                                            <button class="nav-item ps-3 ps-lg-0 btn dropdown-toggle align-items-center border-0 text-white fw-semibold"
+                                            <button class="nav-link ps-3 ps-lg-0 btn dropdown-toggle border-0 text-white fw-semibold d-flex align-items-center gap-2"
                                                 type="button"
                                                 data-bs-toggle="dropdown"
                                                 aria-expanded="false">
