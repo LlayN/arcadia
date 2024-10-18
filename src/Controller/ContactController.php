@@ -25,7 +25,7 @@ class ContactController extends AbstractController
             $mailer->sendEmail($form->getData());
 
             $this->addFlash('success', 'Votre message a été envoyé');
-            return $this->redirectToRoute('app_contact');
+            return $this->redirectToRoute('app_home');
         }
 
 
