@@ -3,6 +3,12 @@
     Accueil
 {% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/observer.js') }}" defer></script>
+    <script src="{{ asset('js/form.js') }}" defer></script>
+{% endblock %}
+
 {% block body %}
     <!-- Herobanner start -->
 

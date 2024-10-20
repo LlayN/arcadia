@@ -4,6 +4,11 @@
     Jungle
 {% endblock %}
 
+{% block javascripts %}
+    {{ parent() }}
+    <script src="{{ asset('js/statsViews.js') }}" defer></script>
+{% endblock %}
+
 {% block body %}
     <!-- Banner start -->
     <section>
@@ -127,211 +132,222 @@
 
                         <div class="container">
                             <div class="row">
+                                {% set idAnimal = [] %}
                                 {% for report in veterinariansReports %}
-                                    <div class="col-lg-6 mb-4"
-                                        style="height: 28.125rem">
-                                        <div class="h-100 position-relative">
-                                            <img src=" {{
-                                                asset(
-                                                    'uploads/admin/animals/'
-                                                )
-                                                }}{{ report.animal.img }}"
-                                                alt=""
-                                                class="img-box brightness-65 position-absolute" />
-                                            <div class="d-flex flex-column position-relative z-2 h-100 p-4 justify-content-end">
-                                                <h6 class="text-uppercase m-0 txt-12 title-section text-warning">
-                                                    {{
-                                                        report.animal.breed.name
-                                                    }}
-                                                </h6>
+                                    {% if report.animal.id not in idAnimal %}
+                                        {% set idAnimal =
+                                            idAnimal|merge([report.animal.id])
+                                        %}
+                                        <div class="col-lg-6 mb-4"
+                                            style="height: 28.125rem">
+                                            <div class="h-100 position-relative">
+                                                <img src=" {{
+                                                    asset(
+                                                        'uploads/admin/animals/'
+                                                    )
+                                                    }}{{ report.animal.img }}"
+                                                    alt=""
+                                                    class="img-box brightness-65 position-absolute" />
+                                                <div class="d-flex flex-column position-relative z-2 h-100 p-4 justify-content-end">
+                                                    <h6 class="text-uppercase m-0 txt-12 title-section text-warning">
+                                                        {{
+                                                            report.animal.breed.name
+                                                        }}
+                                                    </h6>
 
-                                                <div class="d-flex justify-content-between align-items-center">
-                                                    <h2 class="fw-bold text-white m-0 text-uppercase">
-                                                        {{ report.animal.name }}
-                                                    </h2>
-                                                    <a class="btn p-0"
-                                                        data-bs-toggle="offcanvas"
-                                                        href="#{{
-                                                        report.animal.id
-                                                        }}"
-                                                        role="button"
-                                                        aria-controls="offcanvasExample"
-                                                        onclick="statsView({{
-                                                        report.animal.id
-                                                        }})">
-                                                        <form action=""
-                                                            method="get">
-                                                            <button type="submit"
-                                                                class="btn z-3 text-white fw-bold p-0"
-                                                                data-bs-toggle="tooltip"
-                                                                data-bs-placement="top"
-                                                                data-bs-title="Détail de l'animal">
-                                                                <img src="{{
-                                                                    asset(
-                                                                        'uploads/dev/svg/livings/more-jungle.svg'
-                                                                    )
-                                                                    }}"
-                                                                    alt=""
-                                                                    class="icon-35" />
-                                                            </button>
-                                                        </form>
-                                                    </a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Offcanvas start -->
-
-                                    <div class="offcanvas offcanvas-start"
-                                        tabindex="1"
-                                        id="{{ report.animal.id }}"
-                                        aria-labelledby="offcanvasExampleLabel">
-                                        <div class="offcanvas-header">
-                                            <button type="button"
-                                                class="btn-close"
-                                                data-bs-dismiss="offcanvas"
-                                                aria-label="Close">
-
-                                            </button>
-                                        </div>
-
-                                        <div class="offcanvas-body">
-                                            <ul class="d-flex flex-column gap-4">
-                                                <li>
-                                                    <div class="d-flex align-items-center gap-2">
-                                                        <h5 class="fw-semibold m-0 text-uppercase">
+                                                    <div class="d-flex justify-content-between align-items-center">
+                                                        <h2 class="fw-bold text-white m-0 text-uppercase">
                                                             {{
                                                                 report.animal.name
                                                             }}
-                                                        </h5>
+                                                        </h2>
+                                                        <a class="btn p-0"
+                                                            data-bs-toggle="offcanvas"
+                                                            href="#{{
+                                                            report.animal.id
+                                                            }}"
+                                                            role="button"
+                                                            aria-controls="offcanvasExample"
+                                                            onclick="statsViews({{
+                                                            report.animal.id
+                                                            }})">
+                                                            <form action=""
+                                                                method="get">
+                                                                <button type="submit"
+                                                                    class="btn z-3 text-white fw-bold p-0"
+                                                                    data-bs-toggle="tooltip"
+                                                                    data-bs-placement="top"
+                                                                    data-bs-title="Détail de l'animal">
+                                                                    <img src="{{
+                                                                        asset(
+                                                                            'uploads/dev/svg/livings/more-jungle.svg'
+                                                                        )
+                                                                        }}"
+                                                                        alt=""
+                                                                        class="icon-35" />
+                                                                </button>
+                                                            </form>
+                                                        </a>
                                                     </div>
-                                                </li>
-                                                <span class="line-banner bg-warning-subtle mt-2">
-
-                                                </span>
-
-                                                <li>
-                                                    <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
-                                                        <h6 class="fw-semibold m-0">
-                                                            Race :
-                                                        </h6>
-                                                        <p class="m-0 txt-1">
-                                                            {{
-                                                                report.animal.breed
-                                                            }}
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
-                                                        <h6 class="fw-semibold m-0">
-                                                            Régime Alimentaire :
-                                                        </h6>
-
-                                                        <p class="m-0 txt-1">
-                                                            {% if
-                                                                report is not null %}
-                                                                {{
-                                                                    report.diet
-                                                                }}
-                                                            {% else %}
-                                                                <p class="m-0 txt-1">
-                                                                    Aucune
-                                                                    donnée.
-                                                                </p>
-                                                            {% endif %}
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
-                                                        <h6 class="fw-semibold m-0">
-                                                            Quantité Distribuée
-                                                            :
-                                                        </h6>
-                                                        <p class="m-0 txt-1">
-                                                            {% if
-                                                                report is not null %}
-                                                                {{
-                                                                    report.quantity
-                                                                }}
-
-                                                                kg/j
-                                                            {% else %}
-                                                                <p class="m-0 txt-1">
-                                                                    Aucune
-                                                                    donnée.
-                                                                </p>
-                                                            {% endif %}
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
-                                                        <h6 class="fw-semibold m-0">
-                                                            État de Santé :
-                                                        </h6>
-                                                        <p class="m-0 txt-1">
-                                                            {% if
-                                                                report is not null %}
-                                                                {{
-                                                                    report.state
-                                                                }}
-                                                            {% else %}
-                                                                <p class="m-0 txt-1">
-                                                                    Aucune
-                                                                    donnée.
-                                                                </p>
-                                                            {% endif %}
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <li>
-                                                    <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
-                                                        <h6 class="fw-semibold m-0">
-                                                            Date de Passage :
-                                                        </h6>
-                                                        <p class="m-0 txt-1">
-                                                            {% if
-                                                                report is not null %}
-                                                                {{
-                                                                    report.datetime|date(
-                                                                        'd/m/Y H:i'
-                                                                    )
-                                                                }}
-                                                            {% else %}
-                                                                <p class="m-0 txt-1">
-                                                                    Aucune
-                                                                    donnée.
-                                                                </p>
-                                                            {% endif %}
-                                                        </p>
-                                                    </div>
-                                                </li>
-                                                <span class="line-banner bg-warning-subtle mt-2">
-
-                                                </span>
-                                                <li>
-                                                    <div class="reportVeterinary d-flex flex-column gap-2">
-                                                        <h6 class="fw-semibold m-0 mb-2">
-                                                            Rapport Vétérinaire
-                                                            :
-                                                        </h6>
-                                                        {% if
-                                                            report is not null %}
-                                                            {{
-                                                                report.description|raw
-                                                            }}
-                                                        {% else %}
-                                                            <p class="m-0 txt-1">
-                                                                Aucune donnée.
-                                                            </p>
-                                                        {% endif %}
-                                                    </div>
-                                                </li>
-                                            </ul>
+                                                </div>
+                                            </div>
                                         </div>
-                                    </div>
+                                        <!-- Offcanvas start -->
+
+                                        <div class="offcanvas offcanvas-start"
+                                            tabindex="1"
+                                            id="{{ report.animal.id }}"
+                                            aria-labelledby="offcanvasExampleLabel">
+                                            <div class="offcanvas-header">
+                                                <button type="button"
+                                                    class="btn-close"
+                                                    data-bs-dismiss="offcanvas"
+                                                    aria-label="Close">
+
+                                                </button>
+                                            </div>
+
+                                            <div class="offcanvas-body">
+                                                <ul class="d-flex flex-column gap-4">
+                                                    <li>
+                                                        <div class="d-flex align-items-center gap-2">
+                                                            <h5 class="fw-semibold m-0 text-uppercase">
+                                                                {{
+                                                                    report.animal.name
+                                                                }}
+                                                            </h5>
+                                                        </div>
+                                                    </li>
+                                                    <span class="line-banner bg-warning-subtle mt-2">
+
+                                                    </span>
+
+                                                    <li>
+                                                        <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
+                                                            <h6 class="fw-semibold m-0">
+                                                                Race :
+                                                            </h6>
+                                                            <p class="m-0 txt-1">
+                                                                {{
+                                                                    report.animal.breed
+                                                                }}
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
+                                                            <h6 class="fw-semibold m-0">
+                                                                Régime
+                                                                Alimentaire :
+                                                            </h6>
+
+                                                            <p class="m-0 txt-1">
+                                                                {% if
+                                                                    report is not null %}
+                                                                    {{
+                                                                        report.diet
+                                                                    }}
+                                                                {% else %}
+                                                                    <p class="m-0 txt-1">
+                                                                        Aucune
+                                                                        donnée.
+                                                                    </p>
+                                                                {% endif %}
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
+                                                            <h6 class="fw-semibold m-0">
+                                                                Quantité
+                                                                Distribuée :
+                                                            </h6>
+                                                            <p class="m-0 txt-1">
+                                                                {% if
+                                                                    report is not null %}
+                                                                    {{
+                                                                        report.quantity
+                                                                    }}
+
+                                                                    kg/j
+                                                                {% else %}
+                                                                    <p class="m-0 txt-1">
+                                                                        Aucune
+                                                                        donnée.
+                                                                    </p>
+                                                                {% endif %}
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
+                                                            <h6 class="fw-semibold m-0">
+                                                                État de Santé :
+                                                            </h6>
+                                                            <p class="m-0 txt-1">
+                                                                {% if
+                                                                    report is not null %}
+                                                                    {{
+                                                                        report.state
+                                                                    }}
+                                                                {% else %}
+                                                                    <p class="m-0 txt-1">
+                                                                        Aucune
+                                                                        donnée.
+                                                                    </p>
+                                                                {% endif %}
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div class="d-flex flex-column flex-sm-row align-items-sm-center gap-2">
+                                                            <h6 class="fw-semibold m-0">
+                                                                Date de Passage
+                                                                :
+                                                            </h6>
+                                                            <p class="m-0 txt-1">
+                                                                {% if
+                                                                    report is not null %}
+                                                                    {{
+                                                                        report.datetime|date(
+                                                                            'd/m/Y H:i'
+                                                                        )
+                                                                    }}
+                                                                {% else %}
+                                                                    <p class="m-0 txt-1">
+                                                                        Aucune
+                                                                        donnée.
+                                                                    </p>
+                                                                {% endif %}
+                                                            </p>
+                                                        </div>
+                                                    </li>
+                                                    <span class="line-banner bg-warning-subtle mt-2">
+
+                                                    </span>
+                                                    <li>
+                                                        <div class="reportVeterinary d-flex flex-column gap-2">
+                                                            <h6 class="fw-semibold m-0 mb-2">
+                                                                Rapport
+                                                                Vétérinaire :
+                                                            </h6>
+                                                            {% if
+                                                                report is not null %}
+                                                                {{
+                                                                    report.description|raw
+                                                                }}
+                                                            {% else %}
+                                                                <p class="m-0 txt-1">
+                                                                    Aucune
+                                                                    donnée.
+                                                                </p>
+                                                            {% endif %}
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    {% endif %}
                                 {% endfor %}
                             </div>
                         </div>

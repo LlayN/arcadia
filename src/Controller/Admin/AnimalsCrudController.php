@@ -9,9 +9,8 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Filters;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
-use EasyCorp\Bundle\EasyAdminBundle\Field\TextEditorField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\IntegerField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
 class AnimalsCrudController extends AbstractCrudController
@@ -36,6 +35,7 @@ class AnimalsCrudController extends AbstractCrudController
         return $filters
             ->add('living')
             ->add('breed')
+            ->add('consultation')
         ;
     }
 
@@ -56,7 +56,7 @@ class AnimalsCrudController extends AbstractCrudController
             TextField::new('name')->setLabel('Nom'),
             AssociationField::new('living')->setLabel('Habitat'),
             AssociationField::new('breed')->setLabel('Race'),
-
+            IntegerField::new('consultation')->setLabel('Nombre de consultation'),
         ];
     }
 }

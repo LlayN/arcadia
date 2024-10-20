@@ -12,6 +12,7 @@ use App\Entity\Testimonials;
 use App\Entity\User;
 use App\Entity\VeterinariansReports;
 use App\Form\SchedulesType;
+use App\Repository\AnimalsRepository;
 use App\Repository\EmployeesReportsRepository;
 use App\Repository\SchedulesRepository;
 use App\Repository\TestimonialsRepository;
@@ -31,7 +32,7 @@ class DashboardController extends AbstractDashboardController
 {
 
     #[Route('/admin', name: 'admin')]
-    public function show(VeterinariansReportsRepository $veterinariansReportsRepository, EmployeesReportsRepository $employeesReportsRepository, TestimonialsRepository $testimonialsRepository, UserRepository $userRepository, SchedulesRepository $schedulesRepository, Request $request, EntityManagerInterface $entityManager): Response
+    public function show(VeterinariansReportsRepository $veterinariansReportsRepository, EmployeesReportsRepository $employeesReportsRepository, TestimonialsRepository $testimonialsRepository, UserRepository $userRepository, SchedulesRepository $schedulesRepository, AnimalsRepository $animalsRepository): Response
     {
         $user = $this->getUser();
 
@@ -44,7 +45,7 @@ class DashboardController extends AbstractDashboardController
                 'testimonials' => $testimonialsRepository->findAll(),
                 'users' => $userRepository->findAll(),
                 'schedules' => $schedulesRepository->findAll(),
-
+                'animals' => $animalsRepository->findAll()
             ]);
         } elseif (in_array('ROLE_VETO', $user->getRoles())) {
             return $this->render('admin/veto.dashboard.html.twig', [
@@ -70,7 +71,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureAssets(): Assets
     {
-        return Assets::new()->addCssFile('css/style.css');
+        return Assets::new()->addCssFile('css/cleancss.css');
     }
 
     public function configureMenuItems(): iterable
@@ -94,6 +95,6 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Rapports Vétérinaires', 'fas', VeterinariansReports::class)->setPermission('ROLE_VETO');
         yield MenuItem::linkToCrud('Habitats', 'fas', Livings::class)->setPermission('ROLE_VETO');
 
-        yield MenuItem::linkToRoute('Retour au site', '', 'app_home')->setCssClass('btn back-secondary justify-content-center back-secondary text-white mt-5');
+        yield MenuItem::linkToRoute('Retour au site', '', 'app_home')->setCssClass('back-primary p-3 px-lg-5 rounded-0 mt-5 text-white justify-content-center border border-4 border-success return-button');
     }
 }

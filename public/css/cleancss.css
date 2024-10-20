@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
 
-/*^ Télécharger l'extension Colorful Comments pour mieux comprendre mes commentaires*/
+/*^ Télécharger l'extension Colorful Comments pour comprendre la logique des commentaires*/
 
 :root {
     /*? My Variables */
@@ -35,7 +35,21 @@
     font-weight: 300 !important;
 }
 
-/*! end */
+.sidebar {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1.5rem !important;
+}
+
+.resizer-handler {
+    display: none !important;
+}
+
+.return-button:hover {
+    color: white !important;
+}
+
+/*! Easy Admin end */
 
 /*? All start*/
 
