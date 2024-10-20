@@ -39,6 +39,14 @@ class Animals
     #[ORM\OneToMany(targetEntity: EmployeesReports::class, mappedBy: 'animal')]
     private Collection $employeesReports;
 
+    #[ORM\Column]
+    private ?int $consultation = null;
+
+    #[ORM\Column(nullable: true)]
+    private ?array $consultation_ip = null;
+
+
+
     public function __construct()
     {
         $this->veterinariansReports = new ArrayCollection();
@@ -160,6 +168,30 @@ class Animals
                 $employeesReport->setAnimal(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getConsultation(): ?int
+    {
+        return $this->consultation;
+    }
+
+    public function setConsultation(int $consultation): static
+    {
+        $this->consultation = $consultation;
+
+        return $this;
+    }
+
+    public function getConsultationIp(): ?array
+    {
+        return $this->consultation_ip;
+    }
+
+    public function setConsultationIp(?array $consultation_ip): static
+    {
+        $this->consultation_ip = $consultation_ip;
 
         return $this;
     }

@@ -1,5 +1,11 @@
 {
-  "devDependencies": {
-    "prettier-plugin-twig-melody": "^0.4.6"
-  }
+    "devDependencies": {
+        "@symfony/webpack-encore": "^5.0.1",
+        "prettier-plugin-twig-melody": "^0.4.6"
+    },
+    "scripts": {
+        "dev": "encore dev",
+        "build": "encore production",
+        "watch": "encore dev --watch"
+    }
 }

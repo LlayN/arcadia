@@ -5,27 +5,24 @@
         <div class="row">
             <div class="col-12">
                 <h3 class="fw-light">
-                    Bienvenue sur votre tableau de bord <span class="fw-normal">{{ app.user.name }}</span> !
-                    {% set roleName = null %} 
+                    Bienvenue sur votre tableau de bord <span class="fw-normal">
+                        {{ app.user.name }}
+                    </span> !{% set roleName = null %}
 
                     {% for role in app.user.roles %}
-
                         {% if 'ROLE_ADMIN' == role %}
                             {% set roleName = 'Administrateur' %}
-                        
                         {% elseif 'ROLE_EMPLOYE' == role %}
                             {% set roleName = 'Employé' %}
-                        
-
                         {% elseif 'ROLE_VETERINAIRE' == role %}
                             {% set roleName = 'Vétérinaire' %}
-
                         {% endif %}
                     {% endfor %}
-
                 </h3>
                 <p class="fst-italic text-body-tertiary fw-light">
-                    Vous êtes connecté en tant que : <span class="secondary fw-normal">{{roleName}}</span>
+                    Vous êtes connecté en tant que : <span class="secondary fw-normal">{{
+                            roleName
+                        }}</span>
                 </p>
             </div>
         </div>
@@ -38,37 +35,62 @@
                         <h6 class="fw-semibold border-2 rounded-2 mb-4">
                             Rapports d'Alimentation
                         </h6>
-                        {% if employeesReports|length > 0 %}
+                        {% if (employeesReports|length) > 0 %}
                             {% for report in employeesReports|reverse %}
-                            {% if loop.index <= 3 %}
-                                <div class="p-3 bg-body-tertiary mb-4">
-                                <div class="row flex-sm-row flex-column-reverse">
-                                    <div class="col-sm-6">
-                                        <p class="txt-12px mb-1 text-body-tertiary">{{report.animal.breed}}</p>
-                                    </div>
-                                    <div class="col-sm-6"><p class="txt-12px mb-1 text-body-tertiary text-sm-end">{{report.datetime|date('d/m/Y H:i')}}</p></div>
-                                </div>
-                                <h6 class="mb-3">{{report.animal.name}}</h6>
-                                <div class="row">
-                                    <div class="col-lg-6 col-md-4 col-12">
-                                        <div>
-                                            <p class="txt-12px text-body-tertiary m-0">Nourritures données :</p>
-                                            <p  class="txt-12px ">{{report.food}}</p>
+                                {% if loop.index <= 3 %}
+                                    <div class="p-3 bg-body-tertiary mb-4">
+                                        <div class="row flex-sm-row flex-column-reverse">
+                                            <div class="col-sm-6">
+                                                <p class="txt-12px mb-1 text-body-tertiary">
+                                                    {{ report.animal.breed }}
+                                                </p>
+                                            </div>
+                                            <div class="col-sm-6">
+                                                <p class="txt-12px mb-1 text-body-tertiary text-sm-end">
+                                                    {{
+                                                        report.datetime|date(
+                                                            'd/m/Y H:i'
+                                                        )
+                                                    }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <h6 class="mb-3">
+                                            {{ report.animal.name }}
+                                        </h6>
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-4 col-12">
+                                                <div>
+                                                    <p class="txt-12px text-body-tertiary m-0">
+                                                        Nourritures données :
+                                                    </p>
+                                                    <p class="txt-12px">
+                                                        {{ report.food }}
+                                                    </p>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-6 col-md-4 col-12">
+                                                <div>
+                                                    <p class="txt-12px text-body-tertiary m-0">
+                                                        Quantité données :
+                                                    </p>
+                                                    <p class="txt-12px">
+                                                        {{ report.quantity }} kg
+                                                    </p>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-6 col-md-4 col-12">
-                                        <div>
-                                            <p class="txt-12px text-body-tertiary m-0">Quantité données :</p>
-                                            <p  class="txt-12px ">{{report.quantity}} kg</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            {% endif %}
+                                {% endif %}
                             {% endfor %}
-                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController">Voir tous les rapports &rarr;</a>
+                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController"
+                                class="txt-secondary fw-semibold">
+                                Voir tous les rapports &rarr;
+                            </a>
                         {% else %}
-                            <p class="text-body-tertiary">Aucun rapport n'a été trouvé.</p>
+                            <p class="text-body-tertiary">
+                                Aucun rapport n'a été trouvé.
+                            </p>
                         {% endif %}
                     </div>
                 </div>
@@ -79,32 +101,46 @@
                         <h6 class="fw-semibold border-2 rounded-2 m-0 mb-4">
                             Avis des clients
                         </h6>
-                         {% if testimonials|length > 0 %}
+                        {% if (testimonials|length) > 0 %}
                             {% for testimonial in testimonials|reverse %}
-                            {% if loop.index <= 2 %}
-                                <div class="p-3 bg-body-tertiary mb-4">
-                                <h6 class="mb-3">{{testimonial.username}}</h6>
-                                <div>
-                                    <div>
-                                        <p class="txt-12px text-body-tertiary m-0">Avis de l'utilisateur :</p>
-                                        <p  class="txt-12px ">{{testimonial.opinion}}</p>
+                                {% if loop.index <= 2 %}
+                                    <div class="p-3 bg-body-tertiary mb-4">
+                                        <h6 class="mb-3">
+                                            {{ testimonial.username }}
+                                        </h6>
+                                        <div>
+                                            <div>
+                                                <p class="txt-12px text-body-tertiary m-0">
+                                                    Avis de l'utilisateur :
+                                                </p>
+                                                <p class="txt-12px">
+                                                    {{ testimonial.opinion }}
+                                                </p>
+                                            </div>
+                                        </div>
+                                        <div>
+                                            {% if testimonial.isValid %}
+                                                <p class="txt-12px txt-secondary m-0">
+                                                    Visible sur le site
+                                                </p>
+                                            {% else %}
+                                                <p class="txt-12px text-danger m-0">
+                                                    Invisible sur le site
+                                                </p>
+                                            {% endif %}
+                                        </div>
                                     </div>
-                                </div>
-                                <div>
-                                    {% if testimonial.isValid %}
-                                        <p class="txt-12px txt-secondary m-0">Visible sur le site</p>
-
-                                    {% else %}
-                                        <p class="txt-12px text-danger m-0">Invisible sur le site</p>
-                                    {% endif %}
-                                </div>
-                            </div>
-                            {% endif %}
+                                {% endif %}
                             {% endfor %}
-                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController">Voir tous les avis &rarr;</a>
+                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController"
+                                class="txt-secondary fw-semibold">
+                                Voir tous les avis &rarr;
+                            </a>
                         {% else %}
-                            <p class="text-body-tertiary">Aucun rapport n'a été trouvé.</p>
-                        {% endif %} 
+                            <p class="text-body-tertiary">
+                                Aucun rapport n'a été trouvé.
+                            </p>
+                        {% endif %}
                     </div>
                 </div>
             </div>

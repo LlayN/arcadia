@@ -37,7 +37,7 @@ class LivingsController extends AbstractController
 
 
             $animals = $animalsRepository->findBy(['living' => $firstElement->getId()]);
-            $veterinariansReports = $veterinariansRepository->findBy(['animal' => $animals]);
+            $veterinariansReports = $veterinariansRepository->findBy(['animal' => $animals], ['datetime' => 'DESC']);
 
             if ($slug === 'savane') {
                 $livings = $livingsRepository->findBy(['name' => 'Savane']);

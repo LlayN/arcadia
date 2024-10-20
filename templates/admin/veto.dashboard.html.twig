@@ -33,7 +33,7 @@
                 <div class="w-100">
                     <div class="p-3 bg-white h-100">
                         <h6 class="fw-semibold border-2 rounded-2 mb-4">
-                            Rapports d'Alimentation
+                            Rapports Employés
                         </h6>
                         {% if (employeesReports|length) > 0 %}
                             {% for report in employeesReports|reverse %}
@@ -83,7 +83,8 @@
                                     </div>
                                 {% endif %}
                             {% endfor %}
-                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CEmployeesReportsCrudController">
+                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CEmployeesReportsCrudController"
+                                class="txt-secondary fw-semibold">
                                 Voir tous les rapports &rarr;
                             </a>
                         {% else %}
@@ -98,7 +99,7 @@
                 <div class="w-100">
                     <div class="p-3 bg-white h-100">
                         <h6 class="fw-semibold border-2 rounded-2 m-0 mb-4">
-                            Rapports des Soins
+                            Rapports Vétérinaires
                         </h6>
                         {% if (veterinariansReports|length) > 0 %}
                             {% for report in veterinariansReports|reverse %}
@@ -157,7 +158,8 @@
                                                 </div>
                                             </div>
                                             <div class="col-lg-6 col-md-4 col-12 d-flex align-items-center">
-                                                <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController">
+                                                <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController"
+                                                    class="txt-secondary fw-semibold">
                                                     Voir plus &rarr;
                                                 </a>
                                             </div>
@@ -165,7 +167,8 @@
                                     </div>
                                 {% endif %}
                             {% endfor %}
-                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController">
+                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController"
+                                class="txt-secondary fw-semibold">
                                 Voir tous les rapports &rarr;
                             </a>
                         {% else %}

@@ -5,8 +5,8 @@
 {% endblock %}
 
 {% block javascripts %}
+    {{ parent() }}
     <script src="{{ asset('js/form.js') }}" defer></script>
-    <script src="{{ asset('js/bootstrap.bundle.min.js') }}"></script>
 {% endblock %}
 
 {% block body %}
