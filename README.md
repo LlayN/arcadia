@@ -22,4 +22,16 @@ Vous pouvez laisser la configuration par défaut à l'installation.
 **Installer Composer :**
 
 Passons maintenant à Composer !
-Télécharger directement Composer-setup.exe en cliquant sur le [lien] (https://getcomposer.org/download/) puis installer-le pour tous les utilisateurs.
+
+Télécharger directement [Composer-setup.exe](https://getcomposer.org/download/) ici, puis installer-le pour tous les utilisateurs.
+
+A la première étape de l'installation, Composer vous demandera si vous souhaitez l'installer en Developer Mode, ça ne sera pas utile vous pouvez donc passer à la suite.
+
+Lors de la deuxième étapes, vous devrez choisir la "command-line PHP" qu'on utilisera : 
+
+![Capture d’écran 2024-10-24 182630](https://github.com/user-attachments/assets/62e1c99d-2976-44c8-b803-efed2d573455)
+
+Il faudra comme moi, récupérer le chemin absolu du php.exe à l'intérieur de XAMPP, puis vous pouvez passer aux étapes suivantes sans rien modifier !
+
+
+
