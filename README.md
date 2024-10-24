@@ -28,7 +28,7 @@ Télécharger directement [Composer-setup.exe](https://getcomposer.org/download/
 
 À la première étape de l'installation, Composer vous demandera si vous souhaitez l'installer en Developer Mode, ça ne sera pas utile, vous pouvez donc passer à la suite.
 
-Lors de la deuxième étapes, vous devrez choisir la "command-line PHP" qu'on utilisera : 
+Lors de la deuxième étapes, vous devrez choisir la "command-line PHP" que nous utiliserons pour ce projet : 
 
 ![Capture d’écran 2024-10-24 182630](https://github.com/user-attachments/assets/62e1c99d-2976-44c8-b803-efed2d573455)
 
@@ -37,9 +37,18 @@ Il faudra comme moi, récupérer **php.exe** à l'intérieur du dossier XAMPP, p
 ### Installation de la CLI Symfony avec Scoop
 
 Pour simplifié l'installation de Symfony, nous utiliseront Scoop qui est un installateur pour Windows.
+
 Scoop s'installe très facilement, il suffit d'ouvrir un terminal PowerShell, et d'y insérer ces lignes : 
-``` Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
-Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression ```
+``` 
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser 
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
+```
+
+Appuyer sur entré, et PowerShell vous informera d'une modification de la stratégie d'exécution, vous pouvez tout acceptés en appuyant sur `T`
+
+Ce message devrait s'afficher : `Scoop was installed successfully!`
+
+
 
 
 
