@@ -11,6 +11,9 @@ Pour le télécharger, c'est simple, il suffit de nous rendre directement sur ce
 
 Une fois télécharger, installer le tout en laissant la configuration tel quel.
 
+### Importation du projet via GitHub
+
+Pour importer ce projet, ouvrez votre terminal, et rendez-vous dans le dossier htdocs se trouvant dans XAMPP, c'est ici que vous clonerez le dépôt 
 
 ### Installation des dépendances : NPM & Composer
 
@@ -36,6 +39,8 @@ Il faudra comme moi, récupérer **php.exe** à l'intérieur du dossier XAMPP, p
 
 ### Installation de la CLI Symfony avec Scoop
 
+**Installation de Scoop**
+
 Pour simplifié l'installation de Symfony, nous utiliseront Scoop qui est un installateur pour Windows.
 
 Scoop s'installe très facilement, il suffit d'ouvrir un terminal PowerShell, et d'y insérer ces lignes : 
@@ -47,6 +52,10 @@ Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression
 Appuyer sur entré, et PowerShell vous informera d'une modification de la stratégie d'exécution, vous pouvez tout acceptés en appuyant sur `T`
 
 Ce message devrait s'afficher : `Scoop was installed successfully!`
+
+**Installation de la CLI Symfony**
+
+
 
 
 
