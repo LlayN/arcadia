@@ -91,7 +91,7 @@ Insérez-y cette ligne pour installer `Symfony CLI`.
 scoop install symfony-cli
 ```
 
-Vous devriez avoir un message de succès : `symfony-cli (version) was installed successfully !
+Vous devriez avoir un message de succès : `symfony-cli (version) was installed successfully !`
 
 
 
