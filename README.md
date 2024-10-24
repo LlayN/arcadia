@@ -34,5 +34,12 @@ Lors de la deuxième étapes, vous devrez choisir la "command-line PHP" qu'on ut
 
 Il faudra comme moi, récupérer **php.exe** à l'intérieur du dossier XAMPP, puis vous pouvez passer aux étapes suivantes sans rien modifier !
 
+### Installation de la CLI Symfony avec Scoop
+
+Pour simplifié l'installation de Symfony, nous utiliseront Scoop qui est un installateur pour Windows.
+Scoop s'installe très facilement, il suffit d'ouvrir un terminal PowerShell, et d'y insérer ces lignes : 
+``` Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+Invoke-RestMethod -Uri https://get.scoop.sh | Invoke-Expression ```
+
 
 
