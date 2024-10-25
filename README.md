@@ -93,7 +93,27 @@ scoop install symfony-cli
 
 Vous devriez avoir un message de succès : `symfony-cli (version) was installed successfully !`
 
+### Importation de la base de donnée vers PHPMyAdmin
 
+Il reste un détail important pour ne pas avoir d'erreur lors du lancement sur serveur local, mettre à jour la base de donnée !
+
+Lancer XAMPP en administrateur, pour démarrer les modules Apaches et MySQL un bouton `Start` leur est attribués dans la colonne `Actions`.
+
+Voici à quoi devrait ressembler les services un fois démarrer :
+
+![Capture d’écran 2024-10-26 000953](https://github.com/user-attachments/assets/1ba1b020-6a72-4df2-a91e-d5c74822d120)
+
+Maintenant, cliquer sur le bouton `Admin` du service MySQL, il vous redirigera directement vers PHPMyAdmin !
+
+Vous vous retrouvez maintenant sur le menu principal, cliquer sur le bouton `Importer` se trouvant sur la barre horizontal tout en haut de la page.
+
+Vous vous retrouverez donc ici : 
+
+![Capture d’écran 2024-10-26 001821](https://github.com/user-attachments/assets/8cde5589-4918-403e-9c11-c09033ac4a08)
+
+Parcourez vos fichiers jusqu'à récupérer le fichier SQL importer dans le projet, laisser le jeu de caractères du fichier en UTF-8, et lancer l'importation !
+
+Vous devriez avoir maintenant votre base de donnée à jour, plus qu'à vous rendre sur l'adresse IP local : http://127.0.0.1:8000/ !
 
 
 
