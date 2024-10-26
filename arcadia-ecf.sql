@@ -22,7 +22,7 @@ SET time_zone = "+00:00";
 --
 
 
-CREATE TABLE 'arcafia-ecf';
+CREATE DATABASE `arcadia-ecf`;
 -- --------------------------------------------------------
 USE `arcadia-ecf`;
 --
