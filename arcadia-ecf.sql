@@ -22,9 +22,9 @@ SET time_zone = "+00:00";
 --
 
 
-CREATE DATABASE `arcadia-ecf`;
+/* CREATE DATABASE `arcadia-ecf`;
 -- --------------------------------------------------------
-USE `arcadia-ecf`;
+USE `arcadia-ecf`; */
 --
 -- Structure de la table `animals`
 --
