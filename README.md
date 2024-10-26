@@ -122,7 +122,7 @@ Vous devriez avoir un message de succès : `symfony-cli (version) was installed 
 
 Il reste un détail important pour ne pas avoir d'erreur lors du lancement sur serveur local, mettre à jour la base de donnée !
 
-Lancer XAMPP en administrateur, pour démarrer les modules Apaches et MySQL un bouton `Start` leur est attribués dans la colonne `Actions`.
+Lancer XAMPP en administrateur, puis démarrer les modules Apaches et MySQL un bouton `Start` leur est attribués dans la colonne `Actions`.
 
 Voici à quoi devrait ressembler les services un fois démarrer :
 
@@ -138,7 +138,13 @@ Vous vous retrouverez donc ici :
 
 Parcourez vos fichiers jusqu'à récupérer le fichier SQL importer dans le projet, laisser le jeu de caractères du fichier en UTF-8, et lancer l'importation !
 
-Vous devriez avoir maintenant votre base de donnée à jour, plus qu'à vous rendre sur l'adresse IP local : http://127.0.0.1:8000/ !
+Vous devriez avoir maintenant votre base de donnée à jour ! Rendez-vous maintenant sur votre terminal à la racine du projet puis insérer-y cette ligne pour lancer le serveur Symfony : 
+
+```
+symfony server:start
+```
+
+Plus qu'à vous rendre sur l'adresse IP local : http://127.0.0.1:8000/ et le tour est joué !
 
 
 
