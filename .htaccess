@@ -1,0 +1,3 @@
+<Directory "/public">
+    DirectoryIndex index.php
+</Directory>
