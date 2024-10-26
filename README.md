@@ -11,16 +11,41 @@ Pour le télécharger, c'est simple, il suffit de vous rendre directement sur ce
 
 Une fois téléchargé, installer le tout en laissant la configuration telle quelle.
 
+Maintenant que XAMPP est prêt à être utilisé, nous allons devoir faire une petite modification pour activer l'extension `intl` qui s'occupera plus tard de gérer **le formatage des dates**.
+
+Rendez-vous dans Config se trouvant dans la ligne du serveur Apache, puis ouvrez le ficher `php.ini` (ouvrez le dans un éditeur de texte, comme bloc-notes)
+
+![Capture d’écran 2024-10-26 093643](https://github.com/user-attachments/assets/bdae3a93-7266-43c3-924e-23632620d4f8)
+
+Une fois l'éditeur ouvert, CTRL + F, et rechercher cette ligne : 
+```
+extension=intl
+```
+
+Supprimez le point-virgule se trouvant devant, et sauvegarder le fichier !
+
+
 ### Importation du projet via GitHub
 
 Pour importer ce projet, vous avez 2 options :
+
+**Importation Simple :**
+
+- Télécharger directement le projet au format **ZIP** sur GitHub, pour l'extraire dans le dossier ciblé (htdocs).
+
+**Importation Pratique via Git :**
+
 - Télécharger Git, et installez-le, vous pourrez alors utiliser la commande `git clone` par la suite pour installer le projet.
-- Télécharger directement le projet au format **RAR** sur GitHub, pour l'extraire dans le dossier ciblé.
+
 
 > [!IMPORTANT]
 > Pour une question de praticité, je vous conseille fortement d'extraire ou cloner le projet dans le fichier `htdocs` à la racine de XAMPP
 
 ### Installation des dépendances : NPM & Composer
+
+> [!NOTE]
+> Après l'installation d'un des logiciels, veillez à relancer votre terminal si celui-ci est ouvert pour qu'il puisse se mettre à jour et ainsi reconnaitre les commandes.
+
 
 **Installer Composer :**
 
@@ -28,7 +53,7 @@ Attaquons nous à Composer !
 
 Télécharger directement [Composer-setup.exe](https://getcomposer.org/download/) ici, puis installez-le pour tous les utilisateurs.
 
-À la première étape de l'installation, Composer vous demandera si vous souhaitez l'installer en Developer Mode, ça ne sera pas utile, vous pouvez donc passer à la suite.
+À la première étape de l'installation, Composer vous demandera si vous souhaitez l'installer en **Developer Mode**, ça ne sera pas utile, vous pouvez donc passer à la suite.
 
 Lors de la deuxième étapes, vous devrez choisir la "command-line PHP" que nous utiliserons pour ce projet : 
 
@@ -36,7 +61,7 @@ Lors de la deuxième étapes, vous devrez choisir la "command-line PHP" que nous
 
 Il faudra comme moi, récupérer **php.exe** à l'intérieur du dossier XAMPP, puis vous pourrez passer aux étapes suivantes sans rien modifier !
 
-Rendez-vous maintenant à la racine du projet, et lancez la commande suivante pour installer les dépendances : 
+Ouvrez votre terminal, et rendez-vous maintenant à la racine du projet, lancez la commande suivante pour installer les dépendances : 
 
 ```
 composer install
