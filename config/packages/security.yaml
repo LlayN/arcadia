@@ -34,7 +34,11 @@ security:
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/admin, roles: [ROLE_ADMIN, ROLE_VETO, ROLE_EMPLOYE] }
+        - {
+              path: ^/admin,
+              roles: [ROLE_ADMIN, ROLE_VETO, ROLE_EMPLOYE],
+              requires_channel: https,
+          }
         # - { path: ^/profile, roles: ROLE_USER }
 
     role_hierarchy:
