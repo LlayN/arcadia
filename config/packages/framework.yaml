@@ -2,6 +2,7 @@
 framework:
     secret: "%env(APP_SECRET)%"
     csrf_protection: true
+    field_name: "custom_token_name"
 
     # Note that the session will be started ONLY if you read or write from it.
     session: true
