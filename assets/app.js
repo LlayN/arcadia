@@ -1,1 +1,1 @@
-// Point d'entrée pour Webpack Encore
+console.log("This log comes from assets/app.js - welcome to AssetMapper! 🎉");
