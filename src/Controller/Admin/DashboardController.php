@@ -66,6 +66,7 @@ class DashboardController extends AbstractDashboardController
     {
         return Dashboard::new()
             ->setTitle('<img src="/uploads/admin/logo/logo-black.svg" alt="" class="logo">')
+            ->generateRelativeUrls()
             ->disableDarkMode();
     }
 
