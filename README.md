@@ -57,7 +57,7 @@ DATABASE_URL="mysql://app:root@127.0.0.1:3306/app?serverVersion=8.0.32&charset=u
 
 MESSENGER_TRANSPORT_DSN=doctrine://default?auto_setup=0
 
-MAILER_DSN= #Le DSN fourni par votre boîte mail
+MAILER_DSN= MAILER_DSN= # Indiquer le DSN fourni par votre service mail (Mailtrap, Gmail, etc.)
 ```
 
 ### Installation des dépendances : NPM & Composer
