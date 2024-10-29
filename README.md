@@ -1,3 +1,14 @@
+## Ressources 
+
+[DOCUMENTATION TECHNIQUE](https://github.com/LlayN/arcadia/blob/master/DOCUMENTATION%20TECHNIQUE.pdf)
+
+[GESTION DE PROJET](https://github.com/LlayN/arcadia/blob/master/GESTION%20DE%20PROJET.pdf)
+
+[MANUEL D'UTILISATION](https://github.com/LlayN/arcadia/blob/master/MANUEL%20D'UTILISATION.pdf)
+
+[CHARTE GRAPHIQUE](https://github.com/LlayN/arcadia/blob/master/Charte%20Graphique.pdf)
+
+
 ## Déployer l'application en local
 
 > [!NOTE]
@@ -165,7 +176,7 @@ symfony server:start
 
 Plus qu'à vous rendre sur l'adresse IP local : http://127.0.0.1:8000/ et le tour est joué !
 
-[TEST]
+
 
 
 
