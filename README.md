@@ -7,7 +7,7 @@
 
 XAMPP est un logiciel, qui regroupe un ensemble de services permettant de mettre en place un environnement Web Local.
 
-Pour le télécharger, c'est simple, il suffit de vous rendre directement sur ce [lien](https://www.apachefriends.org/fr/download.html), et séléctionner la plateforme de votre choix ! 
+Pour le télécharger, c'est simple, il suffit de vous rendre directement sur ce [lien](https://www.apachefriends.org/fr/download.html), séléctionner la plateforme de votre choix puis la dernière version de PHP! 
 
 Une fois téléchargé, installer le tout en laissant la configuration telle quelle.
 
@@ -40,6 +40,25 @@ Pour importer ce projet, vous avez 2 options :
 
 > [!IMPORTANT]
 > Pour une question de praticité, je vous conseille fortement d'extraire ou cloner le projet dans le fichier `htdocs` à la racine de XAMPP
+
+**Configurer les variables d'environnement**
+
+Pour adapter le projet à votre environnement de travail, il faudra créer un fichier `.env` à la racine du projet.
+Celui-ci comportera toutes les variables d'environnement :
+
+> [!IMPORTANT]
+> Pour générer une clée secrète pour la variable APP_SECRET, utiliser la commande : `php -r "echo bin2hex(random_bytes(16));"`
+
+```
+APP_ENV=dev
+APP_SECRET= #Insérer la clé générée en amont
+
+DATABASE_URL="mysql://app:root@127.0.0.1:3306/app?serverVersion=8.0.32&charset=utf8mb4" #Remplacer par votre BDD local
+
+MESSENGER_TRANSPORT_DSN=doctrine://default?auto_setup=0
+
+MAILER_DSN= MAILER_DSN= # Indiquer le DSN fourni par votre service mail (Mailtrap, Gmail, etc.)
+```
 
 ### Installation des dépendances : NPM & Composer
 
