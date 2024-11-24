@@ -22,7 +22,7 @@ class HomeController extends AbstractController
     public function index(EntityManagerInterface $entityManagerInterface, Request $request, DocumentManager $dm): Response
     {
 
-        /* $repository = $dm->getRepository(Visitor::class);
+        $repository = $dm->getRepository(Visitor::class);
 
         $visitor = $repository->findOneBy(['session_id' => $request->getSession()->getId()]);
 
@@ -36,7 +36,7 @@ class HomeController extends AbstractController
 
             $dm->persist($visitor);
             $dm->flush();
-        } */
+        }
 
 
         $testimonial = new Testimonials();
