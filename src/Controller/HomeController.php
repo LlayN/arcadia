@@ -68,6 +68,7 @@ class HomeController extends AbstractController
             'testimonials' => $testimonials,
             'services' => $services,
             'schedules' => $schedules
+
         ]);
     }
 }
