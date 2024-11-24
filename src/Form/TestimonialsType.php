@@ -15,6 +15,7 @@ class TestimonialsType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            ->setMethod('POST')
             ->add('username', TextType::class, ['label' => 'Nom d\'utilisateur'])
             ->add('opinion', TextareaType::class, ['label' => 'Votre avis'])
             ->add('submit', SubmitType::class, ['label' => 'Envoyer mon avis', 'attr' => ['class' => 'btn-submit back-primary p-3 px-5 rounded-0 text-white m-0 w-100 border-0']])
@@ -25,6 +26,9 @@ class TestimonialsType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Testimonials::class,
+            'csrf_protection' => true,
+            'csrf_field_name' => '_token'
+            // a unique key to help generate the secret token
         ]);
     }
 }
