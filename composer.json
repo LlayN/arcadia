@@ -1,4 +1,6 @@
 {
+    "name": "arcadia/arcadia",
+    "description": "Zoo",
     "type": "project",
     "license": "proprietary",
     "minimum-stability": "stable",
