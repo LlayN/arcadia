@@ -34,8 +34,6 @@
         {% endblock %}
     </head>
     <body>
-
-        
          {% if app.user %}
             <div class="d-none d-lg-flex position-fixed bottom-0 end-0 z-9999 pe-none"
                 style="width : fit-content">
@@ -530,6 +528,12 @@
     {% block body %}
 
     {% endblock %}
+
+    {{ dump(app.request.server) }}
+    {{ dump(date()) }}
+    {{ dump(app.user) }}
+    {{ dump(app.request.clientIp) }}
+    {{ dump(app.session.id) }} {# dure 24min #}
 
     <!-- Footer start -->
     <section class="container-fluid bg-dark pt-top-50 pb-bottom-50 position-absolute footer">
