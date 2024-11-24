@@ -17,7 +17,7 @@
 
 XAMPP est un logiciel, qui regroupe un ensemble de services permettant de mettre en place un environnement Web Local.
 
-Pour le télécharger, c'est simple, il suffit de vous rendre directement sur ce [lien](https://www.apachefriends.org/fr/download.html), et séléctionner la plateforme de votre choix !
+Pour le télécharger, c'est simple, il suffit de vous rendre directement sur ce [lien](https://www.apachefriends.org/fr/download.html), séléctionner la plateforme de votre choix puis la dernière version de PHP!
 
 Une fois téléchargé, installer le tout en laissant la configuration telle quelle.
 
