@@ -2,29 +2,27 @@
 
 namespace App\Controller\Admin;
 
+use App\Document\Visitor;
 use App\Entity\Animals;
 use App\Entity\Breeds;
 use App\Entity\EmployeesReports;
 use App\Entity\Livings;
-use App\Entity\Schedules;
 use App\Entity\Services;
 use App\Entity\Testimonials;
 use App\Entity\User;
 use App\Entity\VeterinariansReports;
-use App\Form\SchedulesType;
 use App\Repository\AnimalsRepository;
 use App\Repository\EmployeesReportsRepository;
 use App\Repository\SchedulesRepository;
 use App\Repository\TestimonialsRepository;
 use App\Repository\UserRepository;
 use App\Repository\VeterinariansReportsRepository;
-use Doctrine\ORM\EntityManager;
-use Doctrine\ORM\EntityManagerInterface;
+use Doctrine\ODM\MongoDB\DocumentManager;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Assets;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
-use Symfony\Component\HttpFoundation\Request;
+
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
@@ -32,12 +30,13 @@ class DashboardController extends AbstractDashboardController
 {
 
     #[Route('/admin', name: 'admin')]
-    public function show(VeterinariansReportsRepository $veterinariansReportsRepository, EmployeesReportsRepository $employeesReportsRepository, TestimonialsRepository $testimonialsRepository, UserRepository $userRepository, SchedulesRepository $schedulesRepository, AnimalsRepository $animalsRepository): Response
+    public function show(VeterinariansReportsRepository $veterinariansReportsRepository, EmployeesReportsRepository $employeesReportsRepository, TestimonialsRepository $testimonialsRepository, UserRepository $userRepository, SchedulesRepository $schedulesRepository, AnimalsRepository $animalsRepository, DocumentManager $dm): Response
     {
         $user = $this->getUser();
 
         if (in_array('ROLE_ADMIN', $user->getRoles())) {
 
+            $repository = $dm->getRepository(Visitor::class);
 
             return $this->render('admin/admin.dashboard.html.twig', [
                 'veterinariansReports' => $veterinariansReportsRepository->findAll(),
@@ -45,7 +44,8 @@ class DashboardController extends AbstractDashboardController
                 'testimonials' => $testimonialsRepository->findAll(),
                 'users' => $userRepository->findAll(),
                 'schedules' => $schedulesRepository->findAll(),
-                'animals' => $animalsRepository->findAll()
+                'animals' => $animalsRepository->findAll(),
+                'visitors' => $repository->findAll()
             ]);
         } elseif (in_array('ROLE_VETO', $user->getRoles())) {
             return $this->render('admin/veto.dashboard.html.twig', [
