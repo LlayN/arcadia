@@ -21,8 +21,6 @@ class HomeController extends AbstractController
     #[Route('/', name: 'app_home')]
     public function index(EntityManagerInterface $entityManagerInterface, Request $request, DocumentManager $dm): Response
     {
-        // Vérifier si le ID session n'existe pas déjà dans la BDD
-
 
         $repository = $dm->getRepository(Visitor::class);
 
