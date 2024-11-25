@@ -1,5 +1,5 @@
 parameters:
-    env(MONGODB_URI): ""
+    env(MONGODB_URL): ""
     env(MONGODB_DB): ""
 
 # This file is the entry point to configure your own services.
