@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Document\Consultation;
 use App\Repository\AnimalsRepository;
 use App\Repository\LivingsRepository;
 use App\Repository\VeterinariansReportsRepository;
+use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -71,40 +73,38 @@ class LivingsController extends AbstractController
 
 
     #[Route('/increment-view', name: 'increment_view', methods: ['POST'])]
-    public function incrementView(Request $request, AnimalsRepository $animalsRepository, EntityManagerInterface $entityManager)
+    public function incrementView(Request $request, DocumentManager $dm): Response
     {
-
+        $repository = $dm->getRepository(Consultation::class);
         $idAnimal = $request->request->get('idAnimal');
 
-        if ($idAnimal) {
-            $animal = $animalsRepository->find($idAnimal);
+        $consultation = $repository->findOneBy(['animal_id' => $idAnimal]);
 
-            if ($animal) {
-                $animal->setConsultation($animal->getConsultation() + 1);
+        $ip_list = [];
+        $currentIp = $request->getClientIp();
 
-                $arrayIp = $animal->getConsultationIp();
+        if ($consultation) {
 
-                $ip = $request->server->get('REMOTE_ADDR');
-
-                if (empty($arrayIp)) {
-                    $arrayIp = [];
-                }
-
-                if (!in_array($ip, $arrayIp)) {
-                    $arrayIp[] = $ip;
-
-                    $animal->setConsultationIp($arrayIp);
-
-                    $entityManager->persist($animal);
-
-                    $entityManager->flush();
-                }
-
-                return new Response('OK', 200);
-            } else {
-                // Animal non trouvé
-                return new Response('Une erreur est survenue', 404);
+            $ip_list = $consultation->getConsultationIp();
+            if (!in_array($currentIp, $ip_list)) {
+                $ip_list[] = $currentIp;
+                $consultation->setConsultation($consultation->getConsultation() + 1);
             }
+        } else {
+
+            $consultation = new Consultation();
+            $consultation->setAnimalId($idAnimal);
+            $consultation->setConsultation(1);
+            $ip_list[] = $currentIp;
         }
+
+
+        $consultation->setConsultationIp($ip_list);
+
+
+        $dm->persist($consultation);
+        $dm->flush();
+
+        return new Response('View incremented successfully.', Response::HTTP_OK);
     }
 }
