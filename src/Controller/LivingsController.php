@@ -105,6 +105,6 @@ class LivingsController extends AbstractController
         $dm->persist($consultation);
         $dm->flush();
 
-        return new Response('View incremented successfully.', Response::HTTP_OK);
+        return new Response();
     }
 }
