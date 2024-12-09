@@ -59,8 +59,7 @@
                                                         Employé
                                                     </p>
                                                 {% elseif
-                                                    'ROLE_VETO'
-                                                        in user.roles %}
+                                                    'ROLE_VETO' in user.roles %}
                                                     <p class="txt-12 mb-1 text-body-tertiary text-md-start text-center">
                                                         Vétérinaire
                                                     </p>
@@ -80,7 +79,8 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
-                        <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController" class="txt-secondary fw-semibold">
+                        <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController"
+                            class="txt-secondary fw-semibold">
                             Voir tous les utilisateurs &rarr;
                         </a>
                     {% else %}
@@ -143,7 +143,8 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
-                        <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController" class="txt-secondary fw-semibold">
+                        <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController"
+                            class="txt-secondary fw-semibold">
                             Voir tous les rapports &rarr;
                         </a>
                     {% else %}
@@ -179,52 +180,14 @@
                             </div>
                         {% endfor %}
                     </div>
-                    <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CSchedulesCrudController" class="txt-secondary fw-semibold">
+                    <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CSchedulesCrudController"
+                        class="txt-secondary fw-semibold">
                         Modifier les horaires &rarr;
                     </a>
                 </div>
             </div>
-            <div class ="p-2">
-                <div class="p-3 bg-white">
-                    <h6 class="fw-semibold border-2 rounded-2 m-0">
-                        Dernières Visites
-                    </h6>
 
-                    {% for visitor in visitors %}
-                        {% if loop.index <= 5 %}
-                        <div class="p-3 bg-body-tertiary mb-4">
-                            <div class="row flex-sm-row flex-column-reverse">
-                                <div class="col-sm-6 d-flex align-items-center">
-                                    <p class="txt-12 mb-0 text-body-tertiary">
-                                       {{ visitor.ipaddress }}, pays
-                                    </p>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p class="txt-12 mb-1 text-body-tertiary text-sm-end">
-                                        {{ visitor.visitedat|date('d/m/Y H:i') }}
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="row flex-sm-row flex-column-reverse">
-                                <div class="col-sm-6 d-flex align-items-center">
-                                    <h6 class="mb-1">
-                                    {{visitor.useragent}}
-                                    </h6>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p class="mb-1 text-sm-end fw-semibold txt-18">
-                                        {% set language = visitor.language %}
-                                        {{ visitor.language|split('_')[1] }}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
-                        {% endif %}
-                    {% endfor %}
-
-                </div>
-            </div>
-            <div class ="p-2">
+            <div class="p-2">
                 <div class="p-3 bg-white">
                     <h6 class="fw-semibold border-2 rounded-2 m-0">
                         Clics et Engagement
@@ -232,42 +195,49 @@
                     <p class="fst-italic text-body-tertiary fw-light txt-12 m-0 mb-4">
                         par animal
                     </p>
-                    
-                    {% set sortedAnimals = animals|sort((a, b) => b.consultation <=> a.consultation) %}
 
-                    {% for animal in sortedAnimals %}
-                        {% if loop.index <= 3 %}
-                        <div class="p-3 bg-body-tertiary mb-4">
-                            <div class="row flex-sm-row flex-column-reverse">
-                                <div class="col-sm-6 d-flex align-items-center">
-                                    <p class="txt-12 mb-0 text-body-tertiary">
-                                        {{ animal.breed }}
-                                    </p>
+                    {% for consultation in consultations %}
+                        {% if loop.index <= 5 %}
+                            <div class="p-3 bg-body-tertiary mb-4">
+                                <div class="row flex-sm-row flex-column-reverse">
+                                    <div class="col-sm-6 d-flex align-items-center">
+                                        <p class="txt-12 mb-0 text-body-tertiary">
+                                            {% for animal in animals %}
+                                                {% if
+                                                    animal.id
+                                                        == consultation.animalid %}
+                                                    {{ animal.breed }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        </p>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="txt-12 mb-1 text-body-tertiary text-sm-end">
+                                            Clics
+                                        </p>
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
-                                    <p class="txt-12 mb-1 text-body-tertiary text-sm-end">
-                                        Clics
-                                    </p>
+                                <div class="row flex-sm-row flex-column-reverse">
+                                    <div class="col-sm-6 d-flex align-items-center">
+                                        <h6 class="mb-1">
+                                            {% for animal in animals %}
+                                                {% if
+                                                    animal.id
+                                                        == consultation.animalid %}
+                                                    {{ animal.name }}
+                                                {% endif %}
+                                            {% endfor %}
+                                        </h6>
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <p class="mb-1 text-sm-end fw-semibold txt-18">
+                                            {{ consultation.consultation }}
+                                        </p>
+                                    </div>
                                 </div>
                             </div>
-                            <div class="row flex-sm-row flex-column-reverse">
-                                <div class="col-sm-6 d-flex align-items-center">
-                                    <h6 class="mb-1">
-                                    {{ animal.name }}
-                                </h6>
-                                </div>
-                                <div class="col-sm-6">
-                                    <p class="mb-1 text-sm-end fw-semibold txt-18">
-                                        {{animal.consultation}}
-                                    </p>
-                                </div>
-                            </div>
-                        </div>
                         {% endif %}
                     {% endfor %}
-                    <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CAnimalsCrudController" class="txt-secondary fw-semibold">
-                        Voir tous les engagements &rarr;
-                    </a>
                 </div>
             </div>
             <div class="p-2">
@@ -332,7 +302,8 @@
                                             </div>
                                         </div>
                                         <div class="col-lg-6 col-md-4 col-12 d-flex align-items-center">
-                                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController" class="txt-secondary fw-semibold">
+                                            <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController"
+                                                class="txt-secondary fw-semibold">
                                                 Voir plus &rarr;
                                             </a>
                                         </div>
@@ -340,7 +311,8 @@
                                 </div>
                             {% endif %}
                         {% endfor %}
-                        <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController" class="txt-secondary fw-semibold">
+                        <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CVeterinariansReportsCrudController"
+                            class="txt-secondary fw-semibold">
                             Voir tous les rapports &rarr;
                         </a>
                     {% else %}
