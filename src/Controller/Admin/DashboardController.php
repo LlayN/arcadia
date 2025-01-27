@@ -3,7 +3,6 @@
 namespace App\Controller\Admin;
 
 use App\Document\Consultation;
-use App\Document\Visitor;
 use App\Entity\Animals;
 use App\Entity\Breeds;
 use App\Entity\EmployeesReports;

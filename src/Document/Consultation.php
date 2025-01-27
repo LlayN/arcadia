@@ -14,7 +14,7 @@ class Consultation
   protected string $id;
 
   #[ODM\Field(type: "int")]
-  protected int $consultation;
+  protected int $consultation = 0;
 
   #[ODM\Field(type: "collection")]
   protected array $consultation_ip = [];

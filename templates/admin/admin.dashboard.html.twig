@@ -197,41 +197,45 @@
                     </p>
 
                     {% for consultation in consultations %}
-                        {% for animal in animals %}
-                            {% if animal.id == consultation.animalid %}
-                                <div class="p-3 bg-body-tertiary mb-4">
-                                    <div class="row flex-sm-row flex-column-reverse">
-                                        <div class="col-sm-6 d-flex align-items-center">
-                                            <p class="txt-12 mb-0 text-body-tertiary">
+                        <div class="p-3 bg-body-tertiary mb-4">
+                            <div class="row flex-sm-row flex-column-reverse">
+                                <div class="col-sm-6 d-flex align-items-center">
+                                    <p class="txt-12 mb-0 text-body-tertiary">
+                                        {% for animal in animals %}
+                                            {% if
+                                                animal.id
+                                                    == consultation.animalid %}
                                                 {{ animal.breed }}
-                                            </p>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p class="txt-12 mb-1 text-body-tertiary text-sm-end">
-                                                Clics
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <div class="row flex-sm-row flex-column-reverse">
-                                        <div class="col-sm-6 d-flex align-items-center">
-                                            <h6 class="mb-1">
-                                                {{ animal.name }}
-                                            </h6>
-                                        </div>
-                                        <div class="col-sm-6">
-                                            <p class="mb-1 text-sm-end fw-semibold txt-18">
-                                                {{ consultation.consultation }}
-                                            </p>
-                                        </div>
-                                    </div>
+                                            {% endif %}
+                                        {% endfor %}
+                                    </p>
                                 </div>
-                            {% endif %}
-                        {% endfor %}
+                                <div class="col-sm-6">
+                                    <p class="txt-12 mb-1 text-body-tertiary text-sm-end">
+                                        Clics
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="row flex-sm-row flex-column-reverse">
+                                <div class="col-sm-6 d-flex align-items-center">
+                                    <h6 class="mb-1">
+                                        {% for animal in animals %}
+                                            {% if
+                                                animal.id
+                                                    == consultation.animalid %}
+                                                {{ animal.name }}
+                                            {% endif %}
+                                        {% endfor %}
+                                    </h6>
+                                </div>
+                                <div class="col-sm-6">
+                                    <p class="mb-1 text-sm-end fw-semibold txt-18">
+                                        {{ consultation.consultation }}
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
                     {% endfor %}
-                    <a href="/admin?crudAction=index&crudControllerFqcn=App%5CController%5CAdmin%5CAnimalsCrudController"
-                        class="txt-secondary fw-semibold">
-                        Voir tous les engagements &rarr;
-                    </a>
                 </div>
             </div>
             <div class="p-2">
