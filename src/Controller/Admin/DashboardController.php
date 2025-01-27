@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Document\Consultation;
 use App\Document\Visitor;
 use App\Entity\Animals;
 use App\Entity\Breeds;
@@ -36,7 +37,7 @@ class DashboardController extends AbstractDashboardController
 
         if (in_array('ROLE_ADMIN', $user->getRoles())) {
 
-            $repository = $dm->getRepository(Visitor::class);
+            $repository = $dm->getRepository(Consultation::class);
 
             return $this->render('admin/admin.dashboard.html.twig', [
                 'veterinariansReports' => $veterinariansReportsRepository->findAll(),
@@ -45,7 +46,7 @@ class DashboardController extends AbstractDashboardController
                 'users' => $userRepository->findAll(),
                 'schedules' => $schedulesRepository->findAll(),
                 'animals' => $animalsRepository->findAll(),
-                'visitors' => $repository->findAll()
+                'consultations' => $repository->findAll()
             ]);
         } elseif (in_array('ROLE_VETO', $user->getRoles())) {
             return $this->render('admin/veto.dashboard.html.twig', [
@@ -78,23 +79,23 @@ class DashboardController extends AbstractDashboardController
     public function configureMenuItems(): iterable
     {
         yield MenuItem::section('Menu');
-        yield MenuItem::linkToRoute('Tableau de bord', 'fas', 'admin');
+        yield MenuItem::linkToRoute('Tableau de bord', null, 'admin');
 
 
         yield MenuItem::section('Administration')->setPermission('ROLE_ADMIN');
-        yield MenuItem::linkToCrud('Utilisateurs', 'fas', User::class)->setPermission('ROLE_ADMIN');
-        yield MenuItem::linkToCrud('Animaux', 'fas', Animals::class)->setPermission('ROLE_ADMIN');
-        yield MenuItem::linkToCrud('Races', 'fas', Breeds::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Utilisateurs', null, User::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Animaux', null, Animals::class)->setPermission('ROLE_ADMIN');
+        yield MenuItem::linkToCrud('Races', null, Breeds::class)->setPermission('ROLE_ADMIN');
 
         yield MenuItem::section('Employés');
-        yield MenuItem::linkToCrud('Rapports Employés', 'fas', EmployeesReports::class);
-        yield MenuItem::linkToCrud('Avis', 'fas', Testimonials::class)->setPermission('ROLE_EMPLOYE');
-        yield MenuItem::linkToCrud('Services', 'fas', Services::class)->setPermission('ROLE_EMPLOYE');
+        yield MenuItem::linkToCrud('Rapports Employés', null, EmployeesReports::class);
+        yield MenuItem::linkToCrud('Avis', null, Testimonials::class)->setPermission('ROLE_EMPLOYE');
+        yield MenuItem::linkToCrud('Services', null, Services::class)->setPermission('ROLE_EMPLOYE');
 
 
         yield MenuItem::section('Vétérinaires')->setPermission('ROLE_VETO');
-        yield MenuItem::linkToCrud('Rapports Vétérinaires', 'fas', VeterinariansReports::class)->setPermission('ROLE_VETO');
-        yield MenuItem::linkToCrud('Habitats', 'fas', Livings::class)->setPermission('ROLE_VETO');
+        yield MenuItem::linkToCrud('Rapports Vétérinaires', null, VeterinariansReports::class)->setPermission('ROLE_VETO');
+        yield MenuItem::linkToCrud('Habitats', null, Livings::class)->setPermission('ROLE_VETO');
 
         yield MenuItem::linkToRoute('Retour au site', '', 'app_home')->setCssClass('back-primary p-3 px-lg-5 rounded-0 mt-5 text-white justify-content-center border border-4 border-success return-button');
     }

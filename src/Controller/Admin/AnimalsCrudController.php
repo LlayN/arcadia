@@ -35,7 +35,7 @@ class AnimalsCrudController extends AbstractCrudController
         return $filters
             ->add('living')
             ->add('breed')
-            ->add('consultation')
+
         ;
     }
 
@@ -56,7 +56,7 @@ class AnimalsCrudController extends AbstractCrudController
             TextField::new('name')->setLabel('Nom'),
             AssociationField::new('living')->setLabel('Habitat'),
             AssociationField::new('breed')->setLabel('Race'),
-            IntegerField::new('consultation')->setLabel('Nombre de consultation'),
+
         ];
     }
 }

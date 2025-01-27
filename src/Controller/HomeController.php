@@ -22,23 +22,6 @@ class HomeController extends AbstractController
     public function index(EntityManagerInterface $entityManagerInterface, Request $request, DocumentManager $dm): Response
     {
 
-        $repository = $dm->getRepository(Visitor::class);
-
-        $visitor = $repository->findOneBy(['session_id' => $request->getSession()->getId()]);
-
-        if (!isset($visitor)) {
-            $visitor = new Visitor();
-            $visitor->setSessionId($request->getSession()->getId());
-            $visitor->setIpAddress($request->getClientIp());
-            $visitor->setVisitedAt(DateTime::createFromFormat('Y-m-d H:i:s', date('Y-m-d H:i:s')));
-            $visitor->setLanguage($request->getPreferredLanguage());
-            $visitor->setUserAgent($request->headers->get('User-Agent'));
-
-            $dm->persist($visitor);
-            $dm->flush();
-        }
-
-
         $testimonial = new Testimonials();
         $form = $this->createForm(TestimonialsType::class, $testimonial);
 

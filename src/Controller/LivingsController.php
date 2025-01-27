@@ -2,9 +2,11 @@
 
 namespace App\Controller;
 
+use App\Document\Consultation;
 use App\Repository\AnimalsRepository;
 use App\Repository\LivingsRepository;
 use App\Repository\VeterinariansReportsRepository;
+use Doctrine\ODM\MongoDB\DocumentManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
@@ -71,40 +73,38 @@ class LivingsController extends AbstractController
 
 
     #[Route('/increment-view', name: 'increment_view', methods: ['POST'])]
-    public function incrementView(Request $request, AnimalsRepository $animalsRepository, EntityManagerInterface $entityManager)
+    public function incrementView(Request $request, DocumentManager $dm): Response
     {
 
+        $repository = $dm->getRepository(Consultation::class);
         $idAnimal = $request->request->get('idAnimal');
+        $clientIp = $request->getClientIp();
 
-        if ($idAnimal) {
-            $animal = $animalsRepository->find($idAnimal);
+        $consultation = $repository->findOneBy(['animal_id' => $idAnimal]);
 
-            if ($animal) {
-                $animal->setConsultation($animal->getConsultation() + 1);
+        dump($consultation);
 
-                $arrayIp = $animal->getConsultationIp();
+        if (!isset($consultation)) {
 
-                $ip = $request->server->get('REMOTE_ADDR');
+            $consultation = new Consultation();
+            $consultation->setConsultation(1);
+            $consultation->setConsultationIp([$clientIp]);
+            $consultation->setAnimalId($idAnimal);
 
-                if (empty($arrayIp)) {
-                    $arrayIp = [];
-                }
+            $dm->persist($consultation);
+            $dm->flush();
+        } else {
+            $ips = $consultation->getConsultationIp();
+            if (!in_array($clientIp, $ips)) {
 
-                if (!in_array($ip, $arrayIp)) {
-                    $arrayIp[] = $ip;
+                $ips[] = $clientIp;
+                $consultation->setConsultationIp($ips);
+                $consultation->setConsultation($consultation->getConsultation() + 1);
 
-                    $animal->setConsultationIp($arrayIp);
-
-                    $entityManager->persist($animal);
-
-                    $entityManager->flush();
-                }
-
-                return new Response('OK', 200);
-            } else {
-                // Animal non trouvé
-                return new Response('Une erreur est survenue', 404);
+                $dm->persist($consultation);
+                $dm->flush();
             }
         }
+        return new Response();
     }
 }
